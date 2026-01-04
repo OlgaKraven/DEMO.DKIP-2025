@@ -132,7 +132,7 @@ WHERE customer_order_id = 1;
 
 ## 9. Выполнение расчёта (ваш запрос)
 
-Выполните запрос, заменив `__ORDER_ID__` на `1`:
+Выполните запрос, заменив значение в `сol.customer_order_id` на требуемое:
 
 ```sql
 WITH material_cost_per_unit AS (
