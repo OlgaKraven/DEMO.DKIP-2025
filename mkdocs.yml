@@ -1,0 +1,67 @@
+site_name: Подготовка к демоэкзамену ДКИП
+
+use_directory_urls: false
+
+theme:
+  name: material
+  logo: assets/icons/logo.png
+  favicon: assets/icons/logo.png
+  language: ru
+  features:
+    - content.code.copy     # кнопка "копировать"
+    - content.image.zoom    # zoom картинок
+    - navigation.top        # "наверх"
+    - navigation.tracking   # подсветка активного пункта в правом TOC
+    - toc.follow            # правый TOC следует за прокруткой
+
+plugins:
+  - glightbox
+  - search
+
+nav:
+    - Главная: index.md
+    - Модуль 1. Проектирование ER - диаграммы:
+      - Описание задания: module1/index.md
+      - Пример решения: module1/example_solution.md
+    - Модуль 2. Разработка базы данных на основании ER-диаграммы:
+      - Описание задания: module2/index.md
+      - Пример решения через конструктор: module2/example_solution_constuct.md
+      - Пример решения через SQL: module2/example_solution_sql.md
+    - Модуль 3. Создание запроса:
+      - Описание задания: module3/index.md
+      - Пример решения: module3/example_solution.md
+    - Модуль 4. Разработка информационной системы:
+      - Описание задания: module4/index.md
+      - Требования к разработке: module4/requirements.md
+      - Пример решения: module4/example_solution.md
+    - Модуль 5. Разработка проектной документации:
+      - Описание задания: module5/index.md
+      - Пример поясниельной записки: module5/example_solution.md
+      - Пример технического задания: module5/example_tz.md
+      - Пример пользовательской документации: module5/example_user_doc.md
+    - Модуль 6. Интеграция программных модулей:
+      - Описание задания: module6/index.md
+      - Пример решения: module6/example_solution.md
+    # Добавьте свои разделы и страницы здесь
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.tasklist
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - assets/js/mermaid-init.js
+
+extra_css:
+  - assets/stylesheets/extra.css
