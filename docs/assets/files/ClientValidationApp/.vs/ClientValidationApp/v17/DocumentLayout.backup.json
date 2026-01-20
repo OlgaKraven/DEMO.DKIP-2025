@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\services\\simulatorapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:services\\simulatorapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\models\\fullnameresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:models\\fullnameresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\validation\\fiovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:validation\\fiovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|c:\\users\\gvadoskr\\desktop\\project\\demo.dkip-2025\\docs\\assets\\files\\clientvalidationapp\\services\\wordtestcasewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96E6549F-39A5-44CB-BCA2-EF4A399F4DFC}|ClientValidationApp.csproj|solutionrelative:services\\wordtestcasewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAwDMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:09:40.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FioValidator.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Validation\\FioValidator.cs",
+              "RelativeDocumentMoniker": "Validation\\FioValidator.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Validation\\FioValidator.cs",
+              "RelativeToolTip": "Validation\\FioValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:07:56.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SimulatorApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Services\\SimulatorApiClient.cs",
+              "RelativeDocumentMoniker": "Services\\SimulatorApiClient.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Services\\SimulatorApiClient.cs",
+              "RelativeToolTip": "Services\\SimulatorApiClient.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:07:29.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WordTestCaseWriter.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Services\\WordTestCaseWriter.cs",
+              "RelativeDocumentMoniker": "Services\\WordTestCaseWriter.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Services\\WordTestCaseWriter.cs",
+              "RelativeToolTip": "Services\\WordTestCaseWriter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:07:08.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FullNameResponse.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Models\\FullNameResponse.cs",
+              "RelativeDocumentMoniker": "Models\\FullNameResponse.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Models\\FullNameResponse.cs",
+              "RelativeToolTip": "Models\\FullNameResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:06:51.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:05:56.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:05:47.518Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
