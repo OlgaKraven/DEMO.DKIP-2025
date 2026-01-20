@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HYINJCgupIk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gvadoskr\\Desktop\\project\\DEMO.DKIP-2025\\docs\\assets\\files\\ClientValidationApp\\ClientValidationApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gvadoskr\\.nuget\\packages\\documentformat.openxml\\3.4.1\\documentformat.openxml.3.4.1.nupkg.sha512",
+    "C:\\Users\\gvadoskr\\.nuget\\packages\\documentformat.openxml.framework\\3.4.1\\documentformat.openxml.framework.3.4.1.nupkg.sha512",
+    "C:\\Users\\gvadoskr\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
