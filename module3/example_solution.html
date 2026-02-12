@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3" class="md-skip">
+        <a href="#3-mysql-phpmyadmin" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -626,22 +626,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-appitem" class="md-nav__link">
+  <a href="#2-item" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Наполнение таблицы app.item (продукция и материалы)
+        2. Наполнение таблицы item (продукция и материалы)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Наполнение таблицы app.item (продукция и материалы)">
+    <nav class="md-nav" aria-label="2. Наполнение таблицы item (продукция и материалы)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#a-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1. Добавьте материалы
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
@@ -649,10 +649,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#b-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2. Добавьте продукцию
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Узнайте реальные id у вставленных позиций (обязательно)
       
     </span>
   </a>
@@ -665,33 +676,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-appspecification" class="md-nav__link">
+  <a href="#3-specification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Наполнение таблицы app.specification (спецификации продукции)
+        3. Наполнение таблицы specification (спецификации продукции)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-appspecification_material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Наполнение таблицы app.specification_material (нормы расхода материалов)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Наполнение таблицы app.specification_material (нормы расхода материалов)">
+    <nav class="md-nav" aria-label="3. Наполнение таблицы specification (спецификации продукции)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-product_item_id-2001" class="md-nav__link">
+  <a href="#a-phpmyadmin_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1. Материалы для йогурта (product_item_id = 2001)
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
@@ -699,10 +699,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-product_item_id-2002" class="md-nav__link">
+  <a href="#b-sql_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Материалы для какао-напитка (product_item_id = 2002)
+        Вариант B — через SQL
       
     </span>
   </a>
@@ -715,35 +715,186 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-appprice" class="md-nav__link">
+  <a href="#4-specification_material" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Наполнение таблицы app.price (цены на материалы)
+        4. Наполнение таблицы specification_material (нормы расхода материалов)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Наполнение таблицы specification_material (нормы расхода материалов)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-appcustomer_order" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Наполнение таблицы app.customer_order (шапка заказа)
+        Вариант B — через SQL
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#7-appcustomer_order_line" class="md-nav__link">
+  <a href="#5-price" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Наполнение таблицы app.customer_order_line (строки заказа)
+        5. Наполнение таблицы price (цены на материалы)
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. Наполнение таблицы price (цены на материалы)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-customer_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Наполнение таблицы customer_order (шапка заказа)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Наполнение таблицы customer_order (шапка заказа)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Убедитесь, что контрагенты есть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Создадим 3 заказа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. Создадим 3 заказа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-customer_order_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Наполнение таблицы customer_order_line (строки заказа)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Наполнение таблицы customer_order_line (строки заказа)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL (универсальный, без угадывания id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -759,10 +910,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-with-mysql-8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Выполнение расчёта (ваш запрос)
+        9. Выполнение расчёта (вариант с WITH, MySQL 8+)
       
     </span>
   </a>
@@ -770,63 +921,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-sql-select" class="md-nav__link">
+  <a href="#10-select-with" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Расчёт полной стоимости заказа одним SQL-запросом (SELECT)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="10. Расчёт полной стоимости заказа одним SQL-запросом (SELECT)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#101-sql-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.1. SQL-запрос (один SELECT)
+        10. Расчёт полной стоимости заказа одним SELECT (без WITH)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#102" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#103-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10.2. Логика работы запроса
+        10.3. Как использовать запрос в phpMyAdmin
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#103" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.3. Как использовать запрос
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#104" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.4. Преимущества данного варианта
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -855,10 +967,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#product_item_id-2001" class="md-nav__link">
+  <a href="#product_item_id-prd-001" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Продукт Йогурт (product_item_id = 2001)
+        Продукт Йогурт (product_item_id = PRD-001)
       
     </span>
   </a>
@@ -866,10 +978,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#product_item_id-2002" class="md-nav__link">
+  <a href="#product_item_id-prd-002" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Продукт Какао напиток (product_item_id = 2002)
+        Продукт Какао напиток (product_item_id = PRD-002)
       
     </span>
   </a>
@@ -882,32 +994,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#112-no1-order_id-1" class="md-nav__link">
+  <a href="#112" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11.2. Итоговая стоимость заказа №1 (order_id = 1)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#113-no2-order_id-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11.3. Итоговая стоимость заказа №2 (order_id = 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#114-no3-order_id-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11.4. Итоговая стоимость заказа №3 (order_id = 3)
+        11.2. Итоги по заказам (как у вас в примере)
       
     </span>
   </a>
@@ -927,6 +1017,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Скачать пример готовой базы данных
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1398,22 +1499,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-appitem" class="md-nav__link">
+  <a href="#2-item" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Наполнение таблицы app.item (продукция и материалы)
+        2. Наполнение таблицы item (продукция и материалы)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Наполнение таблицы app.item (продукция и материалы)">
+    <nav class="md-nav" aria-label="2. Наполнение таблицы item (продукция и материалы)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#a-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1. Добавьте материалы
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
@@ -1421,10 +1522,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#b-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2. Добавьте продукцию
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Узнайте реальные id у вставленных позиций (обязательно)
       
     </span>
   </a>
@@ -1437,33 +1549,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-appspecification" class="md-nav__link">
+  <a href="#3-specification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Наполнение таблицы app.specification (спецификации продукции)
+        3. Наполнение таблицы specification (спецификации продукции)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-appspecification_material" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Наполнение таблицы app.specification_material (нормы расхода материалов)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Наполнение таблицы app.specification_material (нормы расхода материалов)">
+    <nav class="md-nav" aria-label="3. Наполнение таблицы specification (спецификации продукции)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-product_item_id-2001" class="md-nav__link">
+  <a href="#a-phpmyadmin_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1. Материалы для йогурта (product_item_id = 2001)
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
@@ -1471,10 +1572,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-product_item_id-2002" class="md-nav__link">
+  <a href="#b-sql_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Материалы для какао-напитка (product_item_id = 2002)
+        Вариант B — через SQL
       
     </span>
   </a>
@@ -1487,35 +1588,186 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-appprice" class="md-nav__link">
+  <a href="#4-specification_material" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Наполнение таблицы app.price (цены на материалы)
+        4. Наполнение таблицы specification_material (нормы расхода материалов)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Наполнение таблицы specification_material (нормы расхода материалов)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6-appcustomer_order" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Наполнение таблицы app.customer_order (шапка заказа)
+        Вариант B — через SQL
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#7-appcustomer_order_line" class="md-nav__link">
+  <a href="#5-price" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Наполнение таблицы app.customer_order_line (строки заказа)
+        5. Наполнение таблицы price (цены на материалы)
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. Наполнение таблицы price (цены на материалы)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-customer_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Наполнение таблицы customer_order (шапка заказа)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Наполнение таблицы customer_order (шапка заказа)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Убедитесь, что контрагенты есть
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Создадим 3 заказа
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. Создадим 3 заказа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-customer_order_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Наполнение таблицы customer_order_line (строки заказа)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Наполнение таблицы customer_order_line (строки заказа)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-phpmyadmin_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант A — через конструктор (phpMyAdmin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sql-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вариант B — через SQL (универсальный, без угадывания id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1531,10 +1783,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-with-mysql-8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Выполнение расчёта (ваш запрос)
+        9. Выполнение расчёта (вариант с WITH, MySQL 8+)
       
     </span>
   </a>
@@ -1542,63 +1794,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-sql-select" class="md-nav__link">
+  <a href="#10-select-with" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Расчёт полной стоимости заказа одним SQL-запросом (SELECT)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="10. Расчёт полной стоимости заказа одним SQL-запросом (SELECT)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#101-sql-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.1. SQL-запрос (один SELECT)
+        10. Расчёт полной стоимости заказа одним SELECT (без WITH)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#102" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#103-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10.2. Логика работы запроса
+        10.3. Как использовать запрос в phpMyAdmin
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#103" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.3. Как использовать запрос
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#104" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10.4. Преимущества данного варианта
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1627,10 +1840,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#product_item_id-2001" class="md-nav__link">
+  <a href="#product_item_id-prd-001" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Продукт Йогурт (product_item_id = 2001)
+        Продукт Йогурт (product_item_id = PRD-001)
       
     </span>
   </a>
@@ -1638,10 +1851,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#product_item_id-2002" class="md-nav__link">
+  <a href="#product_item_id-prd-002" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Продукт Какао напиток (product_item_id = 2002)
+        Продукт Какао напиток (product_item_id = PRD-002)
       
     </span>
   </a>
@@ -1654,32 +1867,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#112-no1-order_id-1" class="md-nav__link">
+  <a href="#112" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11.2. Итоговая стоимость заказа №1 (order_id = 1)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#113-no2-order_id-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11.3. Итоговая стоимость заказа №2 (order_id = 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#114-no3-order_id-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11.4. Итоговая стоимость заказа №3 (order_id = 3)
+        11.2. Итоги по заказам (как у вас в примере)
       
     </span>
   </a>
@@ -1702,6 +1893,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Скачать пример готовой базы данных
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1719,270 +1921,384 @@
 
 
 
-<h1 id="3">Модуль 3. Создание запроса</h1>
+<h1 id="3-mysql-phpmyadmin">Модуль 3. Создание запроса (MySQL через phpMyAdmin)</h1>
 <h2 id="1">1. Подготовка тестовых данных (наполнение БД для расчёта стоимости заказа)</h2>
 <p>Чтобы запрос расчёта полной стоимости заказа работал, необходимо заполнить:</p>
 <ol>
-<li>номенклатуру продукции и материалов (<code>app.item</code>);</li>
-<li>спецификации продукции (<code>app.specification</code>);</li>
-<li>материалы в спецификациях (<code>app.specification_material</code>);</li>
-<li>цены на материалы (<code>app.price</code>);</li>
-<li>заказ покупателя (<code>app.customer_order</code>) и строки заказа (<code>app.customer_order_line</code>).</li>
+<li>номенклатуру продукции и материалов (<code>item</code>);</li>
+<li>спецификации продукции (<code>specification</code>);</li>
+<li>материалы в спецификациях (<code>specification_material</code>);</li>
+<li>цены на материалы (<code>price</code>);</li>
+<li>заказ покупателя (<code>customer_order</code>) и строки заказа (<code>customer_order_line</code>).</li>
 </ol>
 <hr>
-<h2 id="2-appitem">2. Наполнение таблицы <code>app.item</code> (продукция и материалы)</h2>
-<h3 id="21">2.1. Добавьте материалы</h3>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">item_type</span><span class="p">,</span><span class="w"> </span><span class="n">unit_default</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1001</span><span class="p">,</span><span class="w"> </span><span class="s1">'MAT-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Молоко 3.2%'</span><span class="p">,</span><span class="w"> </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">1002</span><span class="p">,</span><span class="w"> </span><span class="s1">'MAT-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Сахар'</span><span class="p">,</span><span class="w">      </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">1003</span><span class="p">,</span><span class="w"> </span><span class="s1">'MAT-003'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Какао'</span><span class="p">,</span><span class="w">      </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="22">2.2. Добавьте продукцию</h3>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">item_type</span><span class="p">,</span><span class="w"> </span><span class="n">unit_default</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Йогурт клубничный'</span><span class="p">,</span><span class="w"> </span><span class="s1">'product'</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2002</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Какао напиток'</span><span class="p">,</span><span class="w">     </span><span class="s1">'product'</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">);</span>
-</code></pre></div>
-<hr>
-<h2 id="3-appspecification">3. Наполнение таблицы <code>app.specification</code> (спецификации продукции)</h2>
-<p>В примере используется <code>output_qty = 1</code>, чтобы нормы расхода считались максимально просто (на 1 единицу продукции).</p>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">product_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="n">output_unit</span><span class="p">,</span><span class="w"> </span><span class="n">manufacturer_id</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'Спецификация: Йогурт клубничный'</span><span class="p">,</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">'Спецификация: Какао напиток'</span><span class="p">,</span><span class="w">     </span><span class="mi">2002</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
-</code></pre></div>
-<hr>
-<h2 id="4-appspecification_material">4. Наполнение таблицы <code>app.specification_material</code> (нормы расхода материалов)</h2>
-<h3 id="41-product_item_id-2001">4.1. Материалы для йогурта (product_item_id = 2001)</h3>
+<h2 id="2-item">2. Наполнение таблицы <code>item</code> (продукция и материалы)</h2>
+<p>⚠️ В таблице <code>item.id</code> используется <strong>AUTO_INCREMENT</strong>, поэтому <code>id</code> вручную <strong>не заполняем</strong> (оставляем пустым).</p>
+<h3 id="a-phpmyadmin">Вариант A — через конструктор (phpMyAdmin)</h3>
+<ol>
+<li>В phpMyAdmin выберите БД <code>dairy_demo</code>.</li>
+<li>Откройте таблицу <strong><code>item</code></strong>.</li>
+<li>Перейдите на вкладку <strong>Insert</strong>.</li>
+<li>
+<p>Для каждой записи заполните поля:</p>
+</li>
+<li>
+<p><code>code</code></p>
+</li>
+<li><code>name</code></li>
+<li><code>item_type</code> (выберите <code>material</code> или <code>product</code>)</li>
+<li><code>unit_default</code></li>
+<li>поле <code>id</code> <strong>не трогайте</strong> (пусто / NULL) — его заполнит MySQL.</li>
+<li>Нажмите <strong>Go</strong> (или добавьте несколько строк и нажмите <strong>Go</strong> один раз).</li>
+</ol>
+<p><strong>Материалы (3 строки):</strong></p>
 <ul>
-<li>Молоко: 0.25 л на 1 шт</li>
-<li>Сахар: 0.03 кг на 1 шт</li>
+<li><code>MAT-001</code> / <code>Молоко 3.2%</code> / <code>material</code> / <code>л</code></li>
+<li><code>MAT-002</code> / <code>Сахар</code> / <code>material</code> / <code>кг</code></li>
+<li><code>MAT-003</code> / <code>Какао</code> / <code>material</code> / <code>кг</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification_material</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">specification_id</span><span class="p">,</span><span class="w"> </span><span class="n">material_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="42-product_item_id-2002">4.2. Материалы для какао-напитка (product_item_id = 2002)</h3>
+<p><strong>Продукция (2 строки):</strong></p>
 <ul>
-<li>Молоко: 0.30 л на 1 шт</li>
-<li>Сахар: 0.02 кг на 1 шт</li>
-<li>Какао: 0.01 кг на 1 шт</li>
+<li><code>PRD-001</code> / <code>Йогурт клубничный</code> / <code>product</code> / <code>шт</code></li>
+<li><code>PRD-002</code> / <code>Какао напиток</code> / <code>product</code> / <code>шт</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification_material</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">specification_id</span><span class="p">,</span><span class="w"> </span><span class="n">material_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">);</span>
+<h3 id="b-sql">Вариант B — через SQL</h3>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">item_type</span><span class="p">,</span><span class="w"> </span><span class="n">unit_default</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">'MAT-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Молоко 3.2%'</span><span class="p">,</span><span class="w"> </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'MAT-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Сахар'</span><span class="p">,</span><span class="w">      </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'MAT-003'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Какао'</span><span class="p">,</span><span class="w">      </span><span class="s1">'material'</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'PRD-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Йогурт клубничный'</span><span class="p">,</span><span class="w"> </span><span class="s1">'product'</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'PRD-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Какао напиток'</span><span class="p">,</span><span class="w">     </span><span class="s1">'product'</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">);</span>
 </code></pre></div>
-<hr>
-<h2 id="5-appprice">5. Наполнение таблицы <code>app.price</code> (цены на материалы)</h2>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">price</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">item_id</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">effective_from</span><span class="p">,</span><span class="w"> </span><span class="n">effective_to</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span><span class="w">  </span><span class="c1">-- молоко 80 руб/л</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w"> </span><span class="mi">65</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span><span class="w">  </span><span class="c1">-- сахар 65 руб/кг</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">-- какао 500 руб/кг</span>
-</code></pre></div>
-<hr>
-<h2 id="6-appcustomer_order">6. Наполнение таблицы <code>app.customer_order</code> (шапка заказа)</h2>
-<p>Создадим один заказ с <code>id = 1</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">customer_order</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">doc_no</span><span class="p">,</span><span class="w"> </span><span class="n">doc_date</span><span class="p">,</span><span class="w"> </span><span class="n">executor_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'ORD-2025-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-03-15'</span><span class="p">,</span><span class="w"> </span><span class="s1">'000000002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'000000003'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+<h3 id="23-id">2.3. Узнайте реальные <code>id</code> у вставленных позиций (обязательно)</h3>
+<p><strong>Через конструктор:</strong></p>
+<ul>
+<li>вкладка <strong>Browse</strong> в таблице <code>item</code> → посмотрите <code>id</code> напротив кодов <code>MAT-*</code>, <code>PRD-*</code>.</li>
+</ul>
+<p><strong>Через SQL:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">item_type</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">item</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'MAT-001'</span><span class="p">,</span><span class="s1">'MAT-002'</span><span class="p">,</span><span class="s1">'MAT-003'</span><span class="p">,</span><span class="s1">'PRD-001'</span><span class="p">,</span><span class="s1">'PRD-002'</span><span class="p">)</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
-<p><code>total_amount</code> пока оставляем <code>0.00</code>, так как итог будем вычислять запросом.</p>
+<p>Дальше в примерах предполагаем:
+<code>MAT-001</code>→1, <code>MAT-002</code>→2, <code>MAT-003</code>→3, <code>PRD-001</code>→4, <code>PRD-002</code>→5.
+Если у вас другие — подставьте свои <code>id</code>.</p>
 </blockquote>
 <hr>
-<h2 id="7-appcustomer_order_line">7. Наполнение таблицы <code>app.customer_order_line</code> (строки заказа)</h2>
-<p>В заказ добавим:</p>
+<h2 id="3-specification">3. Наполнение таблицы <code>specification</code> (спецификации продукции)</h2>
+<p>⚠️ <code>specification.id</code> — AUTO_INCREMENT, <code>id</code> не заполняем.
+⚠️ <code>product_item_id</code> должен ссылаться на <strong>реальный id</strong> продукта из <code>item</code>.</p>
+<h3 id="a-phpmyadmin_1">Вариант A — через конструктор (phpMyAdmin)</h3>
+<ol>
+<li>Откройте таблицу <strong><code>specification</code></strong> → вкладка <strong>Insert</strong>.</li>
+<li>
+<p>Заполните поля:</p>
+</li>
+<li>
+<p><code>name</code></p>
+</li>
+<li><code>product_item_id</code> (введите id продукта <code>PRD-001</code>, <code>PRD-002</code>)</li>
+<li><code>output_qty</code> = <code>1.000</code></li>
+<li><code>output_unit</code> = <code>шт</code></li>
+<li><code>manufacturer_id</code> оставьте пустым (<code>NULL</code>)</li>
+<li><code>id</code> не заполняйте</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<p>Пример значений:</p>
 <ul>
-<li>Йогурт — 10 шт</li>
-<li>Какао напиток — 5 шт</li>
+<li><code>Спецификация: Йогурт клубничный</code> / <code>product_item_id = 4</code> / <code>1.000</code> / <code>шт</code> / <code>NULL</code></li>
+<li><code>Спецификация: Какао напиток</code> / <code>product_item_id = 5</code> / <code>1.000</code> / <code>шт</code> / <code>NULL</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">customer_order_line</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_order_id</span><span class="p">,</span><span class="w"> </span><span class="n">product_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price</span><span class="p">,</span><span class="w"> </span><span class="n">line_amount</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2002</span><span class="p">,</span><span class="w">  </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
+<h3 id="b-sql_1">Вариант B — через SQL</h3>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">product_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="n">output_unit</span><span class="p">,</span><span class="w"> </span><span class="n">manufacturer_id</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">'Спецификация: Йогурт клубничный'</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">000</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'Спецификация: Какао напиток'</span><span class="p">,</span><span class="w">     </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">000</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Проверка id спецификаций:</strong></p>
+<ul>
+<li>GUI: <code>specification</code> → <strong>Browse</strong></li>
+<li>SQL:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">product_item_id</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">specification</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>Предполагаем: spec для PRD-001 → id=1, для PRD-002 → id=2.</p>
+</blockquote>
+<hr>
+<h2 id="4-specification_material">4. Наполнение таблицы <code>specification_material</code> (нормы расхода материалов)</h2>
+<p>⚠️ <code>specification_material.id</code> — AUTO_INCREMENT, <code>id</code> не заполняем.
+⚠️ <code>specification_id</code> — это id из <code>specification</code>.
+⚠️ <code>material_item_id</code> — это id материала из <code>item</code>.</p>
+<h3 id="a-phpmyadmin_2">Вариант A — через конструктор (phpMyAdmin)</h3>
+<ol>
+<li>Откройте таблицу <strong><code>specification_material</code></strong> → вкладка <strong>Insert</strong>.</li>
+<li>
+<p>Для каждой строки заполните:</p>
+</li>
+<li>
+<p><code>specification_id</code> (например, 1 или 2)</p>
+</li>
+<li><code>material_item_id</code> (например, 1/2/3)</li>
+<li><code>qty</code> (норма)</li>
+<li><code>unit</code> (<code>л</code> или <code>кг</code>)</li>
+<li><code>id</code> не заполняйте</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<p><strong>Для йогурта (spec_id = 1):</strong></p>
+<ul>
+<li>(1, material 1, 0.25, <code>л</code>)</li>
+<li>(1, material 2, 0.03, <code>кг</code>)</li>
+</ul>
+<p><strong>Для какао (spec_id = 2):</strong></p>
+<ul>
+<li>(2, material 1, 0.30, <code>л</code>)</li>
+<li>(2, material 2, 0.02, <code>кг</code>)</li>
+<li>(2, material 3, 0.01, <code>кг</code>)</li>
+</ul>
+<h3 id="b-sql_2">Вариант B — через SQL</h3>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">specification_material</span><span class="w"> </span><span class="p">(</span><span class="n">specification_id</span><span class="p">,</span><span class="w"> </span><span class="n">material_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">'л'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span><span class="p">,</span><span class="w"> </span><span class="s1">'кг'</span><span class="p">);</span>
+</code></pre></div>
+<hr>
+<h2 id="5-price">5. Наполнение таблицы <code>price</code> (цены на материалы)</h2>
+<p>⚠️ <code>price.id</code> — AUTO_INCREMENT, <code>id</code> не заполняем.
+⚠️ <code>item_id</code> должен ссылаться на <strong>материалы</strong> (<code>MAT-*</code>).</p>
+<h3 id="a-phpmyadmin_3">Вариант A — через конструктор (phpMyAdmin)</h3>
+<ol>
+<li>Откройте таблицу <strong><code>price</code></strong> → вкладка <strong>Insert</strong>.</li>
+<li>
+<p>Заполните:</p>
+</li>
+<li>
+<p><code>item_id</code> (id материалов 1/2/3)</p>
+</li>
+<li><code>price</code></li>
+<li><code>effective_from</code> = <code>2025-01-01</code></li>
+<li><code>effective_to</code> оставьте пустым (NULL)</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<p>Пример:</p>
+<ul>
+<li>(item_id=1, price=80.00)</li>
+<li>(item_id=2, price=65.00)</li>
+<li>(item_id=3, price=500.00)</li>
+</ul>
+<h3 id="b-sql_3">Вариант B — через SQL</h3>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">effective_from</span><span class="p">,</span><span class="w"> </span><span class="n">effective_to</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">80</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="mi">65</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-01'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">);</span>
+</code></pre></div>
+<hr>
+<h2 id="6-customer_order">6. Наполнение таблицы <code>customer_order</code> (шапка заказа)</h2>
+<p>⚠️ Здесь FK на <code>counterparty(id)</code> — значения <code>executor_id</code> и <code>customer_id</code> <strong>обязаны существовать</strong> в <code>counterparty</code>.</p>
+<h3 id="61">6.1. Убедитесь, что контрагенты есть</h3>
+<p><strong>Через конструктор:</strong></p>
+<ul>
+<li><code>counterparty</code> → вкладка <strong>Browse</strong> → посмотрите какие <code>id</code> реально есть.</li>
+</ul>
+<p><strong>Через SQL:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">counterparty</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="62-3">6.2. Создадим 3 заказа</h3>
+<p>⚠️ <code>customer_order.id</code> — AUTO_INCREMENT, <code>id</code> не заполняем.</p>
+<h4 id="a-phpmyadmin_4">Вариант A — через конструктор (phpMyAdmin)</h4>
+<ol>
+<li>Откройте таблицу <strong><code>customer_order</code></strong> → вкладка <strong>Insert</strong>.</li>
+<li>
+<p>Для каждого заказа заполните:</p>
+</li>
+<li>
+<p><code>doc_no</code></p>
+</li>
+<li><code>doc_date</code></li>
+<li><code>executor_id</code> (существующий id контрагента)</li>
+<li><code>customer_id</code> (существующий id контрагента)</li>
+<li><code>total_amount</code> = <code>0.00</code></li>
+<li><code>id</code> не заполняйте</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<p>Пример (как у вас, но с существующими id клиентов):</p>
+<ul>
+<li><code>ORD-2025-001</code> / <code>2025-03-15</code> / executor_id=1 / customer_id=1 / 0.00</li>
+<li><code>ORD-2025-002</code> / <code>2025-03-16</code> / executor_id=1 / customer_id=2 / 0.00</li>
+<li><code>ORD-2025-003</code> / <code>2025-03-17</code> / executor_id=1 / customer_id=3 / 0.00</li>
+</ul>
+<h4 id="b-sql_4">Вариант B — через SQL</h4>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer_order</span><span class="w"> </span><span class="p">(</span><span class="n">doc_no</span><span class="p">,</span><span class="w"> </span><span class="n">doc_date</span><span class="p">,</span><span class="w"> </span><span class="n">executor_id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">'ORD-2025-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-03-15'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'ORD-2025-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-03-16'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">'ORD-2025-003'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-03-17'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Проверка id заказов:</strong></p>
+<ul>
+<li>GUI: <code>customer_order</code> → <strong>Browse</strong></li>
+<li>SQL:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">doc_no</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customer_order</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+<h2 id="7-customer_order_line">7. Наполнение таблицы <code>customer_order_line</code> (строки заказа)</h2>
+<p>⚠️ <code>customer_order_line.id</code> — AUTO_INCREMENT, <code>id</code> не заполняем.
+⚠️ <code>customer_order_id</code> должен существовать в <code>customer_order</code>.
+⚠️ <code>product_item_id</code> должен существовать в <code>item</code>.</p>
+<h3 id="a-phpmyadmin_5">Вариант A — через конструктор (phpMyAdmin)</h3>
+<ol>
+<li>Откройте таблицу <strong><code>customer_order_line</code></strong> → вкладка <strong>Insert</strong>.</li>
+<li>
+<p>Заполните строки (6 записей):</p>
+</li>
+<li>
+<p><code>customer_order_id</code> (id заказа)</p>
+</li>
+<li><code>product_item_id</code> (id продукта: PRD-001 и PRD-002)</li>
+<li><code>qty</code></li>
+<li><code>unit</code> = <code>шт</code></li>
+<li><code>unit_price</code> пусто (NULL)</li>
+<li><code>line_amount</code> пусто (NULL)</li>
+<li><code>id</code> не заполняйте</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<p>Пример (если заказы id = 1..3, продукты id = 4..5):</p>
+<ul>
+<li>(1, 4, 10, 'шт', NULL, NULL)</li>
+<li>(1, 5,  5, 'шт', NULL, NULL)</li>
+<li>(2, 4,  3, 'шт', NULL, NULL)</li>
+<li>(2, 5,  2, 'шт', NULL, NULL)</li>
+<li>(3, 4,  7, 'шт', NULL, NULL)</li>
+<li>(3, 5,  1, 'шт', NULL, NULL)</li>
+</ul>
+<h3 id="b-sql-id">Вариант B — через SQL (универсальный, без угадывания id)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customer_order_line</span>
+<span class="p">(</span><span class="n">customer_order_id</span><span class="p">,</span><span class="w"> </span><span class="n">product_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price</span><span class="p">,</span><span class="w"> </span><span class="n">line_amount</span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">qty</span><span class="p">,</span><span class="w"> </span><span class="s1">'шт'</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-001'</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">doc_no</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-001'</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">qty</span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-002'</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-001'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-002'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-002'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-003'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-001'</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">    </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="s1">'ORD-2025-003'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PRD-002'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">)</span><span class="w"> </span><span class="n">x</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">customer_order</span><span class="w"> </span><span class="n">co</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">doc_no</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">doc_no</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">code</span><span class="p">;</span>
 </code></pre></div>
 <hr>
 <h2 id="8">8. Проверка наличия данных перед расчётом</h2>
+<p><strong>GUI:</strong></p>
+<ul>
+<li><code>customer_order_line</code> → <strong>Browse</strong> → фильтр по <code>customer_order_id</code>.</li>
+</ul>
+<p><strong>SQL:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">customer_order_line</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customer_order_line</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">customer_order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
 <hr>
-<h2 id="9">9. Выполнение расчёта (ваш запрос)</h2>
-<p>Выполните запрос, заменив значение в <code>сol.customer_order_id</code> на требуемое:</p>
+<h2 id="9-with-mysql-8">9. Выполнение расчёта (вариант с <code>WITH</code>, MySQL 8+)</h2>
 <div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">material_cost_per_unit</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="k">SELECT</span>
 <span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">product_item_id</span><span class="p">,</span>
-<span class="w">        </span><span class="k">SUM</span><span class="p">(</span>
-<span class="w">            </span><span class="p">(</span><span class="n">sm</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">price</span>
-<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cost_per_unit</span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification</span><span class="w"> </span><span class="n">s</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification_material</span><span class="w"> </span><span class="n">sm</span>
+<span class="w">        </span><span class="k">SUM</span><span class="p">((</span><span class="n">sm</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cost_per_unit</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="n">s</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">specification_material</span><span class="w"> </span><span class="n">sm</span>
 <span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">specification_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">price</span><span class="w"> </span><span class="n">p</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">p</span>
 <span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">item_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">material_item_id</span>
 <span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">product_item_id</span>
 <span class="p">)</span>
 <span class="k">SELECT</span>
 <span class="w">    </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w">           </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span>
 <span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="p">)</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">total_product_qty</span><span class="p">,</span>
-<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">cost_per_unit</span><span class="p">)</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">total_order_cost</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">customer_order_line</span><span class="w"> </span><span class="n">col</span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">cost_per_unit</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_order_cost</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customer_order_line</span><span class="w"> </span><span class="n">col</span>
 <span class="k">JOIN</span><span class="w"> </span><span class="n">material_cost_per_unit</span><span class="w"> </span><span class="n">m</span>
 <span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">product_item_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">product_item_id</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="p">;</span>
 </code></pre></div>
 <hr>
-<h2 id="10-sql-select">10. Расчёт полной стоимости заказа <strong>одним SQL-запросом (<code>SELECT</code>)</strong></h2>
-<p>В данном варианте расчёт выполняется <strong>одним оператором <code>SELECT</code></strong>, без использования <code>WITH</code> (CTE).
-Вся логика вычисления встроена во вложенный подзапрос в секции <code>FROM</code>.</p>
-<hr>
-<h3 id="101-sql-select">10.1. SQL-запрос (один <code>SELECT</code>)</h3>
+<h2 id="10-select-with">10. Расчёт полной стоимости заказа одним <code>SELECT</code> (без <code>WITH</code>)</h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-<span class="w">    </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w">           </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span>
-<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="p">)</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">total_product_qty</span><span class="p">,</span>
-<span class="w">    </span><span class="k">SUM</span><span class="p">(</span>
+<span class="w">    </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="p">)</span><span class="w">          </span><span class="k">AS</span><span class="w"> </span><span class="n">total_product_qty</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span>
+<span class="w">      </span><span class="k">SUM</span><span class="p">(</span>
 <span class="w">        </span><span class="n">col</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">*</span>
 <span class="w">        </span><span class="p">(</span>
-<span class="w">            </span><span class="k">SELECT</span>
-<span class="w">                </span><span class="k">SUM</span><span class="p">((</span><span class="n">sm</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">price</span><span class="p">)</span>
-<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification</span><span class="w"> </span><span class="n">s</span>
-<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">specification_material</span><span class="w"> </span><span class="n">sm</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">((</span><span class="n">sm</span><span class="p">.</span><span class="n">qty</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">output_qty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">price</span><span class="p">)</span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="n">s</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">specification_material</span><span class="w"> </span><span class="n">sm</span>
 <span class="w">                </span><span class="k">ON</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">specification_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span>
-<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">price</span><span class="w"> </span><span class="n">p</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="n">p</span>
 <span class="w">                </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">item_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">material_item_id</span>
 <span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">product_item_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">product_item_id</span>
 <span class="w">        </span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_order_cost</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">customer_order_line</span><span class="w"> </span><span class="n">col</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1">-- ← идентификатор заказа</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">    </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_order_cost</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">customer_order_line</span><span class="w"> </span><span class="n">col</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="p">;</span>
 </code></pre></div>
 <hr>
-<h3 id="102">10.2. Логика работы запроса</h3>
+<h2 id="103-phpmyadmin">10.3. Как использовать запрос в phpMyAdmin</h2>
 <ol>
-<li>Основной запрос выбирает строки заказа из таблицы <code>customer_order_line</code>.</li>
-<li>
-<p>Для каждой строки заказа:</p>
-</li>
-<li>
-<p>во вложенном подзапросе вычисляется <strong>стоимость материалов на 1 единицу продукции</strong>;</p>
-</li>
-<li>учитываются нормы расхода (<code>specification_material.qty</code>);</li>
-<li>учитываются цены материалов (<code>price.price</code>).</li>
-<li>
-<p>Стоимость одной единицы продукции умножается на:</p>
-</li>
-<li>
-<p>количество продукции в строке заказа (<code>col.qty</code>).</p>
-</li>
-<li>
-<p>Итоговая стоимость заказа вычисляется как:</p>
-</li>
-<li>
-<p>сумма по всем строкам заказа.</p>
-</li>
-</ol>
-<hr>
-<h3 id="103">10.3. Как использовать запрос</h3>
-<ol>
-<li>Откройте <strong>pgAdmin → Query Tool</strong>.</li>
-<li>Вставьте запрос из пункта <strong>10.1</strong>.</li>
-<li>Замените значение в условии:</li>
+<li>Откройте <strong>phpMyAdmin</strong>.</li>
+<li>Выберите базу данных <code>dairy_demo</code>.</li>
+<li>Перейдите во вкладку <strong>SQL</strong>.</li>
+<li>Вставьте запрос из пункта <strong>9</strong> или <strong>10</strong>.</li>
+<li>Замените:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">col</span><span class="p">.</span><span class="n">customer_order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
-<p>на нужный идентификатор заказа.
-4. Выполните запрос (<strong>Execute</strong>).</p>
-<hr>
-<h3 id="104">10.4. Преимущества данного варианта</h3>
-<ul>
-<li>используется <strong>ровно один <code>SELECT</code></strong>;</li>
-<li>отсутствуют <code>WITH</code>, временные таблицы и переменные;</li>
-<li>подходит для учебных работ и демонстрации принципа расчёта;</li>
-<li>логика полностью читается в одном запросе.</li>
-</ul>
-<p>Ниже — исправленный блок <strong>«Ожидаемая логика результата»</strong> с учётом ваших фактических данных на скриншотах:</p>
-<ul>
-<li><code>customer_order</code> содержит <strong>3 заказа</strong> (id: 1, 2, 3);</li>
-<li>
-<p><code>customer_order_line</code> содержит строки:</p>
-</li>
-<li>
-<p>заказ <strong>1</strong>: продукт <code>2001</code> qty <code>10</code>, продукт <code>2002</code> qty <code>5</code></p>
-</li>
-<li>заказ <strong>2</strong>: продукт <code>2001</code> qty <code>3</code>,  продукт <code>2002</code> qty <code>2</code></li>
-<li>заказ <strong>3</strong>: продукт <code>2001</code> qty <code>7</code>,  продукт <code>2002</code> qty <code>1</code></li>
-</ul>
+<p>на нужный <code>id</code> заказа.
+6. Нажмите <strong>Go</strong>.</p>
 <hr>
 <h2 id="11">11. Ожидаемая логика результата (контроль вручную)</h2>
-<p>Для контроля расчёта сначала определим <strong>стоимость материалов на 1 единицу продукции</strong>, затем посчитаем <strong>итог по каждому заказу</strong>.</p>
-<hr>
 <h3 id="111-1">11.1. Стоимость материалов на 1 единицу продукции</h3>
-<h4 id="product_item_id-2001">Продукт <strong>Йогурт (product_item_id = 2001)</strong></h4>
+<h4 id="product_item_id-prd-001">Продукт <strong>Йогурт (product_item_id = PRD-001)</strong></h4>
 <ul>
 <li>молоко: <code>0.25 × 80.00 = 20.00</code></li>
 <li>сахар: <code>0.03 × 65.00 = 1.95</code></li>
 </ul>
-<p><strong>Итого на 1 шт:</strong>
-<code>20.00 + 1.95 = 21.95</code></p>
+<p>Итого на 1 шт: <code>21.95</code></p>
 <hr>
-<h4 id="product_item_id-2002">Продукт <strong>Какао напиток (product_item_id = 2002)</strong></h4>
+<h4 id="product_item_id-prd-002">Продукт <strong>Какао напиток (product_item_id = PRD-002)</strong></h4>
 <ul>
 <li>молоко: <code>0.30 × 80.00 = 24.00</code></li>
 <li>сахар: <code>0.02 × 65.00 = 1.30</code></li>
 <li>какао:  <code>0.01 × 500.00 = 5.00</code></li>
 </ul>
-<p><strong>Итого на 1 шт:</strong>
-<code>24.00 + 1.30 + 5.00 = 30.30</code></p>
+<p>Итого на 1 шт: <code>30.30</code></p>
 <hr>
-<h3 id="112-no1-order_id-1">11.2. Итоговая стоимость заказа №1 (order_id = 1)</h3>
-<p>По таблице <code>customer_order_line</code>:</p>
+<h3 id="112">11.2. Итоги по заказам (как у вас в примере)</h3>
 <ul>
-<li><code>2001</code> (йогурт) — <code>qty = 10</code></li>
-<li><code>2002</code> (какао) — <code>qty = 5</code></li>
+<li>
+<p>Заказ <strong>1</strong>:
+  <code>21.95 × 10 + 30.30 × 5 = 219.50 + 151.50 = 371.00</code></p>
+</li>
+<li>
+<p>Заказ <strong>2</strong>:
+  <code>21.95 × 3 + 30.30 × 2 = 65.85 + 60.60 = 126.45</code></p>
+</li>
+<li>
+<p>Заказ <strong>3</strong>:
+  <code>21.95 × 7 + 30.30 × 1 = 153.65 + 30.30 = 183.95</code></p>
+</li>
 </ul>
-<p>Расчёт:</p>
-<ul>
-<li>йогурт: <code>21.95 × 10 = 219.50</code></li>
-<li>какао:  <code>30.30 × 5  = 151.50</code></li>
-</ul>
-<p><strong>Итого по заказу №1:</strong>
-<code>219.50 + 151.50 = 371.00</code></p>
-<hr>
-<h3 id="113-no2-order_id-2">11.3. Итоговая стоимость заказа №2 (order_id = 2)</h3>
-<p>По таблице <code>customer_order_line</code>:</p>
-<ul>
-<li><code>2001</code> — <code>qty = 3</code></li>
-<li><code>2002</code> — <code>qty = 2</code></li>
-</ul>
-<p>Расчёт:</p>
-<ul>
-<li>йогурт: <code>21.95 × 3 = 65.85</code></li>
-<li>какао:  <code>30.30 × 2 = 60.60</code></li>
-</ul>
-<p><strong>Итого по заказу №2:</strong>
-<code>65.85 + 60.60 = 126.45</code></p>
-<hr>
-<h3 id="114-no3-order_id-3">11.4. Итоговая стоимость заказа №3 (order_id = 3)</h3>
-<p>По таблице <code>customer_order_line</code>:</p>
-<ul>
-<li><code>2001</code> — <code>qty = 7</code></li>
-<li><code>2002</code> — <code>qty = 1</code></li>
-</ul>
-<p>Расчёт:</p>
-<ul>
-<li>йогурт: <code>21.95 × 7 = 153.65</code></li>
-<li>какао:  <code>30.30 × 1 = 30.30</code></li>
-</ul>
-<p><strong>Итого по заказу №3:</strong>
-<code>153.65 + 30.30 = 183.95</code></p>
 <hr>
 <h3 id="115">11.5. Сводная таблица ожидаемых итогов</h3>
 <ul>
@@ -1990,6 +2306,11 @@
 <li>Заказ <strong>2</strong> → <strong>126.45</strong></li>
 <li>Заказ <strong>3</strong> → <strong>183.95</strong></li>
 </ul>
+<h2 id="12">12. Скачать пример готовой базы данных</h2>
+<ul>
+<li><code>dairy_demo.sql</code></li>
+</ul>
+<p>👉 <a href="../assets/files/dairy_demo%20%282%29.sql">dairy_demo.sql</a></p>
 
 
 

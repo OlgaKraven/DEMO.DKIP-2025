@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 12 2026 г., 02:45
+-- Время создания: Фев 12 2026 г., 02:52
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -150,7 +150,10 @@ INSERT INTO `customer_order` (`id`, `doc_no`, `doc_date`, `executor_id`, `custom
 (47, 'CO-2026-0007', '2026-02-04', 1, 1, 36018.80),
 (48, 'CO-2026-0008', '2026-02-04', 2, 2, 23960.00),
 (49, 'CO-2026-0009', '2026-02-05', 3, 3, 37980.00),
-(50, 'CO-2026-0010', '2026-02-05', 1, 1, 26973.00);
+(50, 'CO-2026-0010', '2026-02-05', 1, 1, 26973.00),
+(57, 'ORD-2025-001', '2025-03-15', 1, 1, 0.00),
+(58, 'ORD-2025-002', '2025-03-16', 1, 2, 0.00),
+(59, 'ORD-2025-003', '2025-03-17', 1, 3, 0.00);
 
 -- --------------------------------------------------------
 
@@ -182,7 +185,13 @@ INSERT INTO `customer_order_line` (`id`, `customer_order_id`, `product_item_id`,
 (27, 47, 5, 212.000, 'шт', 169.90, 36018.80),
 (28, 48, 3, 400.000, 'шт', 59.90, 23960.00),
 (29, 49, 4, 200.000, 'шт', 189.90, 37980.00),
-(30, 50, 1, 270.000, 'л', 99.90, 26973.00);
+(30, 50, 1, 270.000, 'л', 99.90, 26973.00),
+(42, 57, 34, 10.000, 'шт', NULL, NULL),
+(43, 57, 35, 5.000, 'шт', NULL, NULL),
+(44, 58, 34, 3.000, 'шт', NULL, NULL),
+(45, 58, 35, 2.000, 'шт', NULL, NULL),
+(46, 59, 34, 7.000, 'шт', NULL, NULL),
+(47, 59, 35, 1.000, 'шт', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -212,7 +221,12 @@ INSERT INTO `item` (`id`, `code`, `name`, `item_type`, `unit_default`) VALUES
 (7, 'MAT-FERM-KEF', 'Закваска кефирная', 'material', 'г'),
 (8, 'MAT-FERM-YOG', 'Закваска йогуртная', 'material', 'г'),
 (9, 'MAT-SALT', 'Соль пищевая', 'material', 'г'),
-(10, 'MAT-PACK-150', 'Упаковка 150 г', 'material', 'шт');
+(10, 'MAT-PACK-150', 'Упаковка 150 г', 'material', 'шт'),
+(31, 'MAT-001', 'Молоко 3.2%', 'material', 'л'),
+(32, 'MAT-002', 'Сахар', 'material', 'кг'),
+(33, 'MAT-003', 'Какао', 'material', 'кг'),
+(34, 'PRD-001', 'Йогурт клубничный', 'product', 'шт'),
+(35, 'PRD-002', 'Какао напиток', 'product', 'шт');
 
 -- --------------------------------------------------------
 
@@ -252,7 +266,10 @@ INSERT INTO `price` (`id`, `item_id`, `price`, `effective_from`, `effective_to`)
 (17, 7, 0.80, '2026-01-01', NULL),
 (18, 8, 0.90, '2026-01-01', NULL),
 (19, 9, 0.10, '2026-01-01', NULL),
-(20, 10, 2.50, '2026-01-01', NULL);
+(20, 10, 2.50, '2026-01-01', NULL),
+(21, 1, 80.00, '2025-01-01', NULL),
+(22, 2, 65.00, '2025-01-01', NULL),
+(23, 3, 500.00, '2025-01-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -383,7 +400,9 @@ INSERT INTO `specification` (`id`, `name`, `product_item_id`, `output_qty`, `out
 (17, 'Рецептура: Кефир 1 л (другая закваска)', 2, 1.000, 'л', 2),
 (18, 'Рецептура: Йогурт 150 г (плотный)', 3, 1.000, 'шт', 1),
 (19, 'Рецептура: Сыр 200 г (соль усил.)', 4, 1.000, 'шт', 3),
-(20, 'Рецептура: Масло 180 г (солёное)', 5, 1.000, 'шт', 1);
+(20, 'Рецептура: Масло 180 г (солёное)', 5, 1.000, 'шт', 1),
+(21, 'Спецификация: Йогурт клубничный', 4, 1.000, 'шт', NULL),
+(22, 'Спецификация: Какао напиток', 5, 1.000, 'шт', NULL);
 
 -- --------------------------------------------------------
 
@@ -547,25 +566,25 @@ ALTER TABLE `counterparty_import`
 -- AUTO_INCREMENT для таблицы `customer_order`
 --
 ALTER TABLE `customer_order`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT для таблицы `customer_order_line`
 --
 ALTER TABLE `customer_order_line`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT для таблицы `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `production_material_line`
@@ -589,7 +608,7 @@ ALTER TABLE `production_product_line`
 -- AUTO_INCREMENT для таблицы `specification`
 --
 ALTER TABLE `specification`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `specification_material`
