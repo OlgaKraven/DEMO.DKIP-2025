@@ -1,4 +1,4 @@
-# Модуль 2. Разработка базы данных по ER-диаграмме (PostgreSQ через PgAdmin)
+# Модуль 2. Разработка базы данных по ER-диаграмме (MySQL через phpMyAdmin)
 
 **Цель:** создать БД и таблицы по ER, настроить PK/FK/ограничения, затем импортировать `Заказчики.json`.
 
@@ -6,65 +6,116 @@
 
 ## 0. Важно перед стартом
 
-* Везде ниже используется **один вариант выполнения**: **Конструктор (pgAdmin GUI)**
+* Везде ниже используется **один вариант выполнения**: **Конструктор (phpMyAdmin GUI)**
 
-* Рекомендуемая структура: схема `app` (чтобы отделить от `public`).
+* Рекомендуемая структура: используем одну БД `dairy_demo`.
+  Отдельный namespace `app` не создаётся — таблицы размещаются внутри базы данных.
 
 ---
 
 ## 1. Создание базы данных
 
- 
-1. Откройте **pgAdmin** → подключитесь к серверу.
+1. Запустите **XAMPP Control Panel**.
 
-   ![подключитесь к серверу](../assets/images/2.png)
-
-   /// caption
-   Рисунок 1 – Подключитесь к серверу
-   ///
-
-2. Правый клик по **Databases** → **Create → Database…**
-
-3. `Database`: `dairy_demo` (или имя по заданию)
-
-4. Owner: ваш пользователь (если доступно)
-
-5. Save.
-
-   ![подключитесь к серверу](../assets/images/3.png)
+   ![Открытие XAMPP Control Panel](../assets/images/xampp-01-open.png)
 
    /// caption
-   Рисунок 2 – Создание БД
+   Рисунок 1 – Открытие XAMPP Control Panel
    ///
 
-Подключение:
+2. Включите модуль **Apache**:
 
-* pgAdmin: выбрать БД в дереве
+   * нажмите кнопку **Start** в строке **Apache**;
+   * дождитесь, что статус изменится на **Running** (строка станет активной).
+
+   ![Запуск Apache](../assets/images/xampp-02-apache-start.png)
+
+   /// caption
+   Рисунок 2 – Запуск Apache (статус Running)
+   ///
+
+3. Включите модуль **MySQL**:
+
+   * нажмите кнопку **Start** в строке **MySQL**;
+   * дождитесь, что статус изменится на **Running**.
+
+   ![Запуск MySQL](../assets/images/xampp-03-mysql-start.png)
+
+   /// caption
+   Рисунок 3 – Запуск MySQL (статус Running)
+   ///
+
+4. Откройте **phpMyAdmin** одним из способов:
+
+   **Вариант A (из XAMPP):**
+
+   * нажмите кнопку **Admin** в строке **MySQL**.
+
+   ![Открыть phpMyAdmin через Admin](../assets/images/xampp-04-mysql-admin.png)
+
+   /// caption
+   Рисунок 4 – Открытие phpMyAdmin через кнопку Admin
+   ///
+
+   **Вариант B (через браузер):**
+
+   * откройте браузер и перейдите по адресу:
+
+   ```text
+   http://localhost/phpmyadmin/
+   ```
+
+   ![Открыть phpMyAdmin через браузер](../assets/images/xampp-05-phpmyadmin-url.png)
+
+   /// caption
+   Рисунок 5 – Открытие phpMyAdmin через браузер (localhost)
+   ///
+
+5. Убедитесь, что phpMyAdmin открылся без ошибок и вы видите главную страницу интерфейса (панель слева + рабочая область справа).
+
+   ![Главная страница phpMyAdmin](../assets/images/phpmyadmin-01-home.png)
+
+   /// caption
+   Рисунок 6 – Главная страница phpMyAdmin
+   ///
+
+6. Создайте базу данных:
+
+   1. Перейдите на вкладку **Databases** (Базы данных).
+   2. В поле **Create database** введите: `dairy_demo`.
+   3. В поле **Collation** выберите: `utf8mb4_unicode_ci` (рекомендуется).
+   4. Нажмите **Create**.
+
+   ![Создание базы данных dairy\_demo](../assets/images/6.png)
+
+   /// caption
+   Рисунок 7 – Создание базы данных `dairy_demo`
+   ///
+
+7. Проверьте, что база данных создана:
+
+   * в левой панели (дереве) появилась БД **dairy_demo**;
+   * при клике по ней открывается вкладка **Structure**.
+
+   ![База данных появилась в дереве](../assets/images/8.png)
+
+   /// caption
+   Рисунок 8 – База данных `dairy_demo` появилась в дереве phpMyAdmin
+   ///
 
 ---
 
-## 2. Создание схемы (namespace) `app`
+> Примечание: если при открытии `http://localhost/phpmyadmin/` появляется ошибка, проверьте, что **Apache** и **MySQL** действительно в статусе **Running**, и что порты не заняты другими программами (часто конфликтует порт 80 у Apache).
+
+---
 
 
-1. В дереве: **Schemas** → **Create → Schema…**
+## 2. Логическое разделение `app` (как аналог схемы)
 
-   ![В дереве: Schemas → Create → Schema…](../assets/images/4.png)
+Все таблицы создаются в выбранной базе данных `dairy_demo`.
 
-   /// caption
-   Рисунок 3 – В дереве: **Schemas** → **Create → Schema…**
-   ///
-
-2. Name: `app`
-
-3. Owner: ваш пользователь
-
-4. Save.
-
-   ![app](../assets/images/5.png)
-
-   /// caption
-   Рисунок 4 – app
-   ///
+> Если по требованиям нужно визуально отделять таблицы “приложения”, используйте префиксы имён:
+> `app_counterparty`, `app_item`, `app_price` и т. д.
 
 ---
 
@@ -76,69 +127,116 @@
 
 ### 3.1. COUNTERPARTY (Контрагент)
 
+1. Выберите базу данных `dairy_demo` в левой панели phpMyAdmin.
 
-1. **Schemas → app → Tables → Create → Table…**
+2. Перейдите на вкладку **Structure** (Структура) → нажмите **Create table** (Создать таблицу).
 
-
-    ![**Schemas → app → Tables → Create → Table…**](../assets/images/6.png)
-
-    /// caption 
-    Рисунок 5 – **Schemas → app → Tables → Create → Table…**
-    ///
-
-
-2. Name: `counterparty`
-
-      ![counterparty](../assets/images/7.png)
-
-      /// caption
-      Рисунок 6 – counterparty
-      ///
-
-3. Вкладка **Columns** → добавьте:
-
-      ![Вкладка Columns](../assets/images/8.png)
-
-      /// caption
-      Рисунок 7 – Вкладка **Columns**
-      ///
-
-   Создайте:
-
-   * `id` type: `text`, **Primary Key**
-   * `name` type: `text`, **Not null**
-   * `inn` type: `text`
-   * `address` type: `text`
-   * `phone` type: `text`
-   * `is_salesman` type: `boolean`, default: `false`, **Not null**
-   * `is_buyer` type: `boolean`, default: `false`, **Not null**
-
-     ![Вкладка Columns](../assets/images/9.png)
-
-     /// caption
-     Рисунок 8 – Вкладка **Columns**
-     ///
-
-4. Вкладка **Constraints** → Primary Key на `id`
-
-5. Save.
-
-   ![Вкладка Constraints → Primary Key на id](../assets/images/10.png)
+   ![Create table](../assets/images/6.png)
 
    /// caption
-   Рисунок 9 – Вкладка **Constraints** → Primary Key на `id`
+   Рисунок 9 – Создание таблицы
+   ///
+
+3. Укажите:
+
+   * **Table name:** `counterparty`
+   * **Number of columns:** 7
+   * Нажмите **Go**.
+
+   ![counterparty](../assets/images/7.png)
+
+   /// caption
+   Рисунок 10 – Задание имени таблицы
+   ///
+
+4. Добавьте поля (Columns):
+
+| Field       | Type    | Length | Null | Default | Index   | Extra          |
+| ----------- | ------- | ------ | ---- | ------- | ------- | -------------- |
+| id          | BIGINT  |        | NO   |         | PRIMARY | AUTO_INCREMENT |
+| name        | VARCHAR | 255    | NO   |         |         |                |
+| inn         | VARCHAR | 32     | YES  | NULL    |         |                |
+| address     | VARCHAR | 255    | YES  | NULL    |         |                |
+| phone       | VARCHAR | 64     | YES  | NULL    |         |                |
+| is_salesman | TINYINT | 1      | NO   | 0       |         |                |
+| is_buyer    | TINYINT | 1      | NO   | 0       |         |                |
+
+Обратите внимание:
+
+* Для `id`:
+
+      * установите **Index → PRIMARY**
+      * включите **A_I (Auto Increment)**
+
+* Для `name`:
+
+      * снимите флаг `Null` (то есть NOT NULL)
+
+* Для `is_salesman` и `is_buyer`:
+
+      * тип `TINYINT(1)`
+      * Default = `0`
+      * NOT NULL
+
+      ![Создание таблицы](../assets/images/9.png)
+
+      /// caption
+      Рисунок 11 – Настройка структуры таблицы `counterparty`
+      ///
+
+5. Внизу формы проверьте:
+
+   * Storage Engine: **InnoDB**
+   * Collation: `utf8mb4_unicode_ci`
+
+6. Нажмите **Save** (или **Go**) для создания таблицы.
+
+   ![Primary Key](../assets/images/10.png)
+
+   /// caption
+   Рисунок 12 – Проверка PRIMARY KEY и AUTO_INCREMENT
    ///
 
 ---
 
-### 3.2. ITEM (Номенклатура)
+### Проверка
 
+После сохранения:
+
+* откройте таблицу `counterparty`
+* вкладка **Structure**
+* убедитесь, что:
+
+  * у поля `id` указан ключ 🔑 PRIMARY
+  * в столбце Extra указано `AUTO_INCREMENT`
+
+При необходимости можно проверить через SQL:
+
+```sql
+SHOW CREATE TABLE counterparty;
+```
+
+В выводе должно присутствовать:
+
+```sql
+PRIMARY KEY (`id`)
+```
+
+и
+
+```sql
+`id` bigint NOT NULL AUTO_INCREMENT
+```
+ 
+---
+
+### 3.2. ITEM (Номенклатура)
 
 1. Create → Table… Name: `item`
 
 2. Columns:
 
-      * `id` type: `bigserial`, **PK**
+      * `id` type: BIGINT NOT NULL AUTO_INCREMENT
       * `code` type: `text`, Unique (см. Constraints)
       * `name` type: `text`, Not null
       * `item_type` type: `text`, Not null
@@ -156,6 +254,11 @@
 
 5. Save.
 
+  ![ITEM](../assets/images/61.png)
+   /// caption
+   Рисунок 13 – ITEM
+   ///
+
 ---
 
 ### 3.3. PRICE (Прайс-лист)
@@ -165,7 +268,7 @@
 
 2. Columns:
 
-      * `id` bigserial PK
+      * `id` BIGINT NOT NULL AUTO_INCREMENT
       * `item_id` bigint Not null
       * `price` numeric(12,2) Not null
       * `effective_from` date (optional)
@@ -184,6 +287,10 @@
 
 5. Save.
 
+  ![PRICE](../assets/images/62.png)
+   /// caption
+   Рисунок 14 – PRICE
+   ///
 ---
 
 ### 3.4. SPECIFICATION и SPECIFICATION_MATERIAL
@@ -195,7 +302,7 @@
 
 2. Columns:
 
-      * `id` bigserial PK
+      * `id`   BIGINT NOT NULL AUTO_INCREMENT
       * `name` text Not null
       * `product_item_id` bigint Not null
       * `output_qty` numeric(12,3) Not null default 1
@@ -211,6 +318,11 @@
 
 5. Save.
 
+  ![PSPECIFICATIONE](../assets/images/63.png)
+   /// caption
+   Рисунок 15 – SPECIFICATION
+   ///
+
 #### SPECIFICATION_MATERIAL
 
 
@@ -218,7 +330,7 @@
 
 2. Columns:
 
-      * `id` bigserial PK
+      * `id`   BIGINT NOT NULL AUTO_INCREMENT
       * `specification_id` bigint Not null
       * `material_item_id` bigint Not null
       * `qty` numeric(12,3) Not null
@@ -237,6 +349,12 @@
 
 6. Save.
 
+
+
+  ![SPECIFICATION_MATERIAL](../assets/images/64.png)
+   /// caption
+   Рисунок 16 – SPECIFICATION_MATERIAL
+   ///
 ---
 
 ### 3.5. PRODUCTION_ORDER, PRODUCTION_PRODUCT_LINE, PRODUCTION_MATERIAL_LINE
@@ -244,318 +362,951 @@
 
 Создайте три таблицы по аналогии с предыдущими:
 
-   * сначала `production_order` (PK),
+#### PRODUCTION_ORDER
+
+1. Table `production_order`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `doc_no` VARCHAR(64) NOT NULL
+   * `doc_date` DATE NULL
+   * `manufacturer_id` BIGINT NULL
+   * `note` TEXT NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_prodorder_manufacturer` on (`manufacturer_id`)
+
+4. FK:
+
+   * `manufacturer_id` → `counterparty(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+6. Save.
+
+
+  ![PRODUCTION_ORDER](../assets/images/65.png)
+   /// caption
+   Рисунок 17 – PRODUCTION_ORDER
+   ///
+
    * затем `production_product_line` и `production_material_line` (FK на `production_order` и `item`),
    * обязательно выставьте `ON DELETE CASCADE` на строках документа.
+
+#### PRODUCTION_PRODUCT_LINE
+
+1. Table `production_product_line`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `production_order_id` BIGINT NOT NULL
+   * `product_item_id` BIGINT NOT NULL
+   * `qty` DECIMAL(12,3) NOT NULL
+   * `unit` VARCHAR(32) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_prodprod_order` on (`production_order_id`)
+   * Index: `idx_prodprod_item` on (`product_item_id`)
+
+4. FK:
+
+   * `production_order_id` → `production_order(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE CASCADE
+
+   * `product_item_id` → `item(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraint (контроль бизнес-логики):
+
+   * Check: `qty > 0`
+     *(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контролируется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+
+![PRODUCTION_PRODUCT_LINE](../assets/images/66.png)
+   /// caption
+   Рисунок 18 – PRODUCTION_PRODUCT_LINE
+   ///
+
+#### PRODUCTION_MATERIAL_LINE
+
+1. Table `production_material_line`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `production_order_id` BIGINT NOT NULL
+   * `material_item_id` BIGINT NOT NULL
+   * `qty` DECIMAL(12,3) NOT NULL
+   * `unit` VARCHAR(32) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_prodmat_order` on (`production_order_id`)
+   * Index: `idx_prodmat_item` on (`material_item_id`)
+
+4. FK:
+
+   * `production_order_id` → `production_order(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE CASCADE
+
+   * `material_item_id` → `item(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraint (контроль бизнес-логики):
+
+   * Check: `qty > 0`
+     *(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контроль реализуется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+   ![PRODUCTION_MATERIAL_LINE](../assets/images/67.png)
+   /// caption
+   Рисунок 19 – PRODUCTION_MATERIAL_LINE
+   ///
 
 ---
 
 ### 3.6. CUSTOMER_ORDER и CUSTOMER_ORDER_LINE
 
+#### CUSTOMER_ORDER
 
-   * `customer_order`: поля шапки + два FK на `counterparty`
-   * `customer_order_line`: FK на `customer_order` (CASCADE) + FK на `item`
+1. Table `customer_order`
 
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `doc_no` VARCHAR(64) NOT NULL
+   * `doc_date` DATE NULL
+   * `executor_id` BIGINT NULL
+   * `customer_id` BIGINT NULL
+   * `total_amount` DECIMAL(12,2) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_custorder_executor` on (`executor_id`)
+   * Index: `idx_custorder_customer` on (`customer_id`)
+
+4. FK:
+
+   * `executor_id` → `counterparty(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+   * `customer_id` → `counterparty(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraints (контроль бизнес-логики):
+
+   * `total_amount >= 0`
+     *(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контроль реализуется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+   ![CUSTOMER_ORDER](../assets/images/68.png)
+   /// caption
+   Рисунок 20 – CUSTOMER_ORDER
+   ///
+
+
+#### CUSTOMER_ORDER_LINE
+
+1. Table `customer_order_line`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `customer_order_id` BIGINT NOT NULL
+   * `product_item_id` BIGINT NOT NULL
+   * `qty` DECIMAL(12,3) NOT NULL
+   * `unit` VARCHAR(32) NULL
+   * `unit_price` DECIMAL(12,2) NULL
+   * `line_amount` DECIMAL(12,2) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_custline_order` on (`customer_order_id`)
+   * Index: `idx_custline_item` on (`product_item_id`)
+
+4. FK:
+
+   * `customer_order_id` → `customer_order(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE CASCADE
+
+   * `product_item_id` → `item(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraints (контроль бизнес-логики):
+
+   * `qty > 0`
+   * `unit_price >= 0`
+   * `line_amount >= 0`
+
+   *(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+
+   ![CUSTOMER_ORDER_LINE](../assets/images/69.png)
+   /// caption
+   Рисунок 21 – CUSTOMER_ORDER_LINE
+   ///
 ---
 
 ### 3.7. COST_CALCULATION и COST_CALCULATION_LINE
 
+#### COST_CALCULATION
 
-Аналогично: “шапка” + “строки”, на строках `ON DELETE CASCADE`.
+1. Table `cost_calculation`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `calc_date` DATE NULL
+   * `product_item_id` BIGINT NOT NULL
+   * `product_qty` DECIMAL(12,3) NOT NULL DEFAULT 1.000
+   * `total_cost` DECIMAL(12,2) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_costcalc_product` on (`product_item_id`)
+
+4. FK:
+
+   * `product_item_id` → `item(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraints (контроль бизнес-логики):
+
+   * `product_qty > 0`
+   * `total_cost >= 0`
+
+   *(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+
+   ![COST_CALCULATION](../assets/images/70.png)
+   /// caption
+   Рисунок 22 – CUSTOMER_ORDER_LINE
+   ///
+
+#### COST_CALCULATION_LINE
+
+1. Table `cost_calculation_line`
+
+2. Columns:
+
+   * `id` BIGINT NOT NULL AUTO_INCREMENT
+   * `cost_calculation_id` BIGINT NOT NULL
+   * `material_item_id` BIGINT NOT NULL
+   * `qty` DECIMAL(12,3) NOT NULL
+   * `unit` VARCHAR(32) NULL
+   * `unit_cost` DECIMAL(12,2) NULL
+   * `line_cost` DECIMAL(12,2) NULL
+
+3. Indexes:
+
+   * Primary Key: `id`
+   * Index: `idx_costline_calc` on (`cost_calculation_id`)
+   * Index: `idx_costline_item` on (`material_item_id`)
+
+4. FK:
+
+   * `cost_calculation_id` → `cost_calculation(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE CASCADE
+
+   * `material_item_id` → `item(id)`
+
+     * ON UPDATE CASCADE
+     * ON DELETE RESTRICT
+
+5. Recommended constraints (контроль бизнес-логики):
+
+   * `qty > 0`
+   * `unit_cost >= 0`
+   * `line_cost >= 0`
+
+   *(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)*
+
+6. Storage:
+
+   * Engine: `InnoDB`
+   * Charset: `utf8mb4`
+   * Collation: `utf8mb4_unicode_ci`
+
+7. Save.
+
+
+   ![ COST_CALCULATION_LINE](../assets/images/71.png)
+   /// caption
+   Рисунок 23 – CUSTOMER_ORDER_LINE
+   ///
+
+Ниже — раздел **3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin**
+с добавленными иллюстрациями. Нумерация рисунков начинается с **24**.
 
 ---
 
-## 4. Импорт `Заказчики.json`
-
-### (через конструктор и инструменты pgAdmin)
-
-На практике **pgAdmin не поддерживает прямой импорт JSON-файла сразу в колонки таблицы** (в отличие от CSV). Поэтому импорт выполняется **в два этапа**:
-
-1. загрузка JSON целиком во временную (промежуточную) таблицу;
-2. распаковка JSON и перенос данных в рабочую таблицу `counterparty`.
+## 3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin
 
 ---
 
-### 4.1. Создание промежуточной таблицы `counterparty_import`
+### 3.8.1. Где настраиваются связи
 
-1. В дереве pgAdmin откройте:
+1. Откройте таблицу (например, `price`).
+2. Перейдите во вкладку **Structure**.
+3. Внизу страницы нажмите **Relation view**.
 
-      **Schemas → app → Tables → Create → Table…**
+![Relation view](../assets/images/72.png)
 
-2. Укажите параметры таблицы:
-
-      * **Name:** `counterparty_import`
-      * **Schema:** `app`
-
-3. Перейдите на вкладку **Columns** и создайте колонку:
-
-      * **Name:** `payload`
-      * **Data type:** `jsonb`
-      * **Not null:** ✔ (включено)
-
-4. Сохраните таблицу (**Save**).
-
-> Назначение таблицы `counterparty_import` — временно хранить **исходный JSON целиком**, без разборки по полям.
+/// caption
+Рисунок 24 – Переход к вкладке Relation view
+///
 
 ---
 
-### 4.2. Загрузка содержимого файла `Заказчики.json` в таблицу
+### 3.8.2. PRICE → ITEM
 
-1. Откройте **Query Tool**:
+`ON UPDATE CASCADE`
+`ON DELETE RESTRICT`
 
-     * правый клик по базе данных или схеме `app` → **Query Tool**
+1. Таблица: `price`
+2. Relation view → добавьте:
 
-2. Откройте файл `Заказчики.json` в любом текстовом редакторе
-   (например, Notepad++, VS Code).
+   * Column: `item_id`
+   * Referenced table: `item`
+   * Referenced column: `id`
+   * ON UPDATE: `CASCADE`
+   * ON DELETE: `RESTRICT`
 
-3. **Выделите и скопируйте весь файл целиком**, включая:
+![FK price-item](../assets/images/73.png)
 
-      * квадратные скобки `[` `]`,
-      * все объекты,
-      * все запятые и кавычки.
+/// caption
+Рисунок 25 – Связь price → item
+///
 
-4. В Query Tool выполните запрос вставки:
+Нажмите **Save**.
+
+---
+
+### 3.8.3. SPECIFICATION → ITEM, COUNTERPARTY
+
+Таблица: `specification` → Relation view
+
+#### Связь 1: product_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+#### Связь 2: manufacturer_id → counterparty(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK specification](../assets/images/74.png)
+
+/// caption
+Рисунок 26 – Связи specification
+///
+
+---
+
+### 3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM
+
+Таблица: `specification_material` → Relation view
+
+#### Связь 1: specification_id → specification(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: CASCADE
+
+#### Связь 2: material_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK specification\_material](../assets/images/75.png)
+
+/// caption
+Рисунок 27 – Связи specification_material
+///
+
+---
+
+### 3.8.5. PRODUCTION_ORDER → COUNTERPARTY
+
+Таблица: `production_order` → Relation view
+
+Связь:
+
+* manufacturer_id → counterparty(id)
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK production\_order](../assets/images/76.png)
+
+/// caption
+Рисунок 28 – Связь production_order
+///
+
+---
+
+### 3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM
+
+Таблица: `production_product_line` → Relation view
+
+#### Связь 1: production_order_id → production_order(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: CASCADE
+
+#### Связь 2: product_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK production\_product\_line](../assets/images/77.png)
+
+/// caption
+Рисунок 29 – Связи production_product_line
+///
+
+---
+
+### 3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM
+
+Таблица: `production_material_line` → Relation view
+
+#### Связь 1: production_order_id → production_order(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: CASCADE
+
+#### Связь 2: material_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK production\_material\_line](../assets/images/78.png)
+
+/// caption
+Рисунок 30 – Связи production_material_line
+///
+
+---
+
+### 3.8.8. CUSTOMER_ORDER → COUNTERPARTY
+
+Таблица: `customer_order` → Relation view
+
+#### Связь 1: executor_id → counterparty(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+#### Связь 2: customer_id → counterparty(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK customer\_order](../assets/images/79.png)
+
+/// caption
+Рисунок 31 – Связи customer_order
+///
+
+---
+
+### 3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM
+
+Таблица: `customer_order_line` → Relation view
+
+#### Связь 1: customer_order_id → customer_order(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: CASCADE
+
+#### Связь 2: product_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK customer\_order\_line](../assets/images/80.png)
+
+/// caption
+Рисунок 32 – Связи customer_order_line
+///
+
+---
+
+### 3.8.10. COST_CALCULATION → ITEM
+
+Таблица: `cost_calculation` → Relation view
+
+* product_item_id → item(id)
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK cost\_calculation](../assets/images/81.png)
+
+/// caption
+Рисунок 33 – Связь cost_calculation
+///
+
+---
+
+### 3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM
+
+Таблица: `cost_calculation_line` → Relation view
+
+#### Связь 1: cost_calculation_id → cost_calculation(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: CASCADE
+
+#### Связь 2: material_item_id → item(id)
+
+* ON UPDATE: CASCADE
+* ON DELETE: RESTRICT
+
+![FK cost\_calculation\_line](../assets/images/82.png)
+
+/// caption
+Рисунок 34 – Связи cost_calculation_line
+///
+
+---
+
+## Проверка корректности связей
+
+После создания всех связей:
+
+1. Откройте таблицу → **Structure**
+2. Перейдите в **Relation view**
+3. Убедитесь, что отображаются все Foreign Key ограничения
+
+Дополнительно можно проверить через SQL:
 
 ```sql
-INSERT INTO app.counterparty_import ("payload ")
-VALUES (
-$$ '<вставьте содержимое JSON целиком>'$$::jsonb
-);
+SHOW CREATE TABLE production_product_line;
 ```
 
-Текст из Заказчики.json вставляем вместо: <вставьте содержимое JSON целиком>
-
-5. Убедитесь, что запрос выполнился без ошибок
-   (сообщение `INSERT 0 1` или аналогичное).
-
-6. При необходимости проверьте, что данные загружены:
+В выводе должны присутствовать строки:
 
 ```sql
-SELECT payload
-FROM app.counterparty_import;
+FOREIGN KEY (...) REFERENCES ...
+ON UPDATE CASCADE
+ON DELETE CASCADE / RESTRICT
 ```
 
-> На этом этапе **в таблице одна строка**, а в поле `payload` хранится **весь JSON-массив**.
+
+---
+## 4. Импорт `Заказчики.json` (только через конструктор phpMyAdmin)
+
+> В данном разделе используется **исключительно графический интерфейс phpMyAdmin**,
+> без вкладки SQL и без ручного написания запросов.
 
 ---
 
-### 4.3. Распаковка JSON и перенос данных в таблицу `counterparty`
+### Важное ограничение
 
-Файл `Заказчики.json`, как правило, содержит **массив объектов**, например:
+phpMyAdmin **не поддерживает прямой импорт JSON-массива в структуру таблицы**.
 
-```json
-[
-  {
-    "id": "C001",
-    "name": "ООО Ромашка",
-    "inn": "7701234567",
-    "address": "г. Москва",
-    "phone": "+7..."
-  },
-  ...
-]
-```
+Поэтому корректный способ работы через конструктор:
 
-Чтобы превратить каждый объект массива в отдельную строку таблицы `counterparty`, используется функция `jsonb_array_elements`.
+> **JSON → CSV → Import (через вкладку Import)**
 
-1. В **Query Tool** выполните запрос распаковки:
-
-```sql
-INSERT INTO app.counterparty (
-    id,
-    name,
-    inn,
-    address,
-    phone,
-    is_salesman,
-    is_buyer
-)
-SELECT
-    e->>'id'        AS id,
-    e->>'name'      AS name,
-    NULLIF(e->>'inn', '') AS inn,
-    NULLIF(
-        COALESCE(e->>'addres', e->>'address'),
-        ''
-    )               AS address,
-    NULLIF(e->>'phone', '') AS phone,
-    COALESCE((e->>'salesman')::BOOLEAN, FALSE) AS is_salesman,
-    COALESCE((e->>'buyer')::BOOLEAN, FALSE)    AS is_buyer
-FROM (
-    SELECT jsonb_array_elements(payload) AS e
-    FROM app.counterparty_import
-) t;
-```
-
-2. Назначение основных операций:
-
-      * `jsonb_array_elements(payload)` — разбивает JSON-массив на отдельные элементы;
-      * `e->>'field'` — извлекает значение поля как текст;
-      * `NULLIF(..., '')` — заменяет пустые строки на `NULL`;
-      * `COALESCE(...)` — подставляет значение по умолчанию, если поле отсутствует;
-      * приведение `::BOOLEAN` — корректно обрабатывает логические значения.
+Это полностью графический и устойчивый способ.
 
 ---
 
-### 4.4. Проверка результата импорта
+## 4.1. Подготовка файла
 
-1. Убедитесь, что строки появились в основной таблице:
+# Шаг 1. Откройте `Заказчики.json`
 
-```sql
-SELECT COUNT(*) 
-FROM app.counterparty;
-```
+Используйте один из инструментов:
 
-2. Просмотрите несколько записей:
-
-```sql
-SELECT *
-FROM app.counterparty
-ORDER BY id
-LIMIT 10;
-```
-
-3. Также можно проверить данные через интерфейс pgAdmin:
-
-   * правый клик по таблице `counterparty`
-   * **View/Edit Data → All Rows**
+* **Microsoft Excel (Power Query)**
+* **Visual Studio Code**
+* Notepad++
+* LibreOffice Calc
 
 ---
 
-### 4.5. Очистка промежуточной таблицы (по желанию)
+# Преобразование через Microsoft Excel (Power Query)
 
-После успешного импорта промежуточная таблица может быть:
-
-* очищена:
-
-```sql
-TRUNCATE TABLE app.counterparty_import;
-```
-
-* или оставлена для повторных импортов / отладки.
+> Подходит для пользователей без навыков программирования.
+> Работает в Excel 2016+ / Microsoft 365.
 
 ---
 
-### 4.6. Примечание
+## 1. Открытие JSON в Excel
 
-> Если файл `Заказчики.json` **очень большой**, рекомендуется использовать загрузку через `psql \copy`, так как она работает быстрее и надёжнее.
-> Однако в рамках данного документа **рассмотрен только вариант через интерфейс pgAdmin и Query Tool**, без использования командной строки.
+1. Откройте **Microsoft Excel**.
+2. Перейдите во вкладку **Данные (Data)**.
+3. Нажмите:
+
+```
+Получить данные → Из файла → Из JSON
+```
+
+4. Выберите файл `Заказчики.json`.
+5. Нажмите **Импортировать (Import)**.
 
 ---
 
-### 4.7. Практически без кода: импорт через CSV
+## 2. Преобразование массива в таблицу
 
-*(pgAdmin Import/Export)*
+После импорта откроется окно **Power Query Editor**.
 
-pgAdmin поддерживает импорт данных **из CSV-файлов через графический интерфейс**, но **не поддерживает прямой импорт JSON**.
-Поэтому наиболее простой и «безкодовочный» способ — **предварительно конвертировать JSON в CSV** и выполнить импорт стандартными средствами pgAdmin.
+1. Если JSON — это массив (`[ {...}, {...} ]`), появится тип **List**.
 
-#### Шаги выполнения
+2. Нажмите **To Table (Преобразовать в таблицу)**.
 
-1. Конвертируйте файл `Заказчики.json` в формат `Заказчики.csv`.
+3. В появившемся окне нажмите **OK**.
 
-   Допускается использование:
+4. В колонке нажмите кнопку расширения (двойная стрелка ⬍).
 
-   * Microsoft Excel (через Power Query);
-   * LibreOffice Calc;
-   * любого локального инструмента конвертации.
+5. Выберите поля:
 
-   В CSV-файле каждая строка должна соответствовать **одному заказчику**, а названия столбцов — полям таблицы `counterparty`.
+   * id
+   * name
+   * inn
+   * addres   ⚠ (именно так называется поле в JSON)
+   * phone
+   * salesman
+   * buyer
 
-2. В pgAdmin выполните импорт:
-
-   * правый клик по таблице **`app.counterparty`**;
-   * выберите **Import/Export Data…**;
-   * вкладка **Import**;
-   * укажите путь к файлу `Заказчики.csv`;
-   * установите флаг **Header** (если первая строка содержит заголовки);
-   * проверьте кодировку (обычно `UTF-8`);
-   * при необходимости настройте разделитель (`;` или `,`);
-   * подтвердите импорт (**OK**).
-
-3. После завершения импорта проверьте результат:
-
-```sql
-SELECT COUNT(*)
-FROM app.counterparty;
-```
-
-#### Преимущества способа
-
-* минимальное использование SQL (фактически отсутствует);
-* полностью графический интерфейс;
-* устойчиво работает с большими объёмами данных.
-
-#### Недостаток
-
-* требуется предварительная конвертация файла JSON в CSV.
+6. Нажмите **OK**.
 
 ---
 
-### 4.8. Минимум кода, но корректный импорт файла: PSQL Tool (`\copy`)
+## 3. Приведение структуры к таблице БД
 
-Данный способ сочетает **надёжность** и **минимальный объём команд**, но выполняется **через встроенный PSQL Tool pgAdmin**, а не через Query Tool.
+Теперь необходимо привести названия к структуре таблицы `counterparty`.
 
-#### Шаги выполнения
+### 3.1. Переименовать столбцы
 
-1. В pgAdmin откройте меню **Tools → PSQL Tool**.
-2. В открывшемся терминале выполните команду:
+В Power Query:
 
-```sql
-\copy app.counterparty_import(payloadjsonb)
-FROM 'C:/path/to/Заказчики.json'
-WITH (FORMAT text);
+* `addres` → **address**
+* `salesman` → **is_salesman**
+* `buyer` → **is_buyer**
+
+---
+
+### 3.2. Тип поля id
+
+⚠ ВАЖНО
+
+Если таблица в MySQL использует **BIGINT AUTO_INCREMENT**,
+то id импортировать НЕ нужно.
+
+Рекомендуемый вариант:
+
+* удалить столбец `id` перед сохранением CSV
+  (MySQL создаст его автоматически)
+
+Если вы всё же импортируете id как число:
+
+1. Выделите столбец `id`.
+2. Тип данных → **Целое число (Whole Number)**.
+3. Убедитесь, что:
+
+```
+000000003 → 3
 ```
 
-> Путь к файлу указывается **на стороне клиента**, то есть на компьютере, где запущен pgAdmin.
+(ведущие нули должны исчезнуть)
 
-3. После успешной загрузки выполните **распаковку JSON** в таблицу `counterparty`
-   (используется запрос из пункта **4.3**).
+---
 
-#### Преимущества способа
+### 3.3. Логические поля
 
-* самый надёжный вариант для файлов JSON;
-* корректно работает с большими файлами;
-* минимальное количество SQL-кода.
+В столбцах:
 
-#### Ограничение
+* `is_salesman`
+* `is_buyer`
 
-* используется командный режим (`psql`), что может быть запрещено или ограничено в некоторых учебных средах.
+Замените:
+
+* TRUE → 1
+* FALSE → 0
+
+Используйте **Replace Values**.
+
+---
+
+### 3.4. Пустые значения ИНН
+
+Если `inn = ""`, оставьте пустым
+(при импорте MySQL сохранит как NULL).
+
+---
+
+## 4. Загрузка данных в Excel
+
+1. Нажмите **Закрыть и загрузить (Close & Load)**.
+2. Таблица появится на листе Excel.
+
+---
+
+## 5. Сохранение в CSV
+
+1. Файл → **Сохранить как**.
+2. Тип файла:
+
+```
+CSV UTF-8 (разделители — запятые)
+```
+
+3. Назовите файл:
+
+```
+Заказчики.csv
+```
+
+---
+
+⚠ Обязательно проверьте:
+
+* Кодировка — UTF-8
+* Первая строка — заголовки столбцов
+* Логические значения — 1/0
+* Нет ведущих нулей в id (если id используется)
+
+---
+
+# Итоговая структура CSV (для BIGINT id)
+
+Если id импортируется как число:
+
+```csv
+id,name,inn,address,phone,is_salesman,is_buyer
+3,ООО "Ромашка",4140784214,"г. Омск, ул. Строителей, 294",+79882584546,0,1
+```
+
+---
+
+# Рекомендуемый вариант (если id AUTO_INCREMENT)
+
+Удалите колонку `id` перед сохранением.
+
+Тогда CSV будет:
+
+```csv
+name,inn,address,phone,is_salesman,is_buyer
+ООО "Ромашка",4140784214,"г. Омск, ул. Строителей, 294",+79882584546,0,1
+```
+
+ 
+
+👉 [Пример готового csv](../assets/files//Заказчики.csv)
+
+---
+
+## 4.2. Импорт через вкладку Import (конструктор)
+
+1. Откройте phpMyAdmin.
+2. Выберите базу данных `dairy_demo`.
+3. Выберите таблицу `counterparty`.
+4. Перейдите во вкладку **Import**.
+
+![Import tab](../assets/images/83.png)
+
+/// caption
+Рисунок 35 – Переход во вкладку Import
+///
+
+---
+
+### Настройка импорта
+
+1. В разделе **File to import**:
+
+   * нажмите **Choose file**
+   * выберите `Заказчики.csv`
+
+2. Format:
+
+   * выберите **CSV**
+
+3. Отметьте параметры:
+
+   * ✔ The first line of the file contains the table column names
+   * Character set of the file: **utf-8**
+
+4. Укажите разделитель:
+
+   * `,` или `;` (в зависимости от файла)
+
+![Import settings](../assets/images/84.png)
+
+/// caption
+Рисунок 36 – Настройка параметров CSV-импорта
+///
+
+5. Нажмите **Go**.
+
+---
+
+## 4.3. Проверка результата
+
+После успешного импорта появится сообщение:
+
+> Import has been successfully finished
+
+---
+
+### Проверка через интерфейс
+
+1. Откройте таблицу `counterparty`.
+2. Перейдите во вкладку **Browse**.
+
+![Browse table](../assets/images/37.png)
+
+/// caption
+Рисунок 37 – Просмотр импортированных данных
+///
+
+3. Убедитесь, что:
+
+   * записи добавлены,
+   * значения корректно распределены по колонкам,
+   * нет NULL там, где не должно быть.
+
+---
+
+## 4.4. Если импорт не проходит
+
+### Частые причины
+
+| Ошибка             | Причина                    | Решение                 |
+| ------------------ | -------------------------- | ----------------------- |
+| Неверная кодировка | Файл не в UTF-8            | Пересохранить как UTF-8 |
+| Смещение столбцов  | Неправильный разделитель   | Проверить `,` или `;`   |
+| Дублирование PK    | Повторяются `id`           | Удалить дубликаты       |
+| Тип boolean        | В CSV указано `true/false` | Использовать `1/0`      |
+
+---
+
+## 4.5. Результат
+
+После выполнения раздела:
+
+* таблица `counterparty` заполнена данными;
+* структура не нарушена;
+* внешние ключи сохраняют целостность;
+* используется только графический интерфейс.
+
+
+## 4.6. Заполнение таблиц
+
+> Внимание! Заполните таблицы логическими данными, чтобы можно было все правильно отработать. 
 
 ---
 
 ## 5. Проверка своей базы данных
 
-Для проверки свой БД после создания таблиц создайте ER-диагамму средствами Postgress для сравнения, что вы ничего не забыли. 
+Для проверки своей БД после создания таблиц сформируйте визуальную проверку структуры (таблицы/связи) средствами интерфейса.
 
-### 5.1. Выбрать БД
+### 5.1. Проверка таблиц и связей
 
-Нажимите на своей БД правой клавишей мыши. 
+1. Откройте вкладку **Structure** у базы данных `dairy_demo`
+2. Убедитесь, что все таблицы присутствуют
+3. Для таблиц со связями откройте **Structure → Relation view** и проверьте внешние ключи
+4. Расставьте все элементы, чтобы они не пересекались 
 
-   ![Проверка своей базы данных](../assets/images/11.png)
+![Создание ER-диаграммы](../assets/images/12.png)
 
-   /// caption
-   Рисунок 10 – Проверка своей базы данных
-   ///
+/// caption
+Рисунок 38 – Проверка структуры и связей
+///
 
-### 5.2. Создание ER-диаграммы
+### 5.3. Сохранение результата проверки
 
+Результат проверки можно зафиксировать скриншотами структуры БД и вкладки `Relation view` (как подтверждение наличия PK/FK).
 
-   ![Создание ER-диаграммы](../assets/images/12.png)
+![Создание ER-диаграммы](../assets/images/85.png)
 
-   /// caption
-   Рисунок 11 – Создание ER-диаграммы
-   ///
+/// caption
+Рисунок 39 – Пример фиксации результата (выгрузка в pdf)
+///
 
-### 5.3. Сохранение диаграммы
+### 5.4. Как получить файл
 
-Диаграмму можно сохранить рядом с вашим ER, которые вы создали в начале экзамена с именем expodt_db.
-
-   ![Создание ER-диаграммы](../assets/files/test.pgerd.png)
-
-   /// caption
-   Рисунок 12 – Пример сохраненной диаграммы
-   ///
+1. В phpMyAdmin выберите БД `dairy_demo`
+2. Вкладка **Export**
+3. Format: **SQL**
+4. Выполните экспорт и сохраните файл как `dairy_demo_mysql.sql`
 
 ## 6. Скачать пример готовой базы данных
 
