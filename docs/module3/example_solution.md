@@ -1,158 +1,347 @@
-# Модуль 3. Создание запроса 
+# Модуль 3. Создание запроса (MySQL через phpMyAdmin)
 
 ## 1. Подготовка тестовых данных (наполнение БД для расчёта стоимости заказа)
 
 Чтобы запрос расчёта полной стоимости заказа работал, необходимо заполнить:
 
-1. номенклатуру продукции и материалов (`app.item`);
-2. спецификации продукции (`app.specification`);
-3. материалы в спецификациях (`app.specification_material`);
-4. цены на материалы (`app.price`);
-5. заказ покупателя (`app.customer_order`) и строки заказа (`app.customer_order_line`).
+1. номенклатуру продукции и материалов (`item`);
+2. спецификации продукции (`specification`);
+3. материалы в спецификациях (`specification_material`);
+4. цены на материалы (`price`);
+5. заказ покупателя (`customer_order`) и строки заказа (`customer_order_line`).
 
 ---
 
-## 2. Наполнение таблицы `app.item` (продукция и материалы)
+## 2. Наполнение таблицы `item` (продукция и материалы)
 
-### 2.1. Добавьте материалы
+⚠️ В таблице `item.id` используется **AUTO_INCREMENT**, поэтому `id` вручную **не заполняем** (оставляем пустым).
+
+### Вариант A — через конструктор (phpMyAdmin)
+
+1. В phpMyAdmin выберите БД `dairy_demo`.
+2. Откройте таблицу **`item`**.
+3. Перейдите на вкладку **Insert**.
+4. Для каждой записи заполните поля:
+
+   * `code`
+   * `name`
+   * `item_type` (выберите `material` или `product`)
+   * `unit_default`
+   * поле `id` **не трогайте** (пусто / NULL) — его заполнит MySQL.
+5. Нажмите **Go** (или добавьте несколько строк и нажмите **Go** один раз).
+
+**Материалы (3 строки):**
+
+* `MAT-001` / `Молоко 3.2%` / `material` / `л`
+* `MAT-002` / `Сахар` / `material` / `кг`
+* `MAT-003` / `Какао` / `material` / `кг`
+
+**Продукция (2 строки):**
+
+* `PRD-001` / `Йогурт клубничный` / `product` / `шт`
+* `PRD-002` / `Какао напиток` / `product` / `шт`
+
+### Вариант B — через SQL
 
 ```sql
-INSERT INTO app.item (id, code, name, item_type, unit_default)
-VALUES
-(1001, 'MAT-001', 'Молоко 3.2%', 'material', 'л'),
-(1002, 'MAT-002', 'Сахар',      'material', 'кг'),
-(1003, 'MAT-003', 'Какао',      'material', 'кг');
+INSERT INTO item (code, name, item_type, unit_default) VALUES
+('MAT-001', 'Молоко 3.2%', 'material', 'л'),
+('MAT-002', 'Сахар',      'material', 'кг'),
+('MAT-003', 'Какао',      'material', 'кг'),
+('PRD-001', 'Йогурт клубничный', 'product', 'шт'),
+('PRD-002', 'Какао напиток',     'product', 'шт');
 ```
 
-### 2.2. Добавьте продукцию
+### 2.3. Узнайте реальные `id` у вставленных позиций (обязательно)
+
+**Через конструктор:**
+
+* вкладка **Browse** в таблице `item` → посмотрите `id` напротив кодов `MAT-*`, `PRD-*`.
+
+**Через SQL:**
 
 ```sql
-INSERT INTO app.item (id, code, name, item_type, unit_default)
-VALUES
-(2001, 'PRD-001', 'Йогурт клубничный', 'product', 'шт'),
-(2002, 'PRD-002', 'Какао напиток',     'product', 'шт');
+SELECT id, code, name, item_type
+FROM item
+WHERE code IN ('MAT-001','MAT-002','MAT-003','PRD-001','PRD-002')
+ORDER BY id;
+```
+
+> Дальше в примерах предполагаем:
+> `MAT-001`→1, `MAT-002`→2, `MAT-003`→3, `PRD-001`→4, `PRD-002`→5.
+> Если у вас другие — подставьте свои `id`.
+
+---
+
+## 3. Наполнение таблицы `specification` (спецификации продукции)
+
+⚠️ `specification.id` — AUTO_INCREMENT, `id` не заполняем.
+⚠️ `product_item_id` должен ссылаться на **реальный id** продукта из `item`.
+
+### Вариант A — через конструктор (phpMyAdmin)
+
+1. Откройте таблицу **`specification`** → вкладка **Insert**.
+2. Заполните поля:
+
+   * `name`
+   * `product_item_id` (введите id продукта `PRD-001`, `PRD-002`)
+   * `output_qty` = `1.000`
+   * `output_unit` = `шт`
+   * `manufacturer_id` оставьте пустым (`NULL`)
+   * `id` не заполняйте
+3. Нажмите **Go**.
+
+Пример значений:
+
+* `Спецификация: Йогурт клубничный` / `product_item_id = 4` / `1.000` / `шт` / `NULL`
+* `Спецификация: Какао напиток` / `product_item_id = 5` / `1.000` / `шт` / `NULL`
+
+### Вариант B — через SQL
+
+```sql
+INSERT INTO specification (name, product_item_id, output_qty, output_unit, manufacturer_id) VALUES
+('Спецификация: Йогурт клубничный', 4, 1.000, 'шт', NULL),
+('Спецификация: Какао напиток',     5, 1.000, 'шт', NULL);
+```
+
+**Проверка id спецификаций:**
+
+* GUI: `specification` → **Browse**
+* SQL:
+
+```sql
+SELECT id, name, product_item_id
+FROM specification
+ORDER BY id;
+```
+
+> Предполагаем: spec для PRD-001 → id=1, для PRD-002 → id=2.
+
+---
+
+## 4. Наполнение таблицы `specification_material` (нормы расхода материалов)
+
+⚠️ `specification_material.id` — AUTO_INCREMENT, `id` не заполняем.
+⚠️ `specification_id` — это id из `specification`.
+⚠️ `material_item_id` — это id материала из `item`.
+
+### Вариант A — через конструктор (phpMyAdmin)
+
+1. Откройте таблицу **`specification_material`** → вкладка **Insert**.
+2. Для каждой строки заполните:
+
+   * `specification_id` (например, 1 или 2)
+   * `material_item_id` (например, 1/2/3)
+   * `qty` (норма)
+   * `unit` (`л` или `кг`)
+   * `id` не заполняйте
+3. Нажмите **Go**.
+
+**Для йогурта (spec_id = 1):**
+
+* (1, material 1, 0.25, `л`)
+* (1, material 2, 0.03, `кг`)
+
+**Для какао (spec_id = 2):**
+
+* (2, material 1, 0.30, `л`)
+* (2, material 2, 0.02, `кг`)
+* (2, material 3, 0.01, `кг`)
+
+### Вариант B — через SQL
+
+```sql
+INSERT INTO specification_material (specification_id, material_item_id, qty, unit) VALUES
+(1, 1, 0.25, 'л'),
+(1, 2, 0.03, 'кг'),
+(2, 1, 0.30, 'л'),
+(2, 2, 0.02, 'кг'),
+(2, 3, 0.01, 'кг');
 ```
 
 ---
 
-## 3. Наполнение таблицы `app.specification` (спецификации продукции)
+## 5. Наполнение таблицы `price` (цены на материалы)
 
-В примере используется `output_qty = 1`, чтобы нормы расхода считались максимально просто (на 1 единицу продукции).
+⚠️ `price.id` — AUTO_INCREMENT, `id` не заполняем.
+⚠️ `item_id` должен ссылаться на **материалы** (`MAT-*`).
+
+### Вариант A — через конструктор (phpMyAdmin)
+
+1. Откройте таблицу **`price`** → вкладка **Insert**.
+2. Заполните:
+
+   * `item_id` (id материалов 1/2/3)
+   * `price`
+   * `effective_from` = `2025-01-01`
+   * `effective_to` оставьте пустым (NULL)
+3. Нажмите **Go**.
+
+Пример:
+
+* (item_id=1, price=80.00)
+* (item_id=2, price=65.00)
+* (item_id=3, price=500.00)
+
+### Вариант B — через SQL
 
 ```sql
-INSERT INTO app.specification (id, name, product_item_id, output_qty, output_unit, manufacturer_id)
-VALUES
-(1, 'Спецификация: Йогурт клубничный', 2001, 1, 'шт', NULL),
-(2, 'Спецификация: Какао напиток',     2002, 1, 'шт', NULL);
+INSERT INTO price (item_id, price, effective_from, effective_to) VALUES
+(1,  80.00,  '2025-01-01', NULL),
+(2,  65.00,  '2025-01-01', NULL),
+(3, 500.00,  '2025-01-01', NULL);
 ```
 
 ---
 
-## 4. Наполнение таблицы `app.specification_material` (нормы расхода материалов)
+## 6. Наполнение таблицы `customer_order` (шапка заказа)
 
-### 4.1. Материалы для йогурта (product_item_id = 2001)
+⚠️ Здесь FK на `counterparty(id)` — значения `executor_id` и `customer_id` **обязаны существовать** в `counterparty`.
 
-* Молоко: 0.25 л на 1 шт
-* Сахар: 0.03 кг на 1 шт
+### 6.1. Убедитесь, что контрагенты есть
+
+**Через конструктор:**
+
+* `counterparty` → вкладка **Browse** → посмотрите какие `id` реально есть.
+
+**Через SQL:**
 
 ```sql
-INSERT INTO app.specification_material (id, specification_id, material_item_id, qty, unit)
-VALUES
-(1, 1, 1001, 0.25, 'л'),
-(2, 1, 1002, 0.03, 'кг');
+SELECT id, name
+FROM counterparty
+ORDER BY id
+LIMIT 20;
 ```
 
-### 4.2. Материалы для какао-напитка (product_item_id = 2002)
+### 6.2. Создадим 3 заказа
 
-* Молоко: 0.30 л на 1 шт
-* Сахар: 0.02 кг на 1 шт
-* Какао: 0.01 кг на 1 шт
+⚠️ `customer_order.id` — AUTO_INCREMENT, `id` не заполняем.
+
+#### Вариант A — через конструктор (phpMyAdmin)
+
+1. Откройте таблицу **`customer_order`** → вкладка **Insert**.
+2. Для каждого заказа заполните:
+
+   * `doc_no`
+   * `doc_date`
+   * `executor_id` (существующий id контрагента)
+   * `customer_id` (существующий id контрагента)
+   * `total_amount` = `0.00`
+   * `id` не заполняйте
+3. Нажмите **Go**.
+
+Пример (как у вас, но с существующими id клиентов):
+
+* `ORD-2025-001` / `2025-03-15` / executor_id=1 / customer_id=1 / 0.00
+* `ORD-2025-002` / `2025-03-16` / executor_id=1 / customer_id=2 / 0.00
+* `ORD-2025-003` / `2025-03-17` / executor_id=1 / customer_id=3 / 0.00
+
+#### Вариант B — через SQL
 
 ```sql
-INSERT INTO app.specification_material (id, specification_id, material_item_id, qty, unit)
-VALUES
-(3, 2, 1001, 0.30, 'л'),
-(4, 2, 1002, 0.02, 'кг'),
-(5, 2, 1003, 0.01, 'кг');
+INSERT INTO customer_order (doc_no, doc_date, executor_id, customer_id, total_amount) VALUES
+('ORD-2025-001', '2025-03-15', 1, 1, 0.00),
+('ORD-2025-002', '2025-03-16', 1, 2, 0.00),
+('ORD-2025-003', '2025-03-17', 1, 3, 0.00);
+```
+
+**Проверка id заказов:**
+
+* GUI: `customer_order` → **Browse**
+* SQL:
+
+```sql
+SELECT id, doc_no
+FROM customer_order
+ORDER BY id;
 ```
 
 ---
 
-## 5. Наполнение таблицы `app.price` (цены на материалы)
+## 7. Наполнение таблицы `customer_order_line` (строки заказа)
+
+⚠️ `customer_order_line.id` — AUTO_INCREMENT, `id` не заполняем.
+⚠️ `customer_order_id` должен существовать в `customer_order`.
+⚠️ `product_item_id` должен существовать в `item`.
+
+### Вариант A — через конструктор (phpMyAdmin)
+
+1. Откройте таблицу **`customer_order_line`** → вкладка **Insert**.
+2. Заполните строки (6 записей):
+
+   * `customer_order_id` (id заказа)
+   * `product_item_id` (id продукта: PRD-001 и PRD-002)
+   * `qty`
+   * `unit` = `шт`
+   * `unit_price` пусто (NULL)
+   * `line_amount` пусто (NULL)
+   * `id` не заполняйте
+3. Нажмите **Go**.
+
+Пример (если заказы id = 1..3, продукты id = 4..5):
+
+* (1, 4, 10, 'шт', NULL, NULL)
+* (1, 5,  5, 'шт', NULL, NULL)
+* (2, 4,  3, 'шт', NULL, NULL)
+* (2, 5,  2, 'шт', NULL, NULL)
+* (3, 4,  7, 'шт', NULL, NULL)
+* (3, 5,  1, 'шт', NULL, NULL)
+
+### Вариант B — через SQL (универсальный, без угадывания id)
 
 ```sql
-INSERT INTO app.price (id, item_id, price, effective_from, effective_to)
-VALUES
-(1, 1001, 80.00,  '2025-01-01', NULL),  -- молоко 80 руб/л
-(2, 1002, 65.00,  '2025-01-01', NULL),  -- сахар 65 руб/кг
-(3, 1003, 500.00, '2025-01-01', NULL);  -- какао 500 руб/кг
-```
-
----
-
-## 6. Наполнение таблицы `app.customer_order` (шапка заказа)
-
-Создадим один заказ с `id = 1`.
-
-```sql
-INSERT INTO app.customer_order (id, doc_no, doc_date, executor_id, customer_id, total_amount)
-VALUES
-(1, 'ORD-2025-001', '2025-03-15', '000000002', '000000003', 0.00);
-```
-
-> `total_amount` пока оставляем `0.00`, так как итог будем вычислять запросом.
-
----
-
-## 7. Наполнение таблицы `app.customer_order_line` (строки заказа)
-
-В заказ добавим:
-
-* Йогурт — 10 шт
-* Какао напиток — 5 шт
-
-```sql
-INSERT INTO app.customer_order_line (id, customer_order_id, product_item_id, qty, unit, unit_price, line_amount)
-VALUES
-(1, 1, 2001, 10, 'шт', NULL, NULL),
-(2, 1, 2002,  5, 'шт', NULL, NULL);
+INSERT INTO customer_order_line
+(customer_order_id, product_item_id, qty, unit, unit_price, line_amount)
+SELECT co.id, i.id, x.qty, 'шт', NULL, NULL
+FROM (
+    SELECT 'ORD-2025-001' AS doc_no, 'PRD-001' AS code, 10 AS qty
+    UNION ALL SELECT 'ORD-2025-001', 'PRD-002', 5
+    UNION ALL SELECT 'ORD-2025-002', 'PRD-001', 3
+    UNION ALL SELECT 'ORD-2025-002', 'PRD-002', 2
+    UNION ALL SELECT 'ORD-2025-003', 'PRD-001', 7
+    UNION ALL SELECT 'ORD-2025-003', 'PRD-002', 1
+) x
+JOIN customer_order co ON co.doc_no = x.doc_no
+JOIN item i ON i.code = x.code;
 ```
 
 ---
 
 ## 8. Проверка наличия данных перед расчётом
 
+**GUI:**
+
+* `customer_order_line` → **Browse** → фильтр по `customer_order_id`.
+
+**SQL:**
+
 ```sql
 SELECT *
-FROM app.customer_order_line
+FROM customer_order_line
 WHERE customer_order_id = 1;
 ```
 
 ---
 
-## 9. Выполнение расчёта (ваш запрос)
-
-Выполните запрос, заменив значение в `сol.customer_order_id` на требуемое:
+## 9. Выполнение расчёта (вариант с `WITH`, MySQL 8+)
 
 ```sql
 WITH material_cost_per_unit AS (
     SELECT
         s.product_item_id,
-        SUM(
-            (sm.qty / NULLIF(s.output_qty, 0)) * p.price
-        ) AS cost_per_unit
-    FROM app.specification s
-    JOIN app.specification_material sm
+        SUM((sm.qty / NULLIF(s.output_qty, 0)) * p.price) AS cost_per_unit
+    FROM specification s
+    JOIN specification_material sm
         ON sm.specification_id = s.id
-    JOIN app.price p
+    JOIN price p
         ON p.item_id = sm.material_item_id
     GROUP BY s.product_item_id
 )
 SELECT
     col.customer_order_id           AS order_id,
     SUM(col.qty)                    AS total_product_qty,
-    SUM(col.qty * m.cost_per_unit)  AS total_order_cost
-FROM app.customer_order_line col
+    ROUND(SUM(col.qty * m.cost_per_unit), 2) AS total_order_cost
+FROM customer_order_line col
 JOIN material_cost_per_unit m
     ON m.product_item_id = col.product_item_id
 WHERE col.customer_order_id = 1
@@ -161,166 +350,83 @@ GROUP BY col.customer_order_id;
 
 ---
 
-## 10. Расчёт полной стоимости заказа **одним SQL-запросом (`SELECT`)**
-
-В данном варианте расчёт выполняется **одним оператором `SELECT`**, без использования `WITH` (CTE).
-Вся логика вычисления встроена во вложенный подзапрос в секции `FROM`.
-
----
-
-### 10.1. SQL-запрос (один `SELECT`)
+## 10. Расчёт полной стоимости заказа одним `SELECT` (без `WITH`)
 
 ```sql
 SELECT
-    col.customer_order_id           AS order_id,
-    SUM(col.qty)                    AS total_product_qty,
-    SUM(
+    col.customer_order_id AS order_id,
+    SUM(col.qty)          AS total_product_qty,
+    ROUND(
+      SUM(
         col.qty *
         (
-            SELECT
-                SUM((sm.qty / NULLIF(s.output_qty, 0)) * p.price)
-            FROM app.specification s
-            JOIN app.specification_material sm
+            SELECT SUM((sm.qty / NULLIF(s.output_qty, 0)) * p.price)
+            FROM specification s
+            JOIN specification_material sm
                 ON sm.specification_id = s.id
-            JOIN app.price p
+            JOIN price p
                 ON p.item_id = sm.material_item_id
             WHERE s.product_item_id = col.product_item_id
         )
-    ) AS total_order_cost
-FROM app.customer_order_line col
-WHERE col.customer_order_id = 1   -- ← идентификатор заказа
+      ),
+    2) AS total_order_cost
+FROM customer_order_line col
+WHERE col.customer_order_id = 1
 GROUP BY col.customer_order_id;
 ```
 
 ---
 
-### 10.2. Логика работы запроса
+## 10.3. Как использовать запрос в phpMyAdmin
 
-1. Основной запрос выбирает строки заказа из таблицы `customer_order_line`.
-2. Для каждой строки заказа:
-
-   * во вложенном подзапросе вычисляется **стоимость материалов на 1 единицу продукции**;
-   * учитываются нормы расхода (`specification_material.qty`);
-   * учитываются цены материалов (`price.price`).
-3. Стоимость одной единицы продукции умножается на:
-
-   * количество продукции в строке заказа (`col.qty`).
-4. Итоговая стоимость заказа вычисляется как:
-
-   * сумма по всем строкам заказа.
-
----
-
-### 10.3. Как использовать запрос
-
-1. Откройте **pgAdmin → Query Tool**.
-2. Вставьте запрос из пункта **10.1**.
-3. Замените значение в условии:
+1. Откройте **phpMyAdmin**.
+2. Выберите базу данных `dairy_demo`.
+3. Перейдите во вкладку **SQL**.
+4. Вставьте запрос из пункта **9** или **10**.
+5. Замените:
 
 ```sql
 WHERE col.customer_order_id = 1
 ```
 
-на нужный идентификатор заказа.
-4. Выполните запрос (**Execute**).
-
----
-
-### 10.4. Преимущества данного варианта
-
-* используется **ровно один `SELECT`**;
-* отсутствуют `WITH`, временные таблицы и переменные;
-* подходит для учебных работ и демонстрации принципа расчёта;
-* логика полностью читается в одном запросе.
-
- Ниже — исправленный блок **«Ожидаемая логика результата»** с учётом ваших фактических данных на скриншотах:
-
-* `customer_order` содержит **3 заказа** (id: 1, 2, 3);
-* `customer_order_line` содержит строки:
-
-  * заказ **1**: продукт `2001` qty `10`, продукт `2002` qty `5`
-  * заказ **2**: продукт `2001` qty `3`,  продукт `2002` qty `2`
-  * заказ **3**: продукт `2001` qty `7`,  продукт `2002` qty `1`
+на нужный `id` заказа.
+6. Нажмите **Go**.
 
 ---
 
 ## 11. Ожидаемая логика результата (контроль вручную)
 
-Для контроля расчёта сначала определим **стоимость материалов на 1 единицу продукции**, затем посчитаем **итог по каждому заказу**.
-
----
-
 ### 11.1. Стоимость материалов на 1 единицу продукции
 
-#### Продукт **Йогурт (product_item_id = 2001)**
+#### Продукт **Йогурт (product_item_id = PRD-001)**
 
 * молоко: `0.25 × 80.00 = 20.00`
 * сахар: `0.03 × 65.00 = 1.95`
 
-**Итого на 1 шт:**
-`20.00 + 1.95 = 21.95`
+Итого на 1 шт: `21.95`
 
 ---
 
-#### Продукт **Какао напиток (product_item_id = 2002)**
+#### Продукт **Какао напиток (product_item_id = PRD-002)**
 
 * молоко: `0.30 × 80.00 = 24.00`
 * сахар: `0.02 × 65.00 = 1.30`
 * какао:  `0.01 × 500.00 = 5.00`
 
-**Итого на 1 шт:**
-`24.00 + 1.30 + 5.00 = 30.30`
+Итого на 1 шт: `30.30`
 
 ---
 
-### 11.2. Итоговая стоимость заказа №1 (order_id = 1)
+### 11.2. Итоги по заказам (как у вас в примере)
 
-По таблице `customer_order_line`:
+* Заказ **1**:
+  `21.95 × 10 + 30.30 × 5 = 219.50 + 151.50 = 371.00`
 
-* `2001` (йогурт) — `qty = 10`
-* `2002` (какао) — `qty = 5`
+* Заказ **2**:
+  `21.95 × 3 + 30.30 × 2 = 65.85 + 60.60 = 126.45`
 
-Расчёт:
-
-* йогурт: `21.95 × 10 = 219.50`
-* какао:  `30.30 × 5  = 151.50`
-
-**Итого по заказу №1:**
-`219.50 + 151.50 = 371.00`
-
----
-
-### 11.3. Итоговая стоимость заказа №2 (order_id = 2)
-
-По таблице `customer_order_line`:
-
-* `2001` — `qty = 3`
-* `2002` — `qty = 2`
-
-Расчёт:
-
-* йогурт: `21.95 × 3 = 65.85`
-* какао:  `30.30 × 2 = 60.60`
-
-**Итого по заказу №2:**
-`65.85 + 60.60 = 126.45`
-
----
-
-### 11.4. Итоговая стоимость заказа №3 (order_id = 3)
-
-По таблице `customer_order_line`:
-
-* `2001` — `qty = 7`
-* `2002` — `qty = 1`
-
-Расчёт:
-
-* йогурт: `21.95 × 7 = 153.65`
-* какао:  `30.30 × 1 = 30.30`
-
-**Итого по заказу №3:**
-`153.65 + 30.30 = 183.95`
+* Заказ **3**:
+  `21.95 × 7 + 30.30 × 1 = 153.65 + 30.30 = 183.95`
 
 ---
 
@@ -330,4 +436,9 @@ WHERE col.customer_order_id = 1
 * Заказ **2** → **126.45**
 * Заказ **3** → **183.95**
 
+## 12. Скачать пример готовой базы данных
+
+- `dairy_demo.sql`
+
+👉 [dairy_demo.sql](../assets/files//dairy_demo%20(2).sql)
  
