@@ -1,71 +1,67 @@
 # Модуль 4. Разработка информационной системы
 
-## 1. Доработка БД: таблица `app.users` и ограничения
 
-### 1.1. Создаём таблицу пользователей
+## 1. Доработка БД: таблица `users` и ограничения
 
-Рекомендую хранить:
+### 1.1. Создаём таблицу пользователей (MySQL)
 
-* `login` (уникальный),
-* `password_hash` (хэш пароля, не хранить пароль в открытом виде),
-* `role` (`admin`/`user`),
-* `is_locked` и счётчик `failed_attempts` (3 подряд — блок),
-* метки времени для аудита.
+Рекомендации по хранению:
 
-```sql
--- schema: app (как у вас)
-create table if not exists app.users (
-    id              bigserial primary key,
-    login           text not null unique,
-    password_hash   text not null,
-    role            text not null check (role in ('admin', 'user')),
-    failed_attempts int not null default 0 check (failed_attempts >= 0),
-    is_locked       boolean not null default false,
-    created_at      timestamptz not null default now(),
-    updated_at      timestamptz not null default now()
-);
-
-create index if not exists ix_users_login on app.users (login);
-```
-
-### 1.2. Триггер на `updated_at` (по желанию, но удобно)
+* `login` (уникальный)
+* `password_hash` (BCrypt-хэш, пароль в открытом виде **не** хранить)
+* `role` (`admin`/`user`)
+* `failed_attempts` и `is_locked` (3 подряд — блок)
+* метки времени для аудита
 
 ```sql
-create or replace function app.set_updated_at()
-returns trigger as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$ language plpgsql;
+CREATE TABLE IF NOT EXISTS users (
+    id              BIGINT NOT NULL AUTO_INCREMENT,
+    login           VARCHAR(64) NOT NULL,
+    password_hash   VARCHAR(255) NOT NULL,
+    role            ENUM('admin','user') NOT NULL DEFAULT 'user',
+    failed_attempts INT NOT NULL DEFAULT 0,
+    is_locked       TINYINT(1) NOT NULL DEFAULT 0,
+    created_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-drop trigger if exists trg_users_updated_at on app.users;
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_users_login (login),
+    CHECK (failed_attempts >= 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-create trigger trg_users_updated_at
-before update on app.users
-for each row execute function app.set_updated_at();
+CREATE INDEX ix_users_login ON users(login);
 ```
 
----
+> Примечание: `CHECK` реально контролируется в MySQL 8.0.16+. Если версия ниже — контролируйте `failed_attempts` на уровне приложения.
 
-## 2. Начальный администратор (seed)
+### 1.2. Начальный администратор (seed)
 
-Пароль создаём через BCrypt в приложении (правильно), но для старта можно:
+Пароль правильно хранить как BCrypt-хэш, но для старта можно:
 
-* либо временно вставить “заглушку” и потом заменить,
-* либо один раз сгенерировать хэш маленьким консольным генератором на C#.
+* временно поставить “заглушку”, потом заменить на BCrypt,
+* либо один раз сгенерировать BCrypt и вставить.
 
-### Вариант А (правильный): генератор хэша пароля в C#
+### Вариант A: вставка пользователей (MySQL)
 
-### Вставка пользователя
+MySQL-эквивалент `ON CONFLICT DO NOTHING` — это `INSERT IGNORE` или `ON DUPLICATE KEY UPDATE`.
+
+**Рекомендую так (не создаёт дубль, но и не ломает):**
 
 ```sql
-insert into app.users (login, password_hash, role)
-values ('Admin', 'admin', 'admin')
-on conflict (login) do nothing;
+INSERT INTO users (login, password_hash, role)
+VALUES ('Admin', 'admin', 'admin')
+ON DUPLICATE KEY UPDATE login = login;
+
+INSERT INTO users (login, password_hash, role)
+VALUES ('User', 'user', 'user')
+ON DUPLICATE KEY UPDATE login = login;
 ```
 
-👉 [Пример базы данных с добавленной таблицей](../assets/files//dairy_demo2.sql)
+> Важно: строки `'admin'` и `'user'` — это **НЕ BCrypt-хэши**. Это временные “заглушки”, которые нужно заменить на нормальные BCrypt-хэши перед сдачей/использованием.
+
+
+
+👉 [Пример базы данных с добавленной таблицей](../assets/files//dairy_demo%20(3).sql)
 
 ---
 
@@ -73,19 +69,20 @@ on conflict (login) do nothing;
 
 ### 3.1. Создать проект
 
-* Visual Studio → **Windows Forms App (.NET)** (лучше .NET 8/9, если доступно)
-* Имя: `DairyDemo.Auth` (или под ваш проект)
+* Visual Studio → **Windows Forms App (.NET)** (лучше .NET 8/9)
+* Имя: `DairyDemo.Auth` (или ваше)
 
-### 3.2. NuGet пакеты
+### 3.2. NuGet пакеты 
 
-Обязательно:
+**Обязательно:**
 
-* `Npgsql` (драйвер PostgreSQL)
-* `BCrypt.Net-Next` (безопасный хэш паролей)
+* `MySqlConnector` (рекомендуемый драйвер для MySQL в .NET)
+* `BCrypt.Net-Next`
 
-Опционально:
+**Опционально:**
 
-* `Dapper` (если хотите проще SQL-доступ, чем DataReader вручную)
+* `Dapper`
+
 
 ---
 
@@ -159,7 +156,7 @@ WinForms обычно генерирует их сам через визуаль
 
 ### 4.2. Вывод и копирование хэша пароля с использованием TextBox
 
-В процессе администрирования пользователей может возникнуть необходимость получить значение хэша пароля для последующего использования (например, для обновления данных в базе данных через SQL-запрос или включения в отчёт). 
+В процессе администрирования пользователей может возникнуть необходимость получить значение хэша пароля для последующего использования. 
 Использование стандартного окна `MessageBox` или `Console.WriteLine()` не позволяет выделять и копировать текст, поэтому для этих целей применяется временная форма с многострочным элементом управления `TextBox`.
 
 #### Реализация временной формы для отображения хэша пароля
@@ -194,7 +191,7 @@ form.ShowDialog();
 
 #### Использование хэша пароля для обновления данных в базе данных
 
-Скопированный хэш пароля применяется для обновления записи пользователя в таблице `users` базы данных PostgreSQL. Также одновременно выполняется сброс счётчика неудачных попыток входа и снятие блокировки учётной записи.
+Скопированный хэш пароля применяется для обновления записи пользователя в таблице `users`. Также одновременно выполняется сброс счётчика неудачных попыток входа и снятие блокировки учётной записи.
 
 Пример SQL-запроса:
 
@@ -220,54 +217,62 @@ where login = 'Admin';
 
 ### 4.3. Data: `Data/Db.cs`
 
-Для централизованного и унифицированного доступа к базе данных PostgreSQL в проекте используется отдельный статический класс `Db`, расположенный в пространстве имён `DairyDemo.Auth.Data`.
 
-Данный класс инкапсулирует параметры подключения к СУБД и предоставляет единый метод для создания соединения, что упрощает сопровождение кода и исключает дублирование строки подключения в различных частях приложения.
+Для централизованного и унифицированного доступа к базе данных **MySQL** в проекте используется отдельный статический класс `Db`, расположенный в пространстве имён `DairyDemo.Auth.Data`.
 
+Данный класс инкапсулирует параметры подключения к СУБД MySQL и предоставляет единый метод для создания соединения, что:
 
-#### Назначение класса `Db`
+* упрощает сопровождение проекта;
+* исключает дублирование строки подключения;
+* позволяет быстро изменить параметры подключения без изменения бизнес-логики;
+* обеспечивает единообразный доступ к БД во всех слоях приложения.
+
+---
+
+## Назначение класса `Db`
 
 Класс `Db` выполняет следующие функции:
 
-* хранит строку подключения к базе данных PostgreSQL;
-* предоставляет централизованный способ создания объекта `NpgsqlConnection`;
-* упрощает изменение параметров подключения без правок в бизнес-логике;
-* обеспечивает единообразный доступ к БД во всех слоях приложения.
+* хранит строку подключения к базе данных **MySQL**;
+* предоставляет централизованный способ создания объекта `MySqlConnection`;
+* инкапсулирует параметры подключения (сервер, порт, база, пользователь, пароль);
+* обеспечивает единый источник конфигурации доступа к БД.
 
 ```csharp
-using Npgsql;
+using MySqlConnector;
 
 namespace DairyDemo.Auth.Data;
 
 public static class Db
 {
-
+    // Пример для XAMPP:
+    // user: root
+    // password: (часто пустой, если вы не меняли)
+    // host: localhost
+    // database: dairy_demo
     public static string ConnectionString =
-        "Host=localhost;Port=5432;Database=dairy_demo;Username=postgres;Password=root;Search Path=app";
+        "Server=localhost;Port=3306;Database=dairy_demo;Uid=root;Pwd=;SslMode=None;";
 
-    public static NpgsqlConnection CreateConnection()
-        => new NpgsqlConnection(ConnectionString);
+    public static MySqlConnection CreateConnection()
+        => new MySqlConnection(ConnectionString);
 }
 ```
 
-#### Пояснение параметров строки подключения
+## Пояснение параметров строки подключения (MySQL)
 
 В строке подключения используются следующие параметры:
 
-* `Host` — адрес сервера базы данных (в данном случае `localhost`);
-* `Port` — порт, на котором запущен PostgreSQL (стандартно `5432`);
-* `Database` — имя базы данных PostgreSQL;
-* `Username` — имя пользователя СУБД;
-* `Password` — пароль пользователя СУБД;
-* `Search Path` — схема базы данных, в которой расположены таблицы приложения.
-
-Использование параметра `Search Path=app` позволяет обращаться к таблицам без явного указания схемы в SQL-запросах (например, использовать `users` вместо `app.users`).
-
+* `Server` — адрес сервера MySQL (обычно `localhost`);
+* `Port` — порт MySQL (по умолчанию `3306`);
+* `Database` — имя базы данных (например, `dairy_demo`);
+* `Uid` — имя пользователя MySQL (например, `root`);
+* `Pwd` — пароль пользователя MySQL;
+* `SslMode` — режим SSL (для локального XAMPP обычно `None`).
 ---
 
 ### 4.4. Data Model: `Data/Models/User.cs`
 
-Для представления данных пользователя в приложении используется модель `User`, расположенная в каталоге `Data/Models`. Данная модель отражает структуру записи таблицы `users` базы данных PostgreSQL и применяется при передаче данных между слоями доступа к данным, бизнес-логики и пользовательского интерфейса.
+Для представления данных пользователя в приложении используется модель `User`, расположенная в каталоге `Data/Models`. Данная модель отражает структуру записи таблицы `users`  и применяется при передаче данных между слоями доступа к данным, бизнес-логики и пользовательского интерфейса.
 
 #### Назначение модели `User`
 
@@ -314,7 +319,7 @@ public sealed class User
 ### 4.5. Repository: `Data/Repositories/UserRepository.cs`
 
 Для изоляции логики доступа к данным и взаимодействия с базой данных
-PostgreSQL в проекте используется репозиторий `UserRepository`,
+MySQL в проекте используется репозиторий `UserRepository`,
 расположенный в каталоге `Data/Repositories`.
 
 Репозиторий реализует операции чтения и изменения данных пользователей,
@@ -322,8 +327,11 @@ PostgreSQL в проекте используется репозиторий `Us
 позволяет отделить бизнес-логику приложения от деталей хранения данных.
 
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using DairyDemo.Auth.Data.Models;
-using Npgsql;
+using MySqlConnector;
 
 namespace DairyDemo.Auth.Data.Repositories;
 
@@ -335,24 +343,25 @@ public sealed class UserRepository
         await conn.OpenAsync();
 
         const string sql = @"
-select id, login, password_hash, role, failed_attempts, is_locked
-from app.users
-where login = @login;
+SELECT id, login, password_hash, role, failed_attempts, is_locked
+FROM users
+WHERE login = @login
+LIMIT 1;
 ";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("login", login);
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@login", login);
 
         await using var r = await cmd.ExecuteReaderAsync();
         if (!await r.ReadAsync()) return null;
 
         return new User
         {
-            Id = r.GetInt64(0),
-            Login = r.GetString(1),
-            PasswordHash = r.GetString(2),
-            Role = r.GetString(3),
-            FailedAttempts = r.GetInt32(4),
-            IsLocked = r.GetBoolean(5)
+            Id = r.GetInt64("id"),
+            Login = r.GetString("login"),
+            PasswordHash = r.GetString("password_hash"),
+            Role = r.GetString("role"),
+            FailedAttempts = r.GetInt32("failed_attempts"),
+            IsLocked = r.GetBoolean("is_locked")
         };
     }
 
@@ -362,11 +371,11 @@ where login = @login;
         await conn.OpenAsync();
 
         const string sql = @"
-select id, login, password_hash, role, failed_attempts, is_locked
-from app.users
-order by id;
+SELECT id, login, password_hash, role, failed_attempts, is_locked
+FROM users
+ORDER BY id;
 ";
-        await using var cmd = new NpgsqlCommand(sql, conn);
+        await using var cmd = new MySqlCommand(sql, conn);
 
         var list = new List<User>();
         await using var r = await cmd.ExecuteReaderAsync();
@@ -374,14 +383,15 @@ order by id;
         {
             list.Add(new User
             {
-                Id = r.GetInt64(0),
-                Login = r.GetString(1),
-                PasswordHash = r.GetString(2),
-                Role = r.GetString(3),
-                FailedAttempts = r.GetInt32(4),
-                IsLocked = r.GetBoolean(5)
+                Id = r.GetInt64("id"),
+                Login = r.GetString("login"),
+                PasswordHash = r.GetString("password_hash"),
+                Role = r.GetString("role"),
+                FailedAttempts = r.GetInt32("failed_attempts"),
+                IsLocked = r.GetBoolean("is_locked")
             });
         }
+
         return list;
     }
 
@@ -390,11 +400,12 @@ order by id;
         await using var conn = Db.CreateConnection();
         await conn.OpenAsync();
 
-        const string sql = @"select 1 from app.users where login=@login limit 1;";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("login", login);
+        const string sql = @"SELECT 1 FROM users WHERE login = @login LIMIT 1;";
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@login", login);
 
-        return await cmd.ExecuteScalarAsync() != null;
+        var res = await cmd.ExecuteScalarAsync();
+        return res != null;
     }
 
     public async Task AddUserAsync(string login, string passwordHash, string role)
@@ -403,13 +414,14 @@ order by id;
         await conn.OpenAsync();
 
         const string sql = @"
-insert into app.users(login, password_hash, role)
-values (@login, @hash, @role);
+INSERT INTO users (login, password_hash, role)
+VALUES (@login, @hash, @role);
 ";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("login", login);
-        cmd.Parameters.AddWithValue("hash", passwordHash);
-        cmd.Parameters.AddWithValue("role", role);
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@login", login);
+        cmd.Parameters.AddWithValue("@hash", passwordHash);
+        cmd.Parameters.AddWithValue("@role", role);
+
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -419,14 +431,16 @@ values (@login, @hash, @role);
         await conn.OpenAsync();
 
         const string sql = @"
-update app.users
-set login=@login, role=@role
-where id=@id;
+UPDATE users
+SET login = @login,
+    role  = @role
+WHERE id = @id;
 ";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("id", id);
-        cmd.Parameters.AddWithValue("login", login);
-        cmd.Parameters.AddWithValue("role", role);
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.Parameters.AddWithValue("@login", login);
+        cmd.Parameters.AddWithValue("@role", role);
+
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -435,10 +449,11 @@ where id=@id;
         await using var conn = Db.CreateConnection();
         await conn.OpenAsync();
 
-        const string sql = @"update app.users set password_hash=@hash where id=@id;";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("id", id);
-        cmd.Parameters.AddWithValue("hash", passwordHash);
+        const string sql = @"UPDATE users SET password_hash = @hash WHERE id = @id;";
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.Parameters.AddWithValue("@hash", passwordHash);
+
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -447,14 +462,19 @@ where id=@id;
         await using var conn = Db.CreateConnection();
         await conn.OpenAsync();
 
+        // MySQL: boolean обычно хранится как TINYINT(1), поэтому выставляем 1/0.
         const string sql = @"
-update app.users
-set failed_attempts = failed_attempts + 1,
-    is_locked = case when (failed_attempts + 1) >= 3 then true else is_locked end
-where id = @id;
+UPDATE users
+SET failed_attempts = failed_attempts + 1,
+    is_locked = CASE
+        WHEN (failed_attempts + 1) >= 3 THEN 1
+        ELSE is_locked
+    END
+WHERE id = @id;
 ";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("id", userId);
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", userId);
+
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -463,9 +483,10 @@ where id = @id;
         await using var conn = Db.CreateConnection();
         await conn.OpenAsync();
 
-        const string sql = @"update app.users set failed_attempts = 0 where id=@id;";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("id", userId);
+        const string sql = @"UPDATE users SET failed_attempts = 0 WHERE id = @id;";
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", userId);
+
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -474,12 +495,34 @@ where id = @id;
         await using var conn = Db.CreateConnection();
         await conn.OpenAsync();
 
-        const string sql = @"update app.users set failed_attempts=0, is_locked=false where id=@id;";
-        await using var cmd = new NpgsqlCommand(sql, conn);
-        cmd.Parameters.AddWithValue("id", userId);
+        const string sql = @"UPDATE users SET failed_attempts = 0, is_locked = 0 WHERE id = @id;";
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@id", userId);
+
         await cmd.ExecuteNonQueryAsync();
     }
+
+    // (опционально) Удобно получать ID последней вставки при добавлении пользователя.
+    // public async Task<long> AddUserAndReturnIdAsync(string login, string passwordHash, string role)
+    // {
+    //     await using var conn = Db.CreateConnection();
+    //     await conn.OpenAsync();
+    //
+    //     const string sql = @"
+    // INSERT INTO users (login, password_hash, role)
+    // VALUES (@login, @hash, @role);
+    // SELECT LAST_INSERT_ID();
+    // ";
+    //     await using var cmd = new MySqlCommand(sql, conn);
+    //     cmd.Parameters.AddWithValue("@login", login);
+    //     cmd.Parameters.AddWithValue("@hash", passwordHash);
+    //     cmd.Parameters.AddWithValue("@role", role);
+    //
+    //     var id = await cmd.ExecuteScalarAsync();
+    //     return Convert.ToInt64(id);
+    // }
 }
+
 ```
 
 #### Назначение репозитория `UserRepository`
@@ -1521,6 +1564,6 @@ internal static class Program
 
 ## Скачать пример приложения
 
->Внимание! Не заработает без базы данных и установленного postgress.
+>Внимание! Не заработает без базы данных и установленного и запущенного XAMPP.
 
 👉 [Пример готового приложения](../assets/files//main.zip)

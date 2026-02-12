@@ -1231,11 +1231,6 @@ name,inn,address,phone,is_salesman,is_buyer
 1. Откройте таблицу `counterparty`.
 2. Перейдите во вкладку **Browse**.
 
-![Browse table](../assets/images/37.png)
-
-/// caption
-Рисунок 37 – Просмотр импортированных данных
-///
 
 3. Убедитесь, что:
 
@@ -1288,7 +1283,7 @@ name,inn,address,phone,is_salesman,is_buyer
 ![Создание ER-диаграммы](../assets/images/12.png)
 
 /// caption
-Рисунок 38 – Проверка структуры и связей
+Рисунок 37 – Проверка структуры и связей
 ///
 
 ### 5.3. Сохранение результата проверки
@@ -1298,7 +1293,7 @@ name,inn,address,phone,is_salesman,is_buyer
 ![Создание ER-диаграммы](../assets/images/85.png)
 
 /// caption
-Рисунок 39 – Пример фиксации результата (выгрузка в pdf)
+Рисунок 38 – Пример фиксации результата (выгрузка в pdf)
 ///
 
 ### 5.4. Как получить файл

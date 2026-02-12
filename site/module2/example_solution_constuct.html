@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-er-postgresq-pgadmin" class="md-skip">
+        <a href="#2-er-mysql-phpmyadmin" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -499,10 +499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-namespace-app" class="md-nav__link">
+  <a href="#2-app" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Создание схемы (namespace) app
+        2. Логическое разделение app (как аналог схемы)
       
     </span>
   </a>
@@ -526,6 +526,17 @@
     <span class="md-ellipsis">
       
         3.1. COUNTERPARTY (Контрагент)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверка
       
     </span>
   </a>
@@ -602,6 +613,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.5. PRODUCTION_ORDER, PRODUCTION_PRODUCT_LINE, PRODUCTION_MATERIAL_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#production_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_ORDER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production_product_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_PRODUCT_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production_material_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_MATERIAL_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -612,6 +662,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3.6. CUSTOMER_ORDER и CUSTOMER_ORDER_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customer_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUSTOMER_ORDER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer_order_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUSTOMER_ORDER_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -624,6 +702,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.7. COST_CALCULATION и COST_CALCULATION_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost_calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COST_CALCULATION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost_calculation_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COST_CALCULATION_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -632,22 +738,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-json" class="md-nav__link">
+  <a href="#38-foreign-keys-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Импорт Заказчики.json
+        3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Импорт Заказчики.json">
+    <nav class="md-nav" aria-label="3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pgadmin" class="md-nav__link">
+  <a href="#381" class="md-nav__link">
     <span class="md-ellipsis">
       
-        (через конструктор и инструменты pgAdmin)
+        3.8.1. Где настраиваются связи
       
     </span>
   </a>
@@ -655,10 +761,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#41-counterparty_import" class="md-nav__link">
+  <a href="#382-price-item" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1. Создание промежуточной таблицы counterparty_import
+        3.8.2. PRICE → ITEM
       
     </span>
   </a>
@@ -666,77 +772,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-json" class="md-nav__link">
+  <a href="#383-specification-item-counterparty" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Загрузка содержимого файла Заказчики.json в таблицу
+        3.8.3. SPECIFICATION → ITEM, COUNTERPARTY
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-json-counterparty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3. Распаковка JSON и перенос данных в таблицу counterparty
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4. Проверка результата импорта
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#45" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.5. Очистка промежуточной таблицы (по желанию)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#46" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.6. Примечание
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#47-csv" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.7. Практически без кода: импорт через CSV
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.7. Практически без кода: импорт через CSV">
+    <nav class="md-nav" aria-label="3.8.3. SPECIFICATION → ITEM, COUNTERPARTY">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-product_item_id-itemid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Шаги выполнения
+        Связь 1: product_item_id → item(id)
       
     </span>
   </a>
@@ -744,126 +795,310 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2-manufacturer_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: manufacturer_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#384-specification_material-specification-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-specification_id-specificationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: specification_id → specification(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#385-production_order-counterparty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.5. PRODUCTION_ORDER → COUNTERPARTY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#386-production_product_line-production_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-production_order_id-production_orderid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: production_order_id → production_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-product_item_id-itemid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: product_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#387-production_material_line-production_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-production_order_id-production_orderid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: production_order_id → production_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#388-customer_order-counterparty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.8. CUSTOMER_ORDER → COUNTERPARTY
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.8. CUSTOMER_ORDER → COUNTERPARTY">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-executor_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: executor_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-customer_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: customer_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#389-customer_order_line-customer_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-customer_order_id-customer_orderid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: customer_order_id → customer_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-product_item_id-itemid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: product_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3810-cost_calculation-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.10. COST_CALCULATION → ITEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3811-cost_calculation_line-cost_calculation-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cost_calculation_id-cost_calculationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: cost_calculation_id → cost_calculation(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Преимущества способа
+        Проверка корректности связей
       
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#4-json-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Импорт Заказчики.json (только через конструктор phpMyAdmin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Импорт Заказчики.json (только через конструктор phpMyAdmin)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Недостаток
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48-psql-tool-copy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.8. Минимум кода, но корректный импорт файла: PSQL Tool (\copy)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.8. Минимум кода, но корректный импорт файла: PSQL Tool (\copy)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаги выполнения
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Преимущества способа
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ограничение
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Проверка своей базы данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Проверка своей базы данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1. Выбрать БД
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-er-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2. Создание ER-диаграммы
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3. Сохранение диаграммы
+        Важное ограничение
       
     </span>
   </a>
@@ -876,10 +1111,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#41" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Скачать пример готовой базы данных
+        4.1. Подготовка файла
       
     </span>
   </a>
@@ -1503,10 +1738,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-namespace-app" class="md-nav__link">
+  <a href="#2-app" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Создание схемы (namespace) app
+        2. Логическое разделение app (как аналог схемы)
       
     </span>
   </a>
@@ -1530,6 +1765,17 @@
     <span class="md-ellipsis">
       
         3.1. COUNTERPARTY (Контрагент)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверка
       
     </span>
   </a>
@@ -1606,6 +1852,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.5. PRODUCTION_ORDER, PRODUCTION_PRODUCT_LINE, PRODUCTION_MATERIAL_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#production_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_ORDER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production_product_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_PRODUCT_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production_material_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRODUCTION_MATERIAL_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1616,6 +1901,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3.6. CUSTOMER_ORDER и CUSTOMER_ORDER_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customer_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUSTOMER_ORDER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer_order_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUSTOMER_ORDER_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1628,6 +1941,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.7. COST_CALCULATION и COST_CALCULATION_LINE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost_calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COST_CALCULATION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost_calculation_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COST_CALCULATION_LINE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1636,22 +1977,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-json" class="md-nav__link">
+  <a href="#38-foreign-keys-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Импорт Заказчики.json
+        3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Импорт Заказчики.json">
+    <nav class="md-nav" aria-label="3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pgadmin" class="md-nav__link">
+  <a href="#381" class="md-nav__link">
     <span class="md-ellipsis">
       
-        (через конструктор и инструменты pgAdmin)
+        3.8.1. Где настраиваются связи
       
     </span>
   </a>
@@ -1659,10 +2000,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#41-counterparty_import" class="md-nav__link">
+  <a href="#382-price-item" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.1. Создание промежуточной таблицы counterparty_import
+        3.8.2. PRICE → ITEM
       
     </span>
   </a>
@@ -1670,77 +2011,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-json" class="md-nav__link">
+  <a href="#383-specification-item-counterparty" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2. Загрузка содержимого файла Заказчики.json в таблицу
+        3.8.3. SPECIFICATION → ITEM, COUNTERPARTY
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-json-counterparty" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.3. Распаковка JSON и перенос данных в таблицу counterparty
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.4. Проверка результата импорта
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#45" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.5. Очистка промежуточной таблицы (по желанию)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#46" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.6. Примечание
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#47-csv" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.7. Практически без кода: импорт через CSV
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.7. Практически без кода: импорт через CSV">
+    <nav class="md-nav" aria-label="3.8.3. SPECIFICATION → ITEM, COUNTERPARTY">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-product_item_id-itemid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Шаги выполнения
+        Связь 1: product_item_id → item(id)
       
     </span>
   </a>
@@ -1748,126 +2034,310 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2-manufacturer_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: manufacturer_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#384-specification_material-specification-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-specification_id-specificationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: specification_id → specification(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#385-production_order-counterparty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.5. PRODUCTION_ORDER → COUNTERPARTY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#386-production_product_line-production_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-production_order_id-production_orderid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: production_order_id → production_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-product_item_id-itemid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: product_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#387-production_material_line-production_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-production_order_id-production_orderid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: production_order_id → production_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#388-customer_order-counterparty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.8. CUSTOMER_ORDER → COUNTERPARTY
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.8. CUSTOMER_ORDER → COUNTERPARTY">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-executor_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: executor_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-customer_id-counterpartyid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: customer_id → counterparty(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#389-customer_order_line-customer_order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-customer_order_id-customer_orderid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: customer_order_id → customer_order(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-product_item_id-itemid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: product_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3810-cost_calculation-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.10. COST_CALCULATION → ITEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3811-cost_calculation_line-cost_calculation-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cost_calculation_id-cost_calculationid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 1: cost_calculation_id → cost_calculation(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-material_item_id-itemid_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь 2: material_item_id → item(id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Преимущества способа
+        Проверка корректности связей
       
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#4-json-phpmyadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Импорт Заказчики.json (только через конструктор phpMyAdmin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Импорт Заказчики.json (только через конструктор phpMyAdmin)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Недостаток
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#48-psql-tool-copy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.8. Минимум кода, но корректный импорт файла: PSQL Tool (\copy)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.8. Минимум кода, но корректный импорт файла: PSQL Tool (\copy)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаги выполнения
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Преимущества способа
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ограничение
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Проверка своей базы данных
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Проверка своей базы данных">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.1. Выбрать БД
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-er-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2. Создание ER-диаграммы
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.3. Сохранение диаграммы
+        Важное ограничение
       
     </span>
   </a>
@@ -1880,10 +2350,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#41" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Скачать пример готовой базы данных
+        4.1. Подготовка файла
       
     </span>
   </a>
@@ -1907,81 +2377,137 @@
 
 
 
-<h1 id="2-er-postgresq-pgadmin">Модуль 2. Разработка базы данных по ER-диаграмме (PostgreSQ через PgAdmin)</h1>
+<h1 id="2-er-mysql-phpmyadmin">Модуль 2. Разработка базы данных по ER-диаграмме (MySQL через phpMyAdmin)</h1>
 <p><strong>Цель:</strong> создать БД и таблицы по ER, настроить PK/FK/ограничения, затем импортировать <code>Заказчики.json</code>.</p>
 <hr>
 <h2 id="0">0. Важно перед стартом</h2>
 <ul>
 <li>
-<p>Везде ниже используется <strong>один вариант выполнения</strong>: <strong>Конструктор (pgAdmin GUI)</strong></p>
+<p>Везде ниже используется <strong>один вариант выполнения</strong>: <strong>Конструктор (phpMyAdmin GUI)</strong></p>
 </li>
 <li>
-<p>Рекомендуемая структура: схема <code>app</code> (чтобы отделить от <code>public</code>).</p>
+<p>Рекомендуемая структура: используем одну БД <code>dairy_demo</code>.
+  Отдельный namespace <code>app</code> не создаётся — таблицы размещаются внутри базы данных.</p>
 </li>
 </ul>
 <hr>
 <h2 id="1">1. Создание базы данных</h2>
 <ol>
-<li>Откройте <strong>pgAdmin</strong> → подключитесь к серверу.</li>
+<li>Запустите <strong>XAMPP Control Panel</strong>.</li>
 </ol>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/2.png" data-desc-position="bottom"><img alt="подключитесь к серверу" src="../assets/images/2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/xampp-01-open.png" data-desc-position="bottom"><img alt="Открытие XAMPP Control Panel" src="../assets/images/xampp-01-open.png"></a></p>
 <figcaption>
-<p>Рисунок 1 – Подключитесь к серверу</p>
+<p>Рисунок 1 – Открытие XAMPP Control Panel</p>
 </figcaption>
 </figure>
 <ol>
 <li>
-<p>Правый клик по <strong>Databases</strong> → <strong>Create → Database…</strong></p>
+<p>Включите модуль <strong>Apache</strong>:</p>
 </li>
 <li>
-<p><code>Database</code>: <code>dairy_demo</code> (или имя по заданию)</p>
+<p>нажмите кнопку <strong>Start</strong> в строке <strong>Apache</strong>;</p>
 </li>
-<li>
-<p>Owner: ваш пользователь (если доступно)</p>
-</li>
-<li>
-<p>Save.</p>
-</li>
+<li>дождитесь, что статус изменится на <strong>Running</strong> (строка станет активной).</li>
 </ol>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/3.png" data-desc-position="bottom"><img alt="подключитесь к серверу" src="../assets/images/3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/xampp-02-apache-start.png" data-desc-position="bottom"><img alt="Запуск Apache" src="../assets/images/xampp-02-apache-start.png"></a></p>
 <figcaption>
-<p>Рисунок 2 – Создание БД</p>
+<p>Рисунок 2 – Запуск Apache (статус Running)</p>
 </figcaption>
 </figure>
-<p>Подключение:</p>
+<ol>
+<li>
+<p>Включите модуль <strong>MySQL</strong>:</p>
+</li>
+<li>
+<p>нажмите кнопку <strong>Start</strong> в строке <strong>MySQL</strong>;</p>
+</li>
+<li>дождитесь, что статус изменится на <strong>Running</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/xampp-03-mysql-start.png" data-desc-position="bottom"><img alt="Запуск MySQL" src="../assets/images/xampp-03-mysql-start.png"></a></p>
+<figcaption>
+<p>Рисунок 3 – Запуск MySQL (статус Running)</p>
+</figcaption>
+</figure>
+<ol>
+<li>Откройте <strong>phpMyAdmin</strong> одним из способов:</li>
+</ol>
+<p><strong>Вариант A (из XAMPP):</strong></p>
 <ul>
-<li>pgAdmin: выбрать БД в дереве</li>
+<li>нажмите кнопку <strong>Admin</strong> в строке <strong>MySQL</strong>.</li>
 </ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/xampp-04-mysql-admin.png" data-desc-position="bottom"><img alt="Открыть phpMyAdmin через Admin" src="../assets/images/xampp-04-mysql-admin.png"></a></p>
+<figcaption>
+<p>Рисунок 4 – Открытие phpMyAdmin через кнопку Admin</p>
+</figcaption>
+</figure>
+<p><strong>Вариант B (через браузер):</strong></p>
+<ul>
+<li>откройте браузер и перейдите по адресу:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>http://localhost/phpmyadmin/
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/xampp-05-phpmyadmin-url.png" data-desc-position="bottom"><img alt="Открыть phpMyAdmin через браузер" src="../assets/images/xampp-05-phpmyadmin-url.png"></a></p>
+<figcaption>
+<p>Рисунок 5 – Открытие phpMyAdmin через браузер (localhost)</p>
+</figcaption>
+</figure>
+<ol>
+<li>Убедитесь, что phpMyAdmin открылся без ошибок и вы видите главную страницу интерфейса (панель слева + рабочая область справа).</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/phpmyadmin-01-home.png" data-desc-position="bottom"><img alt="Главная страница phpMyAdmin" src="../assets/images/phpmyadmin-01-home.png"></a></p>
+<figcaption>
+<p>Рисунок 6 – Главная страница phpMyAdmin</p>
+</figcaption>
+</figure>
+<ol>
+<li>
+<p>Создайте базу данных:</p>
+</li>
+<li>
+<p>Перейдите на вкладку <strong>Databases</strong> (Базы данных).</p>
+</li>
+<li>В поле <strong>Create database</strong> введите: <code>dairy_demo</code>.</li>
+<li>В поле <strong>Collation</strong> выберите: <code>utf8mb4_unicode_ci</code> (рекомендуется).</li>
+<li>Нажмите <strong>Create</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/6.png" data-desc-position="bottom"><img alt="Создание базы данных dairy_demo" src="../assets/images/6.png"></a></p>
+<figcaption>
+<p>Рисунок 7 – Создание базы данных <code>dairy_demo</code></p>
+</figcaption>
+</figure>
+<ol>
+<li>
+<p>Проверьте, что база данных создана:</p>
+</li>
+<li>
+<p>в левой панели (дереве) появилась БД <strong>dairy_demo</strong>;</p>
+</li>
+<li>при клике по ней открывается вкладка <strong>Structure</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/8.png" data-desc-position="bottom"><img alt="База данных появилась в дереве" src="../assets/images/8.png"></a></p>
+<figcaption>
+<p>Рисунок 8 – База данных <code>dairy_demo</code> появилась в дереве phpMyAdmin</p>
+</figcaption>
+</figure>
 <hr>
-<h2 id="2-namespace-app">2. Создание схемы (namespace) <code>app</code></h2>
-<ol>
-<li>В дереве: <strong>Schemas</strong> → <strong>Create → Schema…</strong></li>
-</ol>
-<figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/4.png" data-desc-position="bottom"><img alt="В дереве: Schemas → Create → Schema…" src="../assets/images/4.png"></a></p>
-<figcaption>
-<p>Рисунок 3 – В дереве: <strong>Schemas</strong> → <strong>Create → Schema…</strong></p>
-</figcaption>
-</figure>
-<ol>
-<li>
-<p>Name: <code>app</code></p>
-</li>
-<li>
-<p>Owner: ваш пользователь</p>
-</li>
-<li>
-<p>Save.</p>
-</li>
-</ol>
-<figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/5.png" data-desc-position="bottom"><img alt="app" src="../assets/images/5.png"></a></p>
-<figcaption>
-<p>Рисунок 4 – app</p>
-</figcaption>
-</figure>
+<blockquote>
+<p>Примечание: если при открытии <code>http://localhost/phpmyadmin/</code> появляется ошибка, проверьте, что <strong>Apache</strong> и <strong>MySQL</strong> действительно в статусе <strong>Running</strong>, и что порты не заняты другими программами (часто конфликтует порт 80 у Apache).</p>
+</blockquote>
+<hr>
+<h2 id="2-app">2. Логическое разделение <code>app</code> (как аналог схемы)</h2>
+<p>Все таблицы создаются в выбранной базе данных <code>dairy_demo</code>.</p>
+<blockquote>
+<p>Если по требованиям нужно визуально отделять таблицы “приложения”, используйте префиксы имён:
+<code>app_counterparty</code>, <code>app_item</code>, <code>app_price</code> и т. д.</p>
+</blockquote>
 <hr>
 <h2 id="3-er-gui">3. Создание таблиц по ER-диаграмме (через GUI)</h2>
 <blockquote>
@@ -1991,63 +2517,186 @@
 <h3 id="31-counterparty">3.1. COUNTERPARTY (Контрагент)</h3>
 <ol>
 <li>
-<p><strong>Schemas → app → Tables → Create → Table…</strong></p>
-<figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/6.png" data-desc-position="bottom"><img alt="**Schemas → app → Tables → Create → Table…**" src="../assets/images/6.png"></a></p>
-<figcaption>
-<p>Рисунок 5 – <strong>Schemas → app → Tables → Create → Table…</strong></p>
-</figcaption>
-</figure>
+<p>Выберите базу данных <code>dairy_demo</code> в левой панели phpMyAdmin.</p>
 </li>
 <li>
-<p>Name: <code>counterparty</code></p>
+<p>Перейдите на вкладку <strong>Structure</strong> (Структура) → нажмите <strong>Create table</strong> (Создать таблицу).</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/6.png" data-desc-position="bottom"><img alt="Create table" src="../assets/images/6.png"></a></p>
+<figcaption>
+<p>Рисунок 9 – Создание таблицы</p>
+</figcaption>
+</figure>
+<ol>
+<li>
+<p>Укажите:</p>
+</li>
+<li>
+<p><strong>Table name:</strong> <code>counterparty</code></p>
+</li>
+<li><strong>Number of columns:</strong> 7</li>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
 <figure>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/7.png" data-desc-position="bottom"><img alt="counterparty" src="../assets/images/7.png"></a></p>
 <figcaption>
-<p>Рисунок 6 – counterparty</p>
+<p>Рисунок 10 – Задание имени таблицы</p>
 </figcaption>
 </figure>
-</li>
-<li>
-<p>Вкладка <strong>Columns</strong> → добавьте:</p>
-<figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/8.png" data-desc-position="bottom"><img alt="Вкладка Columns" src="../assets/images/8.png"></a></p>
-<figcaption>
-<p>Рисунок 7 – Вкладка <strong>Columns</strong></p>
-</figcaption>
-</figure>
-</li>
+<ol>
+<li>Добавьте поля (Columns):</li>
 </ol>
-<p>Создайте:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Length</th>
+<th>Null</th>
+<th>Default</th>
+<th>Index</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>BIGINT</td>
+<td></td>
+<td>NO</td>
+<td></td>
+<td>PRIMARY</td>
+<td>AUTO_INCREMENT</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR</td>
+<td>255</td>
+<td>NO</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>inn</td>
+<td>VARCHAR</td>
+<td>32</td>
+<td>YES</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>VARCHAR</td>
+<td>255</td>
+<td>YES</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>VARCHAR</td>
+<td>64</td>
+<td>YES</td>
+<td>NULL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>is_salesman</td>
+<td>TINYINT</td>
+<td>1</td>
+<td>NO</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>is_buyer</td>
+<td>TINYINT</td>
+<td>1</td>
+<td>NO</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Обратите внимание:</p>
 <ul>
-<li><code>id</code> type: <code>text</code>, <strong>Primary Key</strong></li>
-<li><code>name</code> type: <code>text</code>, <strong>Not null</strong></li>
-<li><code>inn</code> type: <code>text</code></li>
-<li><code>address</code> type: <code>text</code></li>
-<li><code>phone</code> type: <code>text</code></li>
-<li><code>is_salesman</code> type: <code>boolean</code>, default: <code>false</code>, <strong>Not null</strong></li>
 <li>
-<p><code>is_buyer</code> type: <code>boolean</code>, default: <code>false</code>, <strong>Not null</strong></p>
+<p>Для <code>id</code>:</p>
+<ul>
+<li>установите <strong>Index → PRIMARY</strong></li>
+<li>включите <strong>A_I (Auto Increment)</strong></li>
+</ul>
+</li>
+<li>
+<p>Для <code>name</code>:</p>
+<ul>
+<li>снимите флаг <code>Null</code> (то есть NOT NULL)</li>
+</ul>
+</li>
+<li>
+<p>Для <code>is_salesman</code> и <code>is_buyer</code>:</p>
+<ul>
+<li>тип <code>TINYINT(1)</code></li>
+<li>Default = <code>0</code></li>
+<li>NOT NULL</li>
+</ul>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/9.png" data-desc-position="bottom"><img alt="Вкладка Columns" src="../assets/images/9.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/9.png" data-desc-position="bottom"><img alt="Создание таблицы" src="../assets/images/9.png"></a></p>
 <figcaption>
-<p>Рисунок 8 – Вкладка <strong>Columns</strong></p>
+<p>Рисунок 11 – Настройка структуры таблицы <code>counterparty</code></p>
 </figcaption>
 </figure>
 </li>
 <li>
-<p>Вкладка <strong>Constraints</strong> → Primary Key на <code>id</code></p>
+<p>Внизу формы проверьте:</p>
 </li>
 <li>
-<p>Save.</p>
+<p>Storage Engine: <strong>InnoDB</strong></p>
+</li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Нажмите <strong>Save</strong> (или <strong>Go</strong>) для создания таблицы.</p>
 </li>
 </ul>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/10.png" data-desc-position="bottom"><img alt="Вкладка Constraints → Primary Key на id" src="../assets/images/10.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/10.png" data-desc-position="bottom"><img alt="Primary Key" src="../assets/images/10.png"></a></p>
 <figcaption>
-<p>Рисунок 9 – Вкладка <strong>Constraints</strong> → Primary Key на <code>id</code></p>
+<p>Рисунок 12 – Проверка PRIMARY KEY и AUTO_INCREMENT</p>
 </figcaption>
 </figure>
+<hr>
+<h3 id="_1">Проверка</h3>
+<p>После сохранения:</p>
+<ul>
+<li>откройте таблицу <code>counterparty</code></li>
+<li>вкладка <strong>Structure</strong></li>
+<li>
+<p>убедитесь, что:</p>
+</li>
+<li>
+<p>у поля <code>id</code> указан ключ 🔑 PRIMARY</p>
+</li>
+<li>в столбце Extra указано <code>AUTO_INCREMENT</code></li>
+</ul>
+<p>При необходимости можно проверить через SQL:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">counterparty</span><span class="p">;</span>
+</code></pre></div>
+<p>В выводе должно присутствовать:</p>
+<div class="highlight"><pre><span></span><code><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+</code></pre></div>
+<p>и</p>
+<div class="highlight"><pre><span></span><code><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span>
+</code></pre></div>
 <hr>
 <h3 id="32-item">3.2. ITEM (Номенклатура)</h3>
 <ol>
@@ -2057,7 +2706,7 @@
 <li>
 <p>Columns:</p>
 <ul>
-<li><code>id</code> type: <code>bigserial</code>, <strong>PK</strong></li>
+<li><code>id</code> type: BIGINT NOT NULL AUTO_INCREMENT</li>
 <li><code>code</code> type: <code>text</code>, Unique (см. Constraints)</li>
 <li><code>name</code> type: <code>text</code>, Not null</li>
 <li><code>item_type</code> type: <code>text</code>, Not null</li>
@@ -2082,6 +2731,12 @@
 <p>Save.</p>
 </li>
 </ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/61.png" data-desc-position="bottom"><img alt="ITEM" src="../assets/images/61.png"></a></p>
+<figcaption>
+<p>Рисунок 13 – ITEM</p>
+</figcaption>
+</figure>
 <hr>
 <h3 id="33-price-">3.3. PRICE (Прайс-лист)</h3>
 <ol>
@@ -2091,7 +2746,7 @@
 <li>
 <p>Columns:</p>
 <ul>
-<li><code>id</code> bigserial PK</li>
+<li><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</li>
 <li><code>item_id</code> bigint Not null</li>
 <li><code>price</code> numeric(12,2) Not null</li>
 <li><code>effective_from</code> date (optional)</li>
@@ -2117,6 +2772,12 @@
 <p>Save.</p>
 </li>
 </ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/62.png" data-desc-position="bottom"><img alt="PRICE" src="../assets/images/62.png"></a></p>
+<figcaption>
+<p>Рисунок 14 – PRICE</p>
+</figcaption>
+</figure>
 <hr>
 <h3 id="34-specification-specification_material">3.4. SPECIFICATION и SPECIFICATION_MATERIAL</h3>
 <h4 id="specification">SPECIFICATION</h4>
@@ -2127,7 +2788,7 @@
 <li>
 <p>Columns:</p>
 <ul>
-<li><code>id</code> bigserial PK</li>
+<li><code>id</code>   BIGINT NOT NULL AUTO_INCREMENT</li>
 <li><code>name</code> text Not null</li>
 <li><code>product_item_id</code> bigint Not null</li>
 <li><code>output_qty</code> numeric(12,3) Not null default 1</li>
@@ -2149,6 +2810,12 @@
 <p>Save.</p>
 </li>
 </ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/63.png" data-desc-position="bottom"><img alt="PSPECIFICATIONE" src="../assets/images/63.png"></a></p>
+<figcaption>
+<p>Рисунок 15 – SPECIFICATION</p>
+</figcaption>
+</figure>
 <h4 id="specification_material">SPECIFICATION_MATERIAL</h4>
 <ol>
 <li>
@@ -2157,7 +2824,7 @@
 <li>
 <p>Columns:</p>
 <ul>
-<li><code>id</code> bigserial PK</li>
+<li><code>id</code>   BIGINT NOT NULL AUTO_INCREMENT</li>
 <li><code>specification_id</code> bigint Not null</li>
 <li><code>material_item_id</code> bigint Not null</li>
 <li><code>qty</code> numeric(12,3) Not null</li>
@@ -2184,307 +2851,1059 @@
 <p>Save.</p>
 </li>
 </ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/64.png" data-desc-position="bottom"><img alt="SPECIFICATION_MATERIAL" src="../assets/images/64.png"></a></p>
+<figcaption>
+<p>Рисунок 16 – SPECIFICATION_MATERIAL</p>
+</figcaption>
+</figure>
 <hr>
 <h3 id="35-production_order-production_product_line-production_material_line">3.5. PRODUCTION_ORDER, PRODUCTION_PRODUCT_LINE, PRODUCTION_MATERIAL_LINE</h3>
 <p>Создайте три таблицы по аналогии с предыдущими:</p>
+<h4 id="production_order">PRODUCTION_ORDER</h4>
+<ol>
+<li>
+<p>Table <code>production_order</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>doc_no</code> VARCHAR(64) NOT NULL</li>
+<li><code>doc_date</code> DATE NULL</li>
+<li><code>manufacturer_id</code> BIGINT NULL</li>
+<li>
+<p><code>note</code> TEXT NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>
+<p>Index: <code>idx_prodorder_manufacturer</code> on (<code>manufacturer_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>manufacturer_id</code> → <code>counterparty(id)</code></p>
 <ul>
-<li>сначала <code>production_order</code> (PK),</li>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/65.png" data-desc-position="bottom"><img alt="PRODUCTION_ORDER" src="../assets/images/65.png"></a></p>
+<figcaption>
+<p>Рисунок 17 – PRODUCTION_ORDER</p>
+</figcaption>
+</figure>
+<ul>
 <li>затем <code>production_product_line</code> и <code>production_material_line</code> (FK на <code>production_order</code> и <code>item</code>),</li>
 <li>обязательно выставьте <code>ON DELETE CASCADE</code> на строках документа.</li>
 </ul>
-<hr>
-<h3 id="36-customer_order-customer_order_line">3.6. CUSTOMER_ORDER и CUSTOMER_ORDER_LINE</h3>
-<ul>
-<li><code>customer_order</code>: поля шапки + два FK на <code>counterparty</code></li>
-<li><code>customer_order_line</code>: FK на <code>customer_order</code> (CASCADE) + FK на <code>item</code></li>
-</ul>
-<hr>
-<h3 id="37-cost_calculation-cost_calculation_line">3.7. COST_CALCULATION и COST_CALCULATION_LINE</h3>
-<p>Аналогично: “шапка” + “строки”, на строках <code>ON DELETE CASCADE</code>.</p>
-<hr>
-<h2 id="4-json">4. Импорт <code>Заказчики.json</code></h2>
-<h3 id="pgadmin">(через конструктор и инструменты pgAdmin)</h3>
-<p>На практике <strong>pgAdmin не поддерживает прямой импорт JSON-файла сразу в колонки таблицы</strong> (в отличие от CSV). Поэтому импорт выполняется <strong>в два этапа</strong>:</p>
-<ol>
-<li>загрузка JSON целиком во временную (промежуточную) таблицу;</li>
-<li>распаковка JSON и перенос данных в рабочую таблицу <code>counterparty</code>.</li>
-</ol>
-<hr>
-<h3 id="41-counterparty_import">4.1. Создание промежуточной таблицы <code>counterparty_import</code></h3>
+<h4 id="production_product_line">PRODUCTION_PRODUCT_LINE</h4>
 <ol>
 <li>
-<p>В дереве pgAdmin откройте:</p>
-<p><strong>Schemas → app → Tables → Create → Table…</strong></p>
+<p>Table <code>production_product_line</code></p>
 </li>
 <li>
-<p>Укажите параметры таблицы:</p>
-<ul>
-<li><strong>Name:</strong> <code>counterparty_import</code></li>
-<li><strong>Schema:</strong> <code>app</code></li>
-</ul>
+<p>Columns:</p>
 </li>
 <li>
-<p>Перейдите на вкладку <strong>Columns</strong> и создайте колонку:</p>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>production_order_id</code> BIGINT NOT NULL</li>
+<li><code>product_item_id</code> BIGINT NOT NULL</li>
+<li><code>qty</code> DECIMAL(12,3) NOT NULL</li>
+<li>
+<p><code>unit</code> VARCHAR(32) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>Index: <code>idx_prodprod_order</code> on (<code>production_order_id</code>)</li>
+<li>
+<p>Index: <code>idx_prodprod_item</code> on (<code>product_item_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>production_order_id</code> → <code>production_order(id)</code></p>
 <ul>
-<li><strong>Name:</strong> <code>payload</code></li>
-<li><strong>Data type:</strong> <code>jsonb</code></li>
-<li><strong>Not null:</strong> ✔ (включено)</li>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE CASCADE</li>
 </ul>
 </li>
 <li>
-<p>Сохраните таблицу (<strong>Save</strong>).</p>
-</li>
-</ol>
-<blockquote>
-<p>Назначение таблицы <code>counterparty_import</code> — временно хранить <strong>исходный JSON целиком</strong>, без разборки по полям.</p>
-</blockquote>
-<hr>
-<h3 id="42-json">4.2. Загрузка содержимого файла <code>Заказчики.json</code> в таблицу</h3>
-<ol>
-<li>
-<p>Откройте <strong>Query Tool</strong>:</p>
+<p><code>product_item_id</code> → <code>item(id)</code></p>
 <ul>
-<li>правый клик по базе данных или схеме <code>app</code> → <strong>Query Tool</strong></li>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
 </ul>
 </li>
 <li>
-<p>Откройте файл <code>Заказчики.json</code> в любом текстовом редакторе
-   (например, Notepad++, VS Code).</p>
+<p>Recommended constraint (контроль бизнес-логики):</p>
 </li>
 <li>
-<p><strong>Выделите и скопируйте весь файл целиком</strong>, включая:</p>
-<ul>
-<li>квадратные скобки <code>[</code> <code>]</code>,</li>
-<li>все объекты,</li>
-<li>все запятые и кавычки.</li>
-</ul>
+<p>Check: <code>qty &gt; 0</code>
+     <em>(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контролируется на уровне приложения)</em></p>
 </li>
 <li>
-<p>В Query Tool выполните запрос вставки:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty_import</span><span class="w"> </span><span class="p">(</span><span class="ss">"payload "</span><span class="p">)</span>
-<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
-<span class="err">$$</span><span class="w"> </span><span class="s1">'&lt;вставьте содержимое JSON целиком&gt;'</span><span class="err">$$</span><span class="p">::</span><span class="n">jsonb</span>
-<span class="p">);</span>
-</code></pre></div>
-<p>Текст из Заказчики.json вставляем вместо: &lt;вставьте содержимое JSON целиком&gt;</p>
-<ol>
-<li>
-<p>Убедитесь, что запрос выполнился без ошибок
-   (сообщение <code>INSERT 0 1</code> или аналогичное).</p>
+<p>Storage:</p>
 </li>
 <li>
-<p>При необходимости проверьте, что данные загружены:</p>
+<p>Engine: <code>InnoDB</code></p>
 </li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">payload</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty_import</span><span class="p">;</span>
-</code></pre></div>
-<blockquote>
-<p>На этом этапе <strong>в таблице одна строка</strong>, а в поле <code>payload</code> хранится <strong>весь JSON-массив</strong>.</p>
-</blockquote>
-<hr>
-<h3 id="43-json-counterparty">4.3. Распаковка JSON и перенос данных в таблицу <code>counterparty</code></h3>
-<p>Файл <code>Заказчики.json</code>, как правило, содержит <strong>массив объектов</strong>, например:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C001"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ООО Ромашка"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"inn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7701234567"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"г. Москва"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+7..."</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="err">...</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>Чтобы превратить каждый объект массива в отдельную строку таблицы <code>counterparty</code>, используется функция <code>jsonb_array_elements</code>.</p>
-<ol>
-<li>В <strong>Query Tool</strong> выполните запрос распаковки:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="p">,</span>
-<span class="w">    </span><span class="n">name</span><span class="p">,</span>
-<span class="w">    </span><span class="n">inn</span><span class="p">,</span>
-<span class="w">    </span><span class="n">address</span><span class="p">,</span>
-<span class="w">    </span><span class="n">phone</span><span class="p">,</span>
-<span class="w">    </span><span class="n">is_salesman</span><span class="p">,</span>
-<span class="w">    </span><span class="n">is_buyer</span>
-<span class="p">)</span>
-<span class="k">SELECT</span>
-<span class="w">    </span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'id'</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
-<span class="w">    </span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'name'</span><span class="w">      </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
-<span class="w">    </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'inn'</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">inn</span><span class="p">,</span>
-<span class="w">    </span><span class="k">NULLIF</span><span class="p">(</span>
-<span class="w">        </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'addres'</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'address'</span><span class="p">),</span>
-<span class="w">        </span><span class="s1">''</span>
-<span class="w">    </span><span class="p">)</span><span class="w">               </span><span class="k">AS</span><span class="w"> </span><span class="n">address</span><span class="p">,</span>
-<span class="w">    </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'phone'</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">phone</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COALESCE</span><span class="p">((</span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'salesman'</span><span class="p">)::</span><span class="nb">BOOLEAN</span><span class="p">,</span><span class="w"> </span><span class="k">FALSE</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">is_salesman</span><span class="p">,</span>
-<span class="w">    </span><span class="k">COALESCE</span><span class="p">((</span><span class="n">e</span><span class="o">-&gt;&gt;</span><span class="s1">'buyer'</span><span class="p">)::</span><span class="nb">BOOLEAN</span><span class="p">,</span><span class="w"> </span><span class="k">FALSE</span><span class="p">)</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">is_buyer</span>
-<span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">jsonb_array_elements</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty_import</span>
-<span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
-</code></pre></div>
-<ol>
+<li>Charset: <code>utf8mb4</code></li>
 <li>
-<p>Назначение основных операций:</p>
-<ul>
-<li><code>jsonb_array_elements(payload)</code> — разбивает JSON-массив на отдельные элементы;</li>
-<li><code>e-&gt;&gt;'field'</code> — извлекает значение поля как текст;</li>
-<li><code>NULLIF(..., '')</code> — заменяет пустые строки на <code>NULL</code>;</li>
-<li><code>COALESCE(...)</code> — подставляет значение по умолчанию, если поле отсутствует;</li>
-<li>приведение <code>::BOOLEAN</code> — корректно обрабатывает логические значения.</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="44">4.4. Проверка результата импорта</h3>
-<ol>
-<li>Убедитесь, что строки появились в основной таблице:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty</span><span class="p">;</span>
-</code></pre></div>
-<ol>
-<li>Просмотрите несколько записей:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</code></pre></div>
-<ol>
-<li>
-<p>Также можно проверить данные через интерфейс pgAdmin:</p>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
 </li>
 <li>
-<p>правый клик по таблице <code>counterparty</code></p>
-</li>
-<li><strong>View/Edit Data → All Rows</strong></li>
-</ol>
-<hr>
-<h3 id="45">4.5. Очистка промежуточной таблицы (по желанию)</h3>
-<p>После успешного импорта промежуточная таблица может быть:</p>
-<ul>
-<li>очищена:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty_import</span><span class="p">;</span>
-</code></pre></div>
-<ul>
-<li>или оставлена для повторных импортов / отладки.</li>
-</ul>
-<hr>
-<h3 id="46">4.6. Примечание</h3>
-<blockquote>
-<p>Если файл <code>Заказчики.json</code> <strong>очень большой</strong>, рекомендуется использовать загрузку через <code>psql \copy</code>, так как она работает быстрее и надёжнее.
-Однако в рамках данного документа <strong>рассмотрен только вариант через интерфейс pgAdmin и Query Tool</strong>, без использования командной строки.</p>
-</blockquote>
-<hr>
-<h3 id="47-csv">4.7. Практически без кода: импорт через CSV</h3>
-<p><em>(pgAdmin Import/Export)</em></p>
-<p>pgAdmin поддерживает импорт данных <strong>из CSV-файлов через графический интерфейс</strong>, но <strong>не поддерживает прямой импорт JSON</strong>.
-Поэтому наиболее простой и «безкодовочный» способ — <strong>предварительно конвертировать JSON в CSV</strong> и выполнить импорт стандартными средствами pgAdmin.</p>
-<h4 id="_1">Шаги выполнения</h4>
-<ol>
-<li>Конвертируйте файл <code>Заказчики.json</code> в формат <code>Заказчики.csv</code>.</li>
-</ol>
-<p>Допускается использование:</p>
-<ul>
-<li>Microsoft Excel (через Power Query);</li>
-<li>LibreOffice Calc;</li>
-<li>любого локального инструмента конвертации.</li>
-</ul>
-<p>В CSV-файле каждая строка должна соответствовать <strong>одному заказчику</strong>, а названия столбцов — полям таблицы <code>counterparty</code>.</p>
-<ol>
-<li>
-<p>В pgAdmin выполните импорт:</p>
-</li>
-<li>
-<p>правый клик по таблице <strong><code>app.counterparty</code></strong>;</p>
-</li>
-<li>выберите <strong>Import/Export Data…</strong>;</li>
-<li>вкладка <strong>Import</strong>;</li>
-<li>укажите путь к файлу <code>Заказчики.csv</code>;</li>
-<li>установите флаг <strong>Header</strong> (если первая строка содержит заголовки);</li>
-<li>проверьте кодировку (обычно <code>UTF-8</code>);</li>
-<li>при необходимости настройте разделитель (<code>;</code> или <code>,</code>);</li>
-<li>
-<p>подтвердите импорт (<strong>OK</strong>).</p>
-</li>
-<li>
-<p>После завершения импорта проверьте результат:</p>
+<p>Save.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty</span><span class="p">;</span>
-</code></pre></div>
-<h4 id="_2">Преимущества способа</h4>
-<ul>
-<li>минимальное использование SQL (фактически отсутствует);</li>
-<li>полностью графический интерфейс;</li>
-<li>устойчиво работает с большими объёмами данных.</li>
-</ul>
-<h4 id="_3">Недостаток</h4>
-<ul>
-<li>требуется предварительная конвертация файла JSON в CSV.</li>
-</ul>
-<hr>
-<h3 id="48-psql-tool-copy">4.8. Минимум кода, но корректный импорт файла: PSQL Tool (<code>\copy</code>)</h3>
-<p>Данный способ сочетает <strong>надёжность</strong> и <strong>минимальный объём команд</strong>, но выполняется <strong>через встроенный PSQL Tool pgAdmin</strong>, а не через Query Tool.</p>
-<h4 id="_4">Шаги выполнения</h4>
-<ol>
-<li>В pgAdmin откройте меню <strong>Tools → PSQL Tool</strong>.</li>
-<li>В открывшемся терминале выполните команду:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="k">copy</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">counterparty_import</span><span class="p">(</span><span class="n">payloadjsonb</span><span class="p">)</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s1">'C:/path/to/Заказчики.json'</span>
-<span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">FORMAT</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Путь к файлу указывается <strong>на стороне клиента</strong>, то есть на компьютере, где запущен pgAdmin.</p>
-</blockquote>
-<ol>
-<li>После успешной загрузки выполните <strong>распаковку JSON</strong> в таблицу <code>counterparty</code>
-   (используется запрос из пункта <strong>4.3</strong>).</li>
-</ol>
-<h4 id="_5">Преимущества способа</h4>
-<ul>
-<li>самый надёжный вариант для файлов JSON;</li>
-<li>корректно работает с большими файлами;</li>
-<li>минимальное количество SQL-кода.</li>
-</ul>
-<h4 id="_6">Ограничение</h4>
-<ul>
-<li>используется командный режим (<code>psql</code>), что может быть запрещено или ограничено в некоторых учебных средах.</li>
-</ul>
-<hr>
-<h2 id="5">5. Проверка своей базы данных</h2>
-<p>Для проверки свой БД после создания таблиц создайте ER-диагамму средствами Postgress для сравнения, что вы ничего не забыли. </p>
-<h3 id="51">5.1. Выбрать БД</h3>
-<p>Нажимите на своей БД правой клавишей мыши. </p>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/11.png" data-desc-position="bottom"><img alt="Проверка своей базы данных" src="../assets/images/11.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/66.png" data-desc-position="bottom"><img alt="PRODUCTION_PRODUCT_LINE" src="../assets/images/66.png"></a></p>
 <figcaption>
-<p>Рисунок 10 – Проверка своей базы данных</p>
+<p>Рисунок 18 – PRODUCTION_PRODUCT_LINE</p>
 </figcaption>
 </figure>
-<h3 id="52-er-">5.2. Создание ER-диаграммы</h3>
+<h4 id="production_material_line">PRODUCTION_MATERIAL_LINE</h4>
+<ol>
+<li>
+<p>Table <code>production_material_line</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>production_order_id</code> BIGINT NOT NULL</li>
+<li><code>material_item_id</code> BIGINT NOT NULL</li>
+<li><code>qty</code> DECIMAL(12,3) NOT NULL</li>
+<li>
+<p><code>unit</code> VARCHAR(32) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>Index: <code>idx_prodmat_order</code> on (<code>production_order_id</code>)</li>
+<li>
+<p>Index: <code>idx_prodmat_item</code> on (<code>material_item_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>production_order_id</code> → <code>production_order(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE CASCADE</li>
+</ul>
+</li>
+<li>
+<p><code>material_item_id</code> → <code>item(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Recommended constraint (контроль бизнес-логики):</p>
+</li>
+<li>
+<p>Check: <code>qty &gt; 0</code>
+     <em>(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контроль реализуется на уровне приложения)</em></p>
+</li>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/67.png" data-desc-position="bottom"><img alt="PRODUCTION_MATERIAL_LINE" src="../assets/images/67.png"></a></p>
+<figcaption>
+<p>Рисунок 19 – PRODUCTION_MATERIAL_LINE</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="36-customer_order-customer_order_line">3.6. CUSTOMER_ORDER и CUSTOMER_ORDER_LINE</h3>
+<h4 id="customer_order">CUSTOMER_ORDER</h4>
+<ol>
+<li>
+<p>Table <code>customer_order</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>doc_no</code> VARCHAR(64) NOT NULL</li>
+<li><code>doc_date</code> DATE NULL</li>
+<li><code>executor_id</code> BIGINT NULL</li>
+<li><code>customer_id</code> BIGINT NULL</li>
+<li>
+<p><code>total_amount</code> DECIMAL(12,2) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>Index: <code>idx_custorder_executor</code> on (<code>executor_id</code>)</li>
+<li>
+<p>Index: <code>idx_custorder_customer</code> on (<code>customer_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>executor_id</code> → <code>counterparty(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p><code>customer_id</code> → <code>counterparty(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Recommended constraints (контроль бизнес-логики):</p>
+</li>
+<li>
+<p><code>total_amount &gt;= 0</code>
+     <em>(если используется MySQL 8.0.16+ можно добавить CHECK, иначе контроль реализуется на уровне приложения)</em></p>
+</li>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/68.png" data-desc-position="bottom"><img alt="CUSTOMER_ORDER" src="../assets/images/68.png"></a></p>
+<figcaption>
+<p>Рисунок 20 – CUSTOMER_ORDER</p>
+</figcaption>
+</figure>
+<h4 id="customer_order_line">CUSTOMER_ORDER_LINE</h4>
+<ol>
+<li>
+<p>Table <code>customer_order_line</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>customer_order_id</code> BIGINT NOT NULL</li>
+<li><code>product_item_id</code> BIGINT NOT NULL</li>
+<li><code>qty</code> DECIMAL(12,3) NOT NULL</li>
+<li><code>unit</code> VARCHAR(32) NULL</li>
+<li><code>unit_price</code> DECIMAL(12,2) NULL</li>
+<li>
+<p><code>line_amount</code> DECIMAL(12,2) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>Index: <code>idx_custline_order</code> on (<code>customer_order_id</code>)</li>
+<li>
+<p>Index: <code>idx_custline_item</code> on (<code>product_item_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>customer_order_id</code> → <code>customer_order(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE CASCADE</li>
+</ul>
+</li>
+<li>
+<p><code>product_item_id</code> → <code>item(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Recommended constraints (контроль бизнес-логики):</p>
+</li>
+<li>
+<p><code>qty &gt; 0</code></p>
+</li>
+<li><code>unit_price &gt;= 0</code></li>
+<li><code>line_amount &gt;= 0</code></li>
+</ol>
+<p><em>(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)</em></p>
+<ol>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/69.png" data-desc-position="bottom"><img alt="CUSTOMER_ORDER_LINE" src="../assets/images/69.png"></a></p>
+<figcaption>
+<p>Рисунок 21 – CUSTOMER_ORDER_LINE</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="37-cost_calculation-cost_calculation_line">3.7. COST_CALCULATION и COST_CALCULATION_LINE</h3>
+<h4 id="cost_calculation">COST_CALCULATION</h4>
+<ol>
+<li>
+<p>Table <code>cost_calculation</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>calc_date</code> DATE NULL</li>
+<li><code>product_item_id</code> BIGINT NOT NULL</li>
+<li><code>product_qty</code> DECIMAL(12,3) NOT NULL DEFAULT 1.000</li>
+<li>
+<p><code>total_cost</code> DECIMAL(12,2) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>
+<p>Index: <code>idx_costcalc_product</code> on (<code>product_item_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>product_item_id</code> → <code>item(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Recommended constraints (контроль бизнес-логики):</p>
+</li>
+<li>
+<p><code>product_qty &gt; 0</code></p>
+</li>
+<li><code>total_cost &gt;= 0</code></li>
+</ol>
+<p><em>(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)</em></p>
+<ol>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/70.png" data-desc-position="bottom"><img alt="COST_CALCULATION" src="../assets/images/70.png"></a></p>
+<figcaption>
+<p>Рисунок 22 – CUSTOMER_ORDER_LINE</p>
+</figcaption>
+</figure>
+<h4 id="cost_calculation_line">COST_CALCULATION_LINE</h4>
+<ol>
+<li>
+<p>Table <code>cost_calculation_line</code></p>
+</li>
+<li>
+<p>Columns:</p>
+</li>
+<li>
+<p><code>id</code> BIGINT NOT NULL AUTO_INCREMENT</p>
+</li>
+<li><code>cost_calculation_id</code> BIGINT NOT NULL</li>
+<li><code>material_item_id</code> BIGINT NOT NULL</li>
+<li><code>qty</code> DECIMAL(12,3) NOT NULL</li>
+<li><code>unit</code> VARCHAR(32) NULL</li>
+<li><code>unit_cost</code> DECIMAL(12,2) NULL</li>
+<li>
+<p><code>line_cost</code> DECIMAL(12,2) NULL</p>
+</li>
+<li>
+<p>Indexes:</p>
+</li>
+<li>
+<p>Primary Key: <code>id</code></p>
+</li>
+<li>Index: <code>idx_costline_calc</code> on (<code>cost_calculation_id</code>)</li>
+<li>
+<p>Index: <code>idx_costline_item</code> on (<code>material_item_id</code>)</p>
+</li>
+<li>
+<p>FK:</p>
+</li>
+<li>
+<p><code>cost_calculation_id</code> → <code>cost_calculation(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE CASCADE</li>
+</ul>
+</li>
+<li>
+<p><code>material_item_id</code> → <code>item(id)</code></p>
+<ul>
+<li>ON UPDATE CASCADE</li>
+<li>ON DELETE RESTRICT</li>
+</ul>
+</li>
+<li>
+<p>Recommended constraints (контроль бизнес-логики):</p>
+</li>
+<li>
+<p><code>qty &gt; 0</code></p>
+</li>
+<li><code>unit_cost &gt;= 0</code></li>
+<li><code>line_cost &gt;= 0</code></li>
+</ol>
+<p><em>(если используется MySQL 8.0.16+ можно добавить CHECK; иначе контроль реализуется на уровне приложения)</em></p>
+<ol>
+<li>
+<p>Storage:</p>
+</li>
+<li>
+<p>Engine: <code>InnoDB</code></p>
+</li>
+<li>Charset: <code>utf8mb4</code></li>
+<li>
+<p>Collation: <code>utf8mb4_unicode_ci</code></p>
+</li>
+<li>
+<p>Save.</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/71.png" data-desc-position="bottom"><img alt=" COST_CALCULATION_LINE" src="../assets/images/71.png"></a></p>
+<figcaption>
+<p>Рисунок 23 – CUSTOMER_ORDER_LINE</p>
+</figcaption>
+</figure>
+<p>Ниже — раздел <strong>3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin</strong>
+с добавленными иллюстрациями. Нумерация рисунков начинается с <strong>24</strong>.</p>
+<hr>
+<h2 id="38-foreign-keys-phpmyadmin">3.8. Связывание таблиц (Foreign Keys) через конструктор phpMyAdmin</h2>
+<hr>
+<h3 id="381">3.8.1. Где настраиваются связи</h3>
+<ol>
+<li>Откройте таблицу (например, <code>price</code>).</li>
+<li>Перейдите во вкладку <strong>Structure</strong>.</li>
+<li>Внизу страницы нажмите <strong>Relation view</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/72.png" data-desc-position="bottom"><img alt="Relation view" src="../assets/images/72.png"></a></p>
+<figcaption>
+<p>Рисунок 24 – Переход к вкладке Relation view</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="382-price-item">3.8.2. PRICE → ITEM</h3>
+<p><code>ON UPDATE CASCADE</code>
+<code>ON DELETE RESTRICT</code></p>
+<ol>
+<li>Таблица: <code>price</code></li>
+<li>
+<p>Relation view → добавьте:</p>
+</li>
+<li>
+<p>Column: <code>item_id</code></p>
+</li>
+<li>Referenced table: <code>item</code></li>
+<li>Referenced column: <code>id</code></li>
+<li>ON UPDATE: <code>CASCADE</code></li>
+<li>ON DELETE: <code>RESTRICT</code></li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/73.png" data-desc-position="bottom"><img alt="FK price-item" src="../assets/images/73.png"></a></p>
+<figcaption>
+<p>Рисунок 25 – Связь price → item</p>
+</figcaption>
+</figure>
+<p>Нажмите <strong>Save</strong>.</p>
+<hr>
+<h3 id="383-specification-item-counterparty">3.8.3. SPECIFICATION → ITEM, COUNTERPARTY</h3>
+<p>Таблица: <code>specification</code> → Relation view</p>
+<h4 id="1-product_item_id-itemid">Связь 1: product_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<h4 id="2-manufacturer_id-counterpartyid">Связь 2: manufacturer_id → counterparty(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/74.png" data-desc-position="bottom"><img alt="FK specification" src="../assets/images/74.png"></a></p>
+<figcaption>
+<p>Рисунок 26 – Связи specification</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="384-specification_material-specification-item">3.8.4. SPECIFICATION_MATERIAL → SPECIFICATION, ITEM</h3>
+<p>Таблица: <code>specification_material</code> → Relation view</p>
+<h4 id="1-specification_id-specificationid">Связь 1: specification_id → specification(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: CASCADE</li>
+</ul>
+<h4 id="2-material_item_id-itemid">Связь 2: material_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/75.png" data-desc-position="bottom"><img alt="FK specification_material" src="../assets/images/75.png"></a></p>
+<figcaption>
+<p>Рисунок 27 – Связи specification_material</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="385-production_order-counterparty">3.8.5. PRODUCTION_ORDER → COUNTERPARTY</h3>
+<p>Таблица: <code>production_order</code> → Relation view</p>
+<p>Связь:</p>
+<ul>
+<li>manufacturer_id → counterparty(id)</li>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/76.png" data-desc-position="bottom"><img alt="FK production_order" src="../assets/images/76.png"></a></p>
+<figcaption>
+<p>Рисунок 28 – Связь production_order</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="386-production_product_line-production_order-item">3.8.6. PRODUCTION_PRODUCT_LINE → PRODUCTION_ORDER, ITEM</h3>
+<p>Таблица: <code>production_product_line</code> → Relation view</p>
+<h4 id="1-production_order_id-production_orderid">Связь 1: production_order_id → production_order(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: CASCADE</li>
+</ul>
+<h4 id="2-product_item_id-itemid">Связь 2: product_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/77.png" data-desc-position="bottom"><img alt="FK production_product_line" src="../assets/images/77.png"></a></p>
+<figcaption>
+<p>Рисунок 29 – Связи production_product_line</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="387-production_material_line-production_order-item">3.8.7. PRODUCTION_MATERIAL_LINE → PRODUCTION_ORDER, ITEM</h3>
+<p>Таблица: <code>production_material_line</code> → Relation view</p>
+<h4 id="1-production_order_id-production_orderid_1">Связь 1: production_order_id → production_order(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: CASCADE</li>
+</ul>
+<h4 id="2-material_item_id-itemid_1">Связь 2: material_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/78.png" data-desc-position="bottom"><img alt="FK production_material_line" src="../assets/images/78.png"></a></p>
+<figcaption>
+<p>Рисунок 30 – Связи production_material_line</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="388-customer_order-counterparty">3.8.8. CUSTOMER_ORDER → COUNTERPARTY</h3>
+<p>Таблица: <code>customer_order</code> → Relation view</p>
+<h4 id="1-executor_id-counterpartyid">Связь 1: executor_id → counterparty(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<h4 id="2-customer_id-counterpartyid">Связь 2: customer_id → counterparty(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/79.png" data-desc-position="bottom"><img alt="FK customer_order" src="../assets/images/79.png"></a></p>
+<figcaption>
+<p>Рисунок 31 – Связи customer_order</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="389-customer_order_line-customer_order-item">3.8.9. CUSTOMER_ORDER_LINE → CUSTOMER_ORDER, ITEM</h3>
+<p>Таблица: <code>customer_order_line</code> → Relation view</p>
+<h4 id="1-customer_order_id-customer_orderid">Связь 1: customer_order_id → customer_order(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: CASCADE</li>
+</ul>
+<h4 id="2-product_item_id-itemid_1">Связь 2: product_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/80.png" data-desc-position="bottom"><img alt="FK customer_order_line" src="../assets/images/80.png"></a></p>
+<figcaption>
+<p>Рисунок 32 – Связи customer_order_line</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="3810-cost_calculation-item">3.8.10. COST_CALCULATION → ITEM</h3>
+<p>Таблица: <code>cost_calculation</code> → Relation view</p>
+<ul>
+<li>product_item_id → item(id)</li>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/81.png" data-desc-position="bottom"><img alt="FK cost_calculation" src="../assets/images/81.png"></a></p>
+<figcaption>
+<p>Рисунок 33 – Связь cost_calculation</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="3811-cost_calculation_line-cost_calculation-item">3.8.11. COST_CALCULATION_LINE → COST_CALCULATION, ITEM</h3>
+<p>Таблица: <code>cost_calculation_line</code> → Relation view</p>
+<h4 id="1-cost_calculation_id-cost_calculationid">Связь 1: cost_calculation_id → cost_calculation(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: CASCADE</li>
+</ul>
+<h4 id="2-material_item_id-itemid_2">Связь 2: material_item_id → item(id)</h4>
+<ul>
+<li>ON UPDATE: CASCADE</li>
+<li>ON DELETE: RESTRICT</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/82.png" data-desc-position="bottom"><img alt="FK cost_calculation_line" src="../assets/images/82.png"></a></p>
+<figcaption>
+<p>Рисунок 34 – Связи cost_calculation_line</p>
+</figcaption>
+</figure>
+<hr>
+<h2 id="_2">Проверка корректности связей</h2>
+<p>После создания всех связей:</p>
+<ol>
+<li>Откройте таблицу → <strong>Structure</strong></li>
+<li>Перейдите в <strong>Relation view</strong></li>
+<li>Убедитесь, что отображаются все Foreign Key ограничения</li>
+</ol>
+<p>Дополнительно можно проверить через SQL:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">production_product_line</span><span class="p">;</span>
+</code></pre></div>
+<p>В выводе должны присутствовать строки:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="p">...</span>
+<span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span>
+<span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">RESTRICT</span>
+</code></pre></div>
+<hr>
+<h2 id="4-json-phpmyadmin">4. Импорт <code>Заказчики.json</code> (только через конструктор phpMyAdmin)</h2>
+<blockquote>
+<p>В данном разделе используется <strong>исключительно графический интерфейс phpMyAdmin</strong>,
+без вкладки SQL и без ручного написания запросов.</p>
+</blockquote>
+<hr>
+<h3 id="_3">Важное ограничение</h3>
+<p>phpMyAdmin <strong>не поддерживает прямой импорт JSON-массива в структуру таблицы</strong>.</p>
+<p>Поэтому корректный способ работы через конструктор:</p>
+<blockquote>
+<p><strong>JSON → CSV → Import (через вкладку Import)</strong></p>
+</blockquote>
+<p>Это полностью графический и устойчивый способ.</p>
+<hr>
+<h2 id="41">4.1. Подготовка файла</h2>
+<h1 id="1-json">Шаг 1. Откройте <code>Заказчики.json</code></h1>
+<p>Используйте один из инструментов:</p>
+<ul>
+<li><strong>Microsoft Excel (Power Query)</strong></li>
+<li><strong>Visual Studio Code</strong></li>
+<li>Notepad++</li>
+<li>LibreOffice Calc</li>
+</ul>
+<hr>
+<h1 id="microsoft-excel-power-query">Преобразование через Microsoft Excel (Power Query)</h1>
+<blockquote>
+<p>Подходит для пользователей без навыков программирования.
+Работает в Excel 2016+ / Microsoft 365.</p>
+</blockquote>
+<hr>
+<h2 id="1-json-excel">1. Открытие JSON в Excel</h2>
+<ol>
+<li>Откройте <strong>Microsoft Excel</strong>.</li>
+<li>Перейдите во вкладку <strong>Данные (Data)</strong>.</li>
+<li>Нажмите:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Получить данные → Из файла → Из JSON
+</code></pre></div>
+<ol>
+<li>Выберите файл <code>Заказчики.json</code>.</li>
+<li>Нажмите <strong>Импортировать (Import)</strong>.</li>
+</ol>
+<hr>
+<h2 id="2">2. Преобразование массива в таблицу</h2>
+<p>После импорта откроется окно <strong>Power Query Editor</strong>.</p>
+<ol>
+<li>
+<p>Если JSON — это массив (<code>[ {...}, {...} ]</code>), появится тип <strong>List</strong>.</p>
+</li>
+<li>
+<p>Нажмите <strong>To Table (Преобразовать в таблицу)</strong>.</p>
+</li>
+<li>
+<p>В появившемся окне нажмите <strong>OK</strong>.</p>
+</li>
+<li>
+<p>В колонке нажмите кнопку расширения (двойная стрелка ⬍).</p>
+</li>
+<li>
+<p>Выберите поля:</p>
+</li>
+<li>
+<p>id</p>
+</li>
+<li>name</li>
+<li>inn</li>
+<li>addres   ⚠ (именно так называется поле в JSON)</li>
+<li>phone</li>
+<li>salesman</li>
+<li>
+<p>buyer</p>
+</li>
+<li>
+<p>Нажмите <strong>OK</strong>.</p>
+</li>
+</ol>
+<hr>
+<h2 id="3">3. Приведение структуры к таблице БД</h2>
+<p>Теперь необходимо привести названия к структуре таблицы <code>counterparty</code>.</p>
+<h3 id="31">3.1. Переименовать столбцы</h3>
+<p>В Power Query:</p>
+<ul>
+<li><code>addres</code> → <strong>address</strong></li>
+<li><code>salesman</code> → <strong>is_salesman</strong></li>
+<li><code>buyer</code> → <strong>is_buyer</strong></li>
+</ul>
+<hr>
+<h3 id="32-id">3.2. Тип поля id</h3>
+<p>⚠ ВАЖНО</p>
+<p>Если таблица в MySQL использует <strong>BIGINT AUTO_INCREMENT</strong>,
+то id импортировать НЕ нужно.</p>
+<p>Рекомендуемый вариант:</p>
+<ul>
+<li>удалить столбец <code>id</code> перед сохранением CSV
+  (MySQL создаст его автоматически)</li>
+</ul>
+<p>Если вы всё же импортируете id как число:</p>
+<ol>
+<li>Выделите столбец <code>id</code>.</li>
+<li>Тип данных → <strong>Целое число (Whole Number)</strong>.</li>
+<li>Убедитесь, что:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>000000003 → 3
+</code></pre></div>
+<p>(ведущие нули должны исчезнуть)</p>
+<hr>
+<h3 id="33">3.3. Логические поля</h3>
+<p>В столбцах:</p>
+<ul>
+<li><code>is_salesman</code></li>
+<li><code>is_buyer</code></li>
+</ul>
+<p>Замените:</p>
+<ul>
+<li>TRUE → 1</li>
+<li>FALSE → 0</li>
+</ul>
+<p>Используйте <strong>Replace Values</strong>.</p>
+<hr>
+<h3 id="34">3.4. Пустые значения ИНН</h3>
+<p>Если <code>inn = ""</code>, оставьте пустым
+(при импорте MySQL сохранит как NULL).</p>
+<hr>
+<h2 id="4-excel">4. Загрузка данных в Excel</h2>
+<ol>
+<li>Нажмите <strong>Закрыть и загрузить (Close &amp; Load)</strong>.</li>
+<li>Таблица появится на листе Excel.</li>
+</ol>
+<hr>
+<h2 id="5-csv">5. Сохранение в CSV</h2>
+<ol>
+<li>Файл → <strong>Сохранить как</strong>.</li>
+<li>Тип файла:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>CSV UTF-8 (разделители — запятые)
+</code></pre></div>
+<ol>
+<li>Назовите файл:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Заказчики.csv
+</code></pre></div>
+<hr>
+<p>⚠ Обязательно проверьте:</p>
+<ul>
+<li>Кодировка — UTF-8</li>
+<li>Первая строка — заголовки столбцов</li>
+<li>Логические значения — 1/0</li>
+<li>Нет ведущих нулей в id (если id используется)</li>
+</ul>
+<hr>
+<h1 id="csv-bigint-id">Итоговая структура CSV (для BIGINT id)</h1>
+<p>Если id импортируется как число:</p>
+<div class="highlight"><pre><span></span><code>id,name,inn,address,phone,is_salesman,is_buyer
+3,ООО "Ромашка",4140784214,"г. Омск, ул. Строителей, 294",+79882584546,0,1
+</code></pre></div>
+<hr>
+<h1 id="id-auto_increment">Рекомендуемый вариант (если id AUTO_INCREMENT)</h1>
+<p>Удалите колонку <code>id</code> перед сохранением.</p>
+<p>Тогда CSV будет:</p>
+<div class="highlight"><pre><span></span><code>name,inn,address,phone,is_salesman,is_buyer
+ООО "Ромашка",4140784214,"г. Омск, ул. Строителей, 294",+79882584546,0,1
+</code></pre></div>
+<p>👉 <a href="../assets/files/%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%87%D0%B8%D0%BA%D0%B8.csv">Пример готового csv</a></p>
+<hr>
+<h2 id="42-import">4.2. Импорт через вкладку Import (конструктор)</h2>
+<ol>
+<li>Откройте phpMyAdmin.</li>
+<li>Выберите базу данных <code>dairy_demo</code>.</li>
+<li>Выберите таблицу <code>counterparty</code>.</li>
+<li>Перейдите во вкладку <strong>Import</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/83.png" data-desc-position="bottom"><img alt="Import tab" src="../assets/images/83.png"></a></p>
+<figcaption>
+<p>Рисунок 35 – Переход во вкладку Import</p>
+</figcaption>
+</figure>
+<hr>
+<h3 id="_4">Настройка импорта</h3>
+<ol>
+<li>
+<p>В разделе <strong>File to import</strong>:</p>
+</li>
+<li>
+<p>нажмите <strong>Choose file</strong></p>
+</li>
+<li>
+<p>выберите <code>Заказчики.csv</code></p>
+</li>
+<li>
+<p>Format:</p>
+</li>
+<li>
+<p>выберите <strong>CSV</strong></p>
+</li>
+<li>
+<p>Отметьте параметры:</p>
+</li>
+<li>
+<p>✔ The first line of the file contains the table column names</p>
+</li>
+<li>
+<p>Character set of the file: <strong>utf-8</strong></p>
+</li>
+<li>
+<p>Укажите разделитель:</p>
+</li>
+<li>
+<p><code>,</code> или <code>;</code> (в зависимости от файла)</p>
+</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/84.png" data-desc-position="bottom"><img alt="Import settings" src="../assets/images/84.png"></a></p>
+<figcaption>
+<p>Рисунок 36 – Настройка параметров CSV-импорта</p>
+</figcaption>
+</figure>
+<ol>
+<li>Нажмите <strong>Go</strong>.</li>
+</ol>
+<hr>
+<h2 id="43">4.3. Проверка результата</h2>
+<p>После успешного импорта появится сообщение:</p>
+<blockquote>
+<p>Import has been successfully finished</p>
+</blockquote>
+<hr>
+<h3 id="_5">Проверка через интерфейс</h3>
+<ol>
+<li>Откройте таблицу <code>counterparty</code>.</li>
+<li>Перейдите во вкладку <strong>Browse</strong>.</li>
+</ol>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/37.png" data-desc-position="bottom"><img alt="Browse table" src="../assets/images/37.png"></a></p>
+<figcaption>
+<p>Рисунок 37 – Просмотр импортированных данных</p>
+</figcaption>
+</figure>
+<ol>
+<li>
+<p>Убедитесь, что:</p>
+</li>
+<li>
+<p>записи добавлены,</p>
+</li>
+<li>значения корректно распределены по колонкам,</li>
+<li>нет NULL там, где не должно быть.</li>
+</ol>
+<hr>
+<h2 id="44">4.4. Если импорт не проходит</h2>
+<h3 id="_6">Частые причины</h3>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Причина</th>
+<th>Решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Неверная кодировка</td>
+<td>Файл не в UTF-8</td>
+<td>Пересохранить как UTF-8</td>
+</tr>
+<tr>
+<td>Смещение столбцов</td>
+<td>Неправильный разделитель</td>
+<td>Проверить <code>,</code> или <code>;</code></td>
+</tr>
+<tr>
+<td>Дублирование PK</td>
+<td>Повторяются <code>id</code></td>
+<td>Удалить дубликаты</td>
+</tr>
+<tr>
+<td>Тип boolean</td>
+<td>В CSV указано <code>true/false</code></td>
+<td>Использовать <code>1/0</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="45">4.5. Результат</h2>
+<p>После выполнения раздела:</p>
+<ul>
+<li>таблица <code>counterparty</code> заполнена данными;</li>
+<li>структура не нарушена;</li>
+<li>внешние ключи сохраняют целостность;</li>
+<li>используется только графический интерфейс.</li>
+</ul>
+<h2 id="46">4.6. Заполнение таблиц</h2>
+<blockquote>
+<p>Внимание! Заполните таблицы логическими данными, чтобы можно было все правильно отработать. </p>
+</blockquote>
+<hr>
+<h2 id="5">5. Проверка своей базы данных</h2>
+<p>Для проверки своей БД после создания таблиц сформируйте визуальную проверку структуры (таблицы/связи) средствами интерфейса.</p>
+<h3 id="51">5.1. Проверка таблиц и связей</h3>
+<ol>
+<li>Откройте вкладку <strong>Structure</strong> у базы данных <code>dairy_demo</code></li>
+<li>Убедитесь, что все таблицы присутствуют</li>
+<li>Для таблиц со связями откройте <strong>Structure → Relation view</strong> и проверьте внешние ключи</li>
+<li>Расставьте все элементы, чтобы они не пересекались </li>
+</ol>
 <figure>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/12.png" data-desc-position="bottom"><img alt="Создание ER-диаграммы" src="../assets/images/12.png"></a></p>
 <figcaption>
-<p>Рисунок 11 – Создание ER-диаграммы</p>
+<p>Рисунок 38 – Проверка структуры и связей</p>
 </figcaption>
 </figure>
-<h3 id="53">5.3. Сохранение диаграммы</h3>
-<p>Диаграмму можно сохранить рядом с вашим ER, которые вы создали в начале экзамена с именем expodt_db.</p>
+<h3 id="53">5.3. Сохранение результата проверки</h3>
+<p>Результат проверки можно зафиксировать скриншотами структуры БД и вкладки <code>Relation view</code> (как подтверждение наличия PK/FK).</p>
 <figure>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/files/test.pgerd.png" data-desc-position="bottom"><img alt="Создание ER-диаграммы" src="../assets/files/test.pgerd.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/85.png" data-desc-position="bottom"><img alt="Создание ER-диаграммы" src="../assets/images/85.png"></a></p>
 <figcaption>
-<p>Рисунок 12 – Пример сохраненной диаграммы</p>
+<p>Рисунок 39 – Пример фиксации результата (выгрузка в pdf)</p>
 </figcaption>
 </figure>
+<h3 id="54">5.4. Как получить файл</h3>
+<ol>
+<li>В phpMyAdmin выберите БД <code>dairy_demo</code></li>
+<li>Вкладка <strong>Export</strong></li>
+<li>Format: <strong>SQL</strong></li>
+<li>Выполните экспорт и сохраните файл как <code>dairy_demo_mysql.sql</code></li>
+</ol>
 <h2 id="6">6. Скачать пример готовой базы данных</h2>
 <ul>
 <li><code>dairy_demo.sql</code></li>
